@@ -1,0 +1,39 @@
+niche: "science facts"
+
+gemini:
+  model: "gemini-2.0-flash"
+  api_key_env: "GEMINI_API_KEY"
+
+pexels:
+  api_key_env: "PEXELS_API_KEY"
+  clip_count: 4
+
+voice:
+  voices:
+    - "en-US-AriaNeural"
+    - "en-US-GuyNeural"
+    - "en-GB-SoniaNeural"
+    - "en-GB-RyanNeural"
+  rate: "+0%"
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  minimum_seconds: 30
+  maximum_seconds: 45
+  caption_font_size: 72
+
+music:
+  enabled: true
+  folder: "music"
+  volume: 0.10
+
+review_mode: true
+privacy_status: "private"
+daily_upload_limit: 6
+category_id: "27"
+oauth_client_secrets: "credentials/client_secret.json"
+token_file: "token.json"
+output_folder: "output"
+pending_folder: "pending"

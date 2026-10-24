@@ -1,0 +1,13 @@
+.env
+token.json
+credentials/
+music/*
+!music/.gitkeep
+output/
+pending/
+*.mp3
+*.mp4
+*.log
+__pycache__/
+*.py[cod]
+.venv/

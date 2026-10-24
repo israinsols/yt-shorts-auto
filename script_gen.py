@@ -1,0 +1,120 @@
+"""Topic and original short-form script generation using Gemini REST."""
+
+from __future__ import annotations
+
+import json
+from typing import Any
+
+from utils import normalized_topic, request_with_retry, require_api_key
+
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+HOOK_STYLES = {"myth_vs_fact", "did_you_know", "top_3", "story", "question"}
+
+
+def _generate_json(prompt: str, config: dict[str, Any], api_key: str) -> Any:
+    gemini_config = config.get("gemini", {})
+    model = gemini_config.get("model")
+    if not isinstance(model, str) or not model.strip():
+        raise RuntimeError("Set gemini.model in config.yaml to a supported Gemini model.")
+    response = request_with_retry(
+        "Gemini",
+        "POST",
+        GEMINI_URL.format(model=model.strip()),
+        headers={"x-goog-api-key": api_key},
+        json={
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"responseMimeType": "application/json", "temperature": 0.9},
+        },
+    )
+    try:
+        payload = response.json()
+        text = payload["candidates"][0]["content"]["parts"][0]["text"]
+        return json.loads(text)
+    except (ValueError, KeyError, IndexError, TypeError) as exc:
+        raise RuntimeError(
+            "Gemini returned an invalid response instead of the required JSON. "
+            "Check the configured model and try again."
+        ) from exc
+
+
+def generate_topic(config: dict[str, Any], previous_topics: list[str]) -> str:
+    api_key = require_api_key(config, "gemini")
+    niche = str(config.get("niche", "")).strip()
+    if not niche:
+        raise RuntimeError("Set a non-empty niche in config.yaml.")
+    previous_set = {normalized_topic(topic) for topic in previous_topics}
+    history = json.dumps(previous_topics, ensure_ascii=False)
+    for _ in range(3):
+        result = _generate_json(
+            "Choose one specific, interesting, verifiable topic for a YouTube Short in this "
+            f"niche: {niche!r}. Do not repeat or closely rephrase any prior topic. "
+            f"Prior topics (avoid all): {history}. Return only JSON {{\"topic\":\"...\"}}.",
+            config,
+            api_key,
+        )
+        topic = result.get("topic") if isinstance(result, dict) else None
+        if isinstance(topic, str) and topic.strip():
+            topic = topic.strip()
+            if normalized_topic(topic) not in previous_set:
+                return topic
+    raise RuntimeError(
+        "Gemini failed to suggest a new topic after three attempts. "
+        "Check topics.json and try again."
+    )
+
+
+def generate_script(
+    topic: str,
+    config: dict[str, Any],
+    preferred_hook_style: str,
+) -> dict[str, Any]:
+    api_key = require_api_key(config, "gemini")
+    if preferred_hook_style not in HOOK_STYLES:
+        raise RuntimeError(f"Unsupported preferred hook style: {preferred_hook_style!r}.")
+    result = _generate_json(
+        "Write an original, factual YouTube Short script about this topic: "
+        f"{topic!r}. Niche: {config.get('niche', '')!r}. Return only a JSON object with "
+        "exactly these fields: title (string), description (string), tags (array of 3-8 "
+        "strings), script (string), keywords (array of exactly 4 concise visual search "
+        "phrases), hook_style (one of myth_vs_fact, did_you_know, top_3, story, question). "
+        f"Use this hook style exactly: {preferred_hook_style}. Vary between myth-versus-fact, "
+        "surprising fact, top-three list, mini-story, and question hook across videos. "
+        "Script must be 75-100 spoken words, take about 30-45 seconds, start "
+        "with a strong hook, include one specific and genuinely useful/novel insight or "
+        "example, and avoid generic filler, unsupported claims, and calls to subscribe. "
+        "Make it sound natural when spoken aloud. Do not include stage directions.",
+        config,
+        api_key,
+    )
+    if not isinstance(result, dict):
+        raise RuntimeError("Gemini returned a script that is not a JSON object.")
+    required = {"title", "description", "tags", "script", "keywords", "hook_style"}
+    if not required.issubset(result):
+        raise RuntimeError(f"Gemini script JSON is missing fields: {sorted(required - set(result))}.")
+    if not all(isinstance(result[key], str) and result[key].strip() for key in ("title", "description", "script")):
+        raise RuntimeError("Gemini script title, description, and script must be non-empty strings.")
+    if (
+        not isinstance(result["tags"], list)
+        or not 3 <= len(result["tags"]) <= 8
+        or not all(isinstance(tag, str) and tag.strip() for tag in result["tags"])
+    ):
+        raise RuntimeError("Gemini script tags must contain 3-8 non-empty strings.")
+    if not isinstance(result["keywords"], list) or len(result["keywords"]) != 4 or not all(
+        isinstance(keyword, str) and keyword.strip() for keyword in result["keywords"]
+    ):
+        raise RuntimeError("Gemini script keywords must contain exactly four non-empty strings.")
+    if result["hook_style"] not in HOOK_STYLES:
+        raise RuntimeError(f"Gemini returned an unsupported hook_style: {result['hook_style']!r}.")
+    if result["hook_style"] != preferred_hook_style:
+        raise RuntimeError(
+            f"Gemini returned hook_style {result['hook_style']!r}, but "
+            f"{preferred_hook_style!r} was requested."
+        )
+    if len(result["tags"]) > 8 or sum(len(tag) for tag in result["tags"]) > 500:
+        raise RuntimeError("Gemini script tags must fit YouTube's eight-tag, 500-character limit.")
+    word_count = len(result["script"].split())
+    if not 75 <= word_count <= 100:
+        raise RuntimeError(
+            f"Gemini script has {word_count} words; expected 75-100. Regenerate the script."
+        )
+    return result

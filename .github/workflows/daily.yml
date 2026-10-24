@@ -1,0 +1,80 @@
+name: Daily YouTube Short
+
+on:
+  schedule:
+    - cron: "17 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-youtube-short
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install FFmpeg and Python dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ffmpeg
+          python -m pip install -r requirements.txt
+
+      - name: Prepare optional YouTube OAuth files
+        env:
+          YOUTUBE_OAUTH_CLIENT_JSON_B64: ${{ secrets.YOUTUBE_OAUTH_CLIENT_JSON_B64 }}
+          YOUTUBE_TOKEN_JSON_B64: ${{ secrets.YOUTUBE_TOKEN_JSON_B64 }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          for env_name, output_path in (
+              ("YOUTUBE_OAUTH_CLIENT_JSON_B64", Path("credentials/client_secret.json")),
+              ("YOUTUBE_TOKEN_JSON_B64", Path("token.json")),
+          ):
+              value = os.environ.get(env_name, "").strip()
+              if value:
+                  output_path.parent.mkdir(parents=True, exist_ok=True)
+                  output_path.write_bytes(base64.b64decode(value, validate=True))
+          PY
+
+      - name: Generate and upload or prepare review
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YOUTUBE_INTERACTIVE_LOGIN: "0"
+        run: python main.py
+
+      - name: Save review video artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pending-youtube-short
+          path: pending/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Persist de-duplication and quota state
+        if: always()
+        run: |
+          git add -- topics.json used_clip_ids.json history.json quota.json voice_state.json
+          if git diff --cached --quiet; then
+            echo "No state changes to persist."
+          else
+            git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "Update Shorts generation state"
+            git push
+          fi

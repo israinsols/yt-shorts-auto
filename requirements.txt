@@ -1,0 +1,9 @@
+edge-tts>=6.1.12,<8
+google-api-python-client>=2.130,<3
+google-auth-oauthlib>=1.2,<2
+moviepy==1.0.3
+numpy>=1.26,<2
+Pillow>=9.5,<12
+PyYAML>=6.0,<7
+python-dotenv>=1.0,<2
+requests>=2.31,<3
