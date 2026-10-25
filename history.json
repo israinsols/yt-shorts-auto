@@ -31,5 +31,38 @@
     "created_at": "2026-10-25T09:21:19.677578+00:00",
     "status": "uploaded",
     "youtube_video_id": "Q0EoyndBzfM"
+  },
+  {
+    "id": "20261025T100636Z-f56f3934",
+    "topic": "How to use Hugging Face Spaces to instantly run and test powerful open-source AI models right in your browser for free without writing a single line of code.",
+    "title": "Run Any AI Model in Your Browser for Free",
+    "description": "Discover how to use Hugging Face Spaces to test powerful open-source AI models instantly without writing code.",
+    "tags": [
+      "Hugging Face",
+      "Free AI Tools",
+      "AI for Beginners",
+      "Open Source AI",
+      "Coding Tricks"
+    ],
+    "script": "Did you know you can run powerful open-source AI models like Llama 3 or Stable Diffusion instantly in your browser without writing a single line of code? Head over to Hugging Face and click on the Spaces tab. You will find thousands of community-built web apps hosting the latest machine learning models. Just pick a Space, and you get an interactive user interface where you can upload images, generate text, or test audio models right away. It is the fastest way to experiment with cutting-edge AI for free.",
+    "keywords": [
+      "browser window showing website",
+      "clicking on a website tab",
+      "interactive user interface",
+      "typing text into a search bar"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "en-US-GuyNeural",
+    "clip_ids": [
+      8523642,
+      8937986,
+      6474151,
+      6963412
+    ],
+    "video_path": "output/20261025T100636Z-f56f3934/final.mp4",
+    "duration_seconds": 30.05,
+    "created_at": "2026-10-25T10:08:00.043696+00:00",
+    "status": "uploaded",
+    "youtube_video_id": "B7IjGa3Sgj8"
   }
 ]
