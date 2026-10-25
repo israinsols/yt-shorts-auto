@@ -94,6 +94,18 @@ def _fit_clip(clip: VideoFileClip, duration: float, width: int, height: int) -> 
     return clip.fx(video_fx.loop, duration=duration)
 
 
+def _scene_durations(script: str, duration: float, scene_count: int) -> list[float]:
+    word_count = len(script.split())
+    if word_count == 0 or duration <= 0 or scene_count <= 0:
+        raise RuntimeError("Scene timing requires a non-empty script, positive duration, and scenes.")
+    scene_count = min(scene_count, word_count)
+    base_words, extra_words = divmod(word_count, scene_count)
+    word_counts = [base_words + (index < extra_words) for index in range(scene_count)]
+    durations = [duration * count / word_count for count in word_counts]
+    durations[-1] = duration - sum(durations[:-1])
+    return durations
+
+
 def _background_track(config: dict[str, Any], duration: float) -> AudioFileClip | None:
     music_config = config.get("music", {})
     if not music_config.get("enabled", True):
@@ -148,22 +160,16 @@ def assemble_video(
     music_track: AudioFileClip | None = None
     final_video: CompositeVideoClip | None = None
     try:
+        scene_durations = _scene_durations(script, audio_duration, len(footage_paths))
         sequence_parts = []
-        elapsed = 0.0
-        clip_index = 0
-        while elapsed < audio_duration:
-            source = footage_paths[clip_index % len(footage_paths)]
+        for source, scene_duration in zip(footage_paths, scene_durations):
             base = VideoFileClip(str(source))
             opened_video_clips.append(base)
-            remaining = audio_duration - elapsed
-            part_duration = min(base.duration, remaining)
-            if part_duration <= 0:
+            if base.duration <= 0:
                 raise RuntimeError(f"Footage clip {source} has no playable duration.")
-            fitted = _fit_clip(base, part_duration, width, height)
+            fitted = _fit_clip(base, scene_duration, width, height)
             opened_video_clips.append(fitted)
             sequence_parts.append(fitted)
-            elapsed += part_duration
-            clip_index += 1
         video_sequence = concatenate_videoclips(sequence_parts, method="compose").set_duration(audio_duration)
         music_track = _background_track(config, audio_duration)
         audio_tracks = [narration]

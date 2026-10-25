@@ -13,7 +13,7 @@ import main
 import footage
 import script_gen
 from utils import normalized_topic, read_json, write_json
-from video import _caption_clips, _fit_clip
+from video import _caption_clips, _fit_clip, _scene_durations
 from voice import _tempo_adjustment
 
 
@@ -116,6 +116,15 @@ class CaptionTests(unittest.TestCase):
         finally:
             for clip in clips:
                 clip.close()
+
+    def test_footage_scenes_follow_even_spoken_word_sections(self):
+        durations = _scene_durations("one two three four five six seven eight nine", 18, 4)
+        self.assertEqual(durations, [6, 4, 4, 4])
+        self.assertEqual(sum(durations), 18)
+
+    def test_scene_timing_rejects_empty_inputs(self):
+        with self.assertRaisesRegex(RuntimeError, "Scene timing"):
+            _scene_durations("", 18, 4)
 
     def test_fit_clip_resizes_without_legacy_pillow_antialias(self):
         source = ColorClip(size=(100, 200), color=(255, 0, 0), duration=1)
