@@ -64,5 +64,39 @@
     "created_at": "2026-10-25T10:08:00.043696+00:00",
     "status": "uploaded",
     "youtube_video_id": "B7IjGa3Sgj8"
+  },
+  {
+    "id": "20261025T101506Z-31b54397",
+    "topic": "How to use Codeium to get free, unlimited AI autocomplete in VS Code without paying for GitHub Copilot.",
+    "title": "Stop Paying For GitHub Copilot",
+    "description": "Learn how to get free, unlimited AI code completion in VS Code using Codeium as an alternative to GitHub Copilot.",
+    "tags": [
+      "Codeium",
+      "VS Code",
+      "GitHub Copilot",
+      "Free AI Tools",
+      "Coding Tricks",
+      "Web Development"
+    ],
+    "script": "Top three reasons to stop paying for GitHub Copilot right now. Number one: cost. Codeium is completely free for individuals with zero usage limits. Number two: setup speed. It installs directly into VS Code in seconds without requiring a credit card. Number three: smart context. Unlike basic autocomplete, Codeium understands your entire codebase across multiple open tabs to predict your next function instantly. Plus, it supports over seventy languages right out of the box. Ditch the subscription and upgrade your editor today.",
+    "keywords": [
+      "GitHub Copilot pricing page on computer screen",
+      "VS Code extensions marketplace showing Codeium install button",
+      "Codeium autocomplete suggestion appearing inside a Python script",
+      "VS Code sidebar showing supported programming language icons"
+    ],
+    "hook_style": "top_3",
+    "voice": "en-GB-SoniaNeural",
+    "clip_ids": [
+      34716705,
+      33315143,
+      38993329,
+      8266177
+    ],
+    "video_path": "output/20261025T101506Z-31b54397/final.mp4",
+    "duration_seconds": 37.87,
+    "created_at": "2026-10-25T10:19:02.159159+00:00",
+    "status": "uploaded",
+    "youtube_video_id": "Q19js96-Qkk"
   }
 ]
