@@ -41,6 +41,26 @@ class TopicAndFormatTests(unittest.TestCase):
             "myth_vs_fact",
         )
 
+    def test_failed_script_generation_does_not_consume_topic(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state_dir = Path(directory)
+            config = {"review_mode": True}
+            with (
+                patch.object(main, "load_dotenv"),
+                patch.object(main, "load_config", return_value=config),
+                patch.object(main, "require_api_key", return_value="test-key"),
+                patch.object(main, "_state_path", side_effect=lambda name: state_dir / name),
+                patch.object(main, "generate_topic", return_value="Retry this topic"),
+                patch.object(
+                    main,
+                    "generate_script",
+                    side_effect=RuntimeError("script generation failed"),
+                ),
+            ):
+                with self.assertRaisesRegex(RuntimeError, "script generation failed"):
+                    main.run(dry_run=False)
+            self.assertEqual(read_json(state_dir / "topics.json", []), [])
+
 
 class PersistenceAndQuotaTests(unittest.TestCase):
     def test_json_state_round_trip(self):

@@ -46,8 +46,8 @@ Pexels' API has rate limits. The app tracks downloaded clip IDs in `used_clip_id
 Edit `config.yaml`:
 
 - `niche`: the subject area for topics and scripts.
-- `review_mode: true`: default and recommended. Generates into `pending/<id>/` without uploading.
-- `privacy_status: private`: default. Change to `unlisted` or `public` only when you are ready.
+- `review_mode: true`: generates into `pending/<id>/` without uploading. Set to `false` for automatic uploads.
+- `privacy_status: public`: generated uploads are public. Use `private` or `unlisted` if you prefer.
 - `voice.voices`: Edge TTS voices are selected in rotation.
 - `music.enabled`: set `false` to disable local music. Otherwise, add royalty-free audio you are permitted to use to `music/`; its volume defaults to 10%.
 
@@ -95,9 +95,9 @@ GitHub discovers workflow files in the repository root `.github/workflows/` dire
 
 1. Open **Settings → Secrets and variables → Actions** in GitHub.
 2. Add repository secrets `GEMINI_API_KEY` and `PEXELS_API_KEY`.
-3. Leave `review_mode: true` for safe operation. The workflow uploads generated pending files as a downloadable artifact. Download and extract that artifact into this project's `pending/` folder, preserving its `<id>/metadata.json` and `<id>/final.mp4` structure; then review and approve it on a machine with the saved OAuth token.
-4. To use `review_mode: false` in Actions, first complete OAuth locally. Add the base64-encoded contents of the downloaded client JSON as `YOUTUBE_OAUTH_CLIENT_JSON_B64`, and the base64-encoded authorized `token.json` as `YOUTUBE_TOKEN_JSON_B64`. The workflow writes both files privately before running. Only store these secrets in a trusted repository, and rotate/revoke them if exposed.
-5. Enable Actions for the repository. Use **Actions → Daily YouTube Short → Run workflow** to test manually.
+3. For automatic uploads, set `review_mode: false` and choose the desired `privacy_status` in `config.yaml`.
+4. Complete OAuth locally with YouTube upload and management permissions. Add the base64-encoded downloaded client JSON as `YOUTUBE_OAUTH_CLIENT_JSON_B64` and the authorized `token.json` as `YOUTUBE_TOKEN_JSON_B64`. The workflow writes both files privately before running. Only store these secrets in a trusted repository, and rotate/revoke them if exposed.
+5. Enable Actions for the repository. The scheduled workflow runs daily at 14:30 UTC (19:30 Pakistan time) and uploads automatically. Use **Actions → Daily YouTube Short → Run workflow** to test manually.
 
 The workflow commits only the topic, clip-ID, voice, history, and quota JSON state files so later scheduled runs can avoid repeats and enforce the daily limit. Keep `GITHUB_TOKEN`'s repository contents permission enabled. GitHub Actions has usage limits; check the free allowance for your repository.
 

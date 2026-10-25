@@ -1,7 +1,7 @@
 niche: "science facts"
 
 gemini:
-  model: "gemini-2.0-flash"
+  model: "gemini-3.5-flash-lite"
   api_key_env: "GEMINI_API_KEY"
 
 pexels:
@@ -29,8 +29,8 @@ music:
   folder: "music"
   volume: 0.10
 
-review_mode: true
-privacy_status: "private"
+review_mode: false
+privacy_status: "public"
 daily_upload_limit: 6
 category_id: "27"
 oauth_client_secrets: "credentials/client_secret.json"

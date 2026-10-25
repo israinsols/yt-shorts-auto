@@ -115,11 +115,11 @@ def run(dry_run: bool) -> Path:
     if not all(isinstance(topic, str) for topic in topics):
         raise RuntimeError("topics.json must contain only topic strings.")
     topic = generate_topic(config, topics)
-    topics.append(topic)
-    write_json(_state_path("topics.json"), topics)
     LOGGER.info("Selected new topic: %s", topic)
 
     script_data = generate_script(topic, config, _next_hook_style(history))
+    topics.append(topic)
+    write_json(_state_path("topics.json"), topics)
     voice, voice_index = _choose_voice(config)
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex[:8]
     if dry_run:

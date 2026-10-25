@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "id": "20261025T091302Z-8c08b84d",
+    "topic": "The bizarre physics of glass that allows certain antique window panes to flow imperceptibly downward over centuries.",
+    "title": "Do Old Windows Actually Flow?",
+    "description": "Discover the real science behind antique window glass and why those thick bottoms aren't actually caused by flowing glass.",
+    "tags": [
+      "science facts",
+      "physics",
+      "antique glass",
+      "materials science",
+      "did you know"
+    ],
+    "script": "You have probably heard that antique window panes are thicker at the bottom because glass is a slow-moving liquid that flows over centuries. It sounds believable, but it is actually a myth. Glass is an amorphous solid, not a super-viscous liquid, meaning its atoms are locked in a rigid, non-crystalline structure. Those charming ripples and thicker edges in old windows exist simply because of ancient manufacturing techniques. Glassmakers spun or cylinder-blown hot glass into sheets, making uniform thickness nearly impossible. So while glass looks liquid, it is staying put.",
+    "keywords": [
+      "antique window pane glass",
+      "medieval stained glass window",
+      "glassmaker blowing glass sheet",
+      "microscopic atomic structure"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      37201216,
+      20394337,
+      7519297,
+      35062620
+    ],
+    "video_path": "pending\\20261025T091302Z-8c08b84d\\final.mp4",
+    "duration_seconds": 37.01,
+    "created_at": "2026-10-25T09:21:19.677578+00:00",
+    "status": "uploaded",
+    "youtube_video_id": "Q0EoyndBzfM"
+  }
+]
