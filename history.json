@@ -98,5 +98,38 @@
     "created_at": "2026-10-25T10:19:02.159159+00:00",
     "status": "uploaded",
     "youtube_video_id": "Q19js96-Qkk"
+  },
+  {
+    "id": "20261025T174525Z-409c4e74",
+    "topic": "How to use Phind to instantly debug complex coding errors and get exact solutions for free without searching through Stack Overflow.",
+    "title": "Debug Code Instantly with Free AI",
+    "description": "Learn how to use Phind to skip Stack Overflow and instantly debug complex coding errors for free.",
+    "tags": [
+      "coding tricks",
+      "free AI tools",
+      "debug code",
+      "Phind AI",
+      "beginner programming"
+    ],
+    "script": "I used to spend hours digging through old Stack Overflow threads just to fix a single frustrating runtime error. Then I discovered Phind, a free AI search engine built specifically for developers. Instead of browsing through endless forum posts, I just paste my exact error message and messy function straight into the chat. Phind instantly analyzes the broken logic, explains why the bug happened, and writes the exact corrected code snippet for me. It completely replaced traditional searching and saves me hours every single week.",
+    "keywords": [
+      "programmer staring at red error text on dark IDE screen",
+      "clean minimalist interface of Phind search bar on white background",
+      "pasted code block highlighting a recursive loop bug fix",
+      "smiling developer typing successfully into terminal window"
+    ],
+    "hook_style": "story",
+    "voice": "en-GB-RyanNeural",
+    "clip_ids": [
+      5377775,
+      8376358,
+      33314914,
+      36628014
+    ],
+    "video_path": "output/20261025T174525Z-409c4e74/final.mp4",
+    "duration_seconds": 32.45,
+    "created_at": "2026-10-25T17:48:08.273925+00:00",
+    "status": "uploaded",
+    "youtube_video_id": "aApWxTb_ppA"
   }
 ]
