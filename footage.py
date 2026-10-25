@@ -8,6 +8,11 @@ from typing import Any
 from utils import request_with_retry
 
 SEARCH_URL = "https://api.pexels.com/videos/search"
+FALLBACK_QUERIES = (
+    "coding laptop programming",
+    "person typing on laptop",
+    "computer technology workspace",
+)
 
 
 def _portrait_file(video: dict[str, Any]) -> str | None:
@@ -32,28 +37,32 @@ def _portrait_file(video: dict[str, Any]) -> str | None:
 
 
 def _find_video(keyword: str, api_key: str, excluded_ids: set[int]) -> tuple[int, str]:
-    for page in range(1, 4):
-        response = request_with_retry(
-            "Pexels",
-            "GET",
-            SEARCH_URL,
-            headers={"Authorization": api_key},
-            params={"query": keyword, "orientation": "portrait", "per_page": 15, "page": page},
-        )
-        try:
-            videos = response.json().get("videos", [])
-        except (ValueError, AttributeError) as exc:
-            raise RuntimeError("Pexels returned an invalid video-search response.") from exc
-        for video in videos:
-            if not isinstance(video, dict):
-                continue
-            video_id = video.get("id")
-            link = _portrait_file(video)
-            if isinstance(video_id, int) and video_id not in excluded_ids and link:
-                return video_id, link
+    queries = list(dict.fromkeys((keyword, *FALLBACK_QUERIES)))
+    for query in queries:
+        for page in range(1, 4):
+            response = request_with_retry(
+                "Pexels",
+                "GET",
+                SEARCH_URL,
+                headers={"Authorization": api_key},
+                params={"query": query, "orientation": "portrait", "per_page": 15, "page": page},
+            )
+            try:
+                videos = response.json().get("videos", [])
+            except (ValueError, AttributeError) as exc:
+                raise RuntimeError("Pexels returned an invalid video-search response.") from exc
+            if not videos:
+                break
+            for video in videos:
+                if not isinstance(video, dict):
+                    continue
+                video_id = video.get("id")
+                link = _portrait_file(video)
+                if isinstance(video_id, int) and video_id not in excluded_ids and link:
+                    return video_id, link
     raise RuntimeError(
-        f"Pexels had no unused portrait footage for keyword {keyword!r}. "
-        "Try different keywords or review used_clip_ids.json."
+        f"Pexels had no unused portrait footage for keyword {keyword!r} or its fallback searches. "
+        "Try again later or review used_clip_ids.json."
     )
 
 

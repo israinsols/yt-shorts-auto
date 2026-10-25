@@ -7,6 +7,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import main
+import footage
 import script_gen
 from utils import normalized_topic, read_json, write_json
 from video import _caption_clips
@@ -60,6 +61,28 @@ class TopicAndFormatTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, "script generation failed"):
                     main.run(dry_run=False)
             self.assertEqual(read_json(state_dir / "topics.json", []), [])
+
+    def test_footage_search_uses_fallback_when_keyword_has_no_portrait_results(self):
+        class SearchResponse:
+            def __init__(self, videos):
+                self.videos = videos
+
+            def json(self):
+                return {"videos": self.videos}
+
+        portrait_video = {
+            "id": 123,
+            "video_files": [{"link": "https://example.com/video.mp4", "width": 720, "height": 1280}],
+        }
+        with patch.object(
+            footage,
+            "request_with_retry",
+            side_effect=[SearchResponse([]), SearchResponse([portrait_video])],
+        ) as search:
+            result = footage._find_video("typing text prompt v0.dev", "test-key", set())
+        self.assertEqual(result, (123, "https://example.com/video.mp4"))
+        self.assertEqual(search.call_args_list[0].kwargs["params"]["query"], "typing text prompt v0.dev")
+        self.assertEqual(search.call_args_list[1].kwargs["params"]["query"], "coding laptop programming")
 
 
 class PersistenceAndQuotaTests(unittest.TestCase):
