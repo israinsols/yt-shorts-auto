@@ -72,9 +72,19 @@ def _caption_clips(script: str, duration: float, width: int, height: int, font_s
 
 def _fit_clip(clip: VideoFileClip, duration: float, width: int, height: int) -> VideoFileClip:
     if clip.w / clip.h < width / height:
-        clip = clip.resize(width=width)
+        resized_width = width
+        resized_height = round(clip.h * width / clip.w)
     else:
-        clip = clip.resize(height=height)
+        resized_width = round(clip.w * height / clip.h)
+        resized_height = height
+    clip = clip.fl_image(
+        lambda frame: np.asarray(
+            Image.fromarray(frame.astype(np.uint8)).resize(
+                (resized_width, resized_height),
+                resample=Image.Resampling.LANCZOS,
+            )
+        )
+    )
     clip = clip.crop(
         x_center=clip.w / 2,
         y_center=clip.h / 2,

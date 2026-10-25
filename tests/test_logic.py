@@ -4,13 +4,16 @@ from pathlib import Path
 import sys
 from unittest.mock import patch
 
+import numpy as np
+from moviepy.editor import ColorClip
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import main
 import footage
 import script_gen
 from utils import normalized_topic, read_json, write_json
-from video import _caption_clips
+from video import _caption_clips, _fit_clip
 from voice import _tempo_adjustment
 
 
@@ -113,6 +116,20 @@ class CaptionTests(unittest.TestCase):
         finally:
             for clip in clips:
                 clip.close()
+
+    def test_fit_clip_resizes_without_legacy_pillow_antialias(self):
+        source = ColorClip(size=(100, 200), color=(255, 0, 0), duration=1)
+        fitted = _fit_clip(source, 1, 108, 192)
+        try:
+            self.assertEqual((fitted.w, fitted.h), (108, 192))
+            np.testing.assert_allclose(
+                fitted.get_frame(0.5).mean(axis=(0, 1)),
+                [255, 0, 0],
+                atol=2,
+            )
+        finally:
+            fitted.close()
+            source.close()
 
 
 class VoiceTests(unittest.TestCase):
