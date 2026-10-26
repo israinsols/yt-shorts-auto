@@ -131,5 +131,38 @@
     "created_at": "2026-10-25T17:48:08.273925+00:00",
     "status": "uploaded",
     "youtube_video_id": "aApWxTb_ppA"
+  },
+  {
+    "id": "20261026T200337Z-837d8bd2",
+    "topic": "How to use DuckDuckGo AI Chat to code and query private APIs for free without creating an account or giving away your data.",
+    "title": "Code with Private APIs for Free",
+    "description": "Learn how to use DuckDuckGo AI Chat to write code and query private APIs for free without accounts or data tracking.",
+    "tags": [
+      "coding tricks",
+      "free ai tools",
+      "duckduckgo",
+      "api tutorial",
+      "beginner coding"
+    ],
+    "script": "Want to query private APIs and generate code without handing over your personal data or creating an account? Go to duckduckgo.com/chat. Select a model like Claude 3 Haiku, then paste your private API documentation endpoint directly into the prompt box. Ask it to write a Python script using your secret endpoints. Because DuckDuckGo proxies chats anonymously and deletes your data, your proprietary keys and endpoints stay entirely hidden from big tech companies. It is completely free, requires zero logins, and keeps your backend code totally secure while you build.",
+    "keywords": [
+      "duckduckgo chat interface on screen",
+      "api documentation text pasted into browser",
+      "python code generating in chat window",
+      "secure lock icon on browser tab"
+    ],
+    "hook_style": "question",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      7439142,
+      7550655,
+      18069700,
+      38893967
+    ],
+    "video_path": "output/20261026T200337Z-837d8bd2/final.mp4",
+    "duration_seconds": 38.95,
+    "created_at": "2026-10-26T20:08:14.262248+00:00",
+    "status": "uploaded",
+    "youtube_video_id": "U0DMoDAFvGI"
   }
 ]
