@@ -164,5 +164,38 @@
     "created_at": "2026-10-26T20:08:14.262248+00:00",
     "status": "uploaded",
     "youtube_video_id": "U0DMoDAFvGI"
+  },
+  {
+    "id": "20261027T193245Z-44b92ced",
+    "topic": "How to use Google IDX to code and run full-stack web applications completely in your browser for free without installing heavy IDEs like VS Code.",
+    "title": "Code Full-Stack Apps in Your Browser Free",
+    "description": "Learn how to use Google IDX to build and run full-stack apps directly in your browser without heavy installs.",
+    "tags": [
+      "Google IDX",
+      "coding tricks",
+      "free AI tools",
+      "web development",
+      "beginner coding"
+    ],
+    "script": "Some people think you need a powerful computer and heavy software like VS Code to build full-stack apps. That is actually a myth. Google IDX lets you code and run entire web applications right inside your browser for free. The secret weapon is its cloud-hosted environment, which pre-installs all your SDKs and dependencies instantly. You even get built-in AI assistant features to help write and debug your code on the fly. Simply open project.idx.google.com, pick your template, and start building without touching your local hard drive.",
+    "keywords": [
+      "person looking frustrated at slow laptop running heavy software",
+      "web browser displaying Google IDX dashboard and templates",
+      "split screen showing AI coding assistant writing code",
+      "live web application running inside browser tab preview"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "en-US-GuyNeural",
+    "clip_ids": [
+      12908964,
+      38992894,
+      5473810,
+      40547953
+    ],
+    "video_path": "output/20261027T193245Z-44b92ced/final.mp4",
+    "duration_seconds": 34.1,
+    "created_at": "2026-10-27T19:36:02.224282+00:00",
+    "status": "uploaded",
+    "youtube_video_id": "oA0W5w4rFZk"
   }
 ]
