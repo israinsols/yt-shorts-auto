@@ -197,5 +197,38 @@
     "created_at": "2026-10-27T19:36:02.224282+00:00",
     "status": "uploaded",
     "youtube_video_id": "oA0W5w4rFZk"
+  },
+  {
+    "id": "20261028T194403Z-102cf3df",
+    "topic": "How to use Excalidraw to instantly convert hand-drawn UI wireframes into clean, production-ready frontend code for free using its built-in AI feature.",
+    "title": "Turn Drawings Into Code Instantly For Free",
+    "description": "Learn how to use Excalidraw's built-in AI feature to transform hand-drawn UI wireframes into clean frontend code without spending a dime.",
+    "tags": [
+      "Excalidraw",
+      "coding tricks",
+      "AI tools for beginners",
+      "frontend development",
+      "wireframe to code"
+    ],
+    "script": "Did you know you can turn a rough doodle into real frontend code instantly for free? Open Excalidraw, grab the pen tool, and sketch a basic login form with a username box and a submit button. Next, click the magical wireframe to code AI button in the toolbar. The built-in AI instantly analyzes your drawing and generates clean, responsive Tailwind CSS and React code right before your eyes. Copy it, paste it into your editor, and your layout is ready. Stop coding basic interfaces from scratch and try this free trick today.",
+    "keywords": [
+      "hand-drawn login form wireframe on Excalidraw canvas",
+      "clicking the AI wireframe to code button in Excalidraw toolbar",
+      "generated React and Tailwind CSS code panel",
+      "copying code into a text editor"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "en-GB-SoniaNeural",
+    "clip_ids": [
+      7311107,
+      34771079,
+      28709421,
+      5495899
+    ],
+    "video_path": "output/20261028T194403Z-102cf3df/final.mp4",
+    "duration_seconds": 34.54,
+    "created_at": "2026-10-28T19:46:16.379209+00:00",
+    "status": "uploaded",
+    "youtube_video_id": "7hdHwF68k5s"
   }
 ]
