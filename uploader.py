@@ -46,8 +46,33 @@ def _hashtags(tags: list[str]) -> list[str]:
 
 def _description_with_hashtags(description: str, tags: list[str]) -> str:
     description = description.strip()
-    existing = {tag.lower() for tag in re.findall(r"#[\w]+", description)}
+    lines = description.splitlines()
+    suffix_end = len(lines)
+    while suffix_end > 0 and not lines[suffix_end - 1].strip():
+        suffix_end -= 1
+    suffix_start = suffix_end
+    while suffix_start > 0:
+        line = lines[suffix_start - 1].strip()
+        if not line or all(word.startswith("#") for word in line.split()):
+            suffix_start -= 1
+        else:
+            break
+    if suffix_start < suffix_end:
+        suffix_tags = list(
+            dict.fromkeys(re.findall(r"#[\w]+", "\n".join(lines[suffix_start:suffix_end])))
+        )
+        if len(suffix_tags) > 3:
+            prefix = "\n".join(lines[:suffix_start]).rstrip()
+            description = f"{prefix}\n\n{' '.join(suffix_tags[:3])}".strip()
+    existing_tags = list(
+        dict.fromkeys(tag.lower() for tag in re.findall(r"#[\w]+", description))
+    )
+    existing = set(existing_tags)
+    remaining = max(0, 3 - len(existing_tags))
+    if remaining == 0:
+        return description
     hashtags = [tag for tag in _hashtags(tags) if tag.lower() not in existing]
+    hashtags = hashtags[:remaining]
     if not hashtags:
         return description
     return f"{description}\n\n{' '.join(hashtags)}"

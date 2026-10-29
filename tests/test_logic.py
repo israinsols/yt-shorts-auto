@@ -105,6 +105,20 @@ class TopicAndFormatTests(unittest.TestCase):
         )
         self.assertEqual(result, "Learn coding. #Shorts\n\n#CodingTricks #AITools")
 
+    def test_description_caps_total_relevant_hashtags_at_three(self):
+        result = uploader._description_with_hashtags(
+            "Learn AI tools.\n\n#Shorts #AITools #Beginners",
+            ["AI tools", "coding", "Python"],
+        )
+        self.assertEqual(result, "Learn AI tools.\n\n#Shorts #AITools #Beginners")
+
+    def test_description_trims_excess_generated_hashtags(self):
+        result = uploader._description_with_hashtags(
+            "Learn Raycast.\n\n#Shorts #Raycast #Coding\n\n#MacLauncher",
+            ["Raycast", "coding", "Mac launcher"],
+        )
+        self.assertEqual(result, "Learn Raycast.\n\n#Shorts #Raycast #Coding")
+
 
 class PersistenceAndQuotaTests(unittest.TestCase):
     def test_json_state_round_trip(self):
