@@ -16,7 +16,7 @@ from footage import configured_clip_count, download_clips
 from script_gen import generate_script, generate_topic
 from uploader import upload_video
 from utils import PROJECT_DIR, load_config, load_list, read_json, require_api_key, write_json
-from video import assemble_video
+from video import assemble_video, create_thumbnail
 from voice import available_voices, generate_voice
 
 LOGGER = logging.getLogger("shorts")
@@ -151,6 +151,8 @@ def run(dry_run: bool) -> Path:
     write_json(_state_path("used_clip_ids.json"), sorted(all_used))
     video_path = output_dir / "final.mp4"
     duration = assemble_video(script_data["script"], voice_path, footage_paths, video_path, config)
+    thumbnail_path = output_dir / "thumbnail.jpg"
+    create_thumbnail(video_path, script_data["title"], thumbnail_path)
     write_json(
         _state_path("voice_state.json"),
         {"index": (voice_index + 1) % len(available_voices(config))},
@@ -167,6 +169,7 @@ def run(dry_run: bool) -> Path:
         "voice": voice,
         "clip_ids": clip_ids,
         "video_path": str(video_path.relative_to(PROJECT_DIR)),
+        "thumbnail_path": str(thumbnail_path.relative_to(PROJECT_DIR)),
         "duration_seconds": round(duration, 2),
         "created_at": datetime.now(timezone.utc).isoformat(),
         "status": status,

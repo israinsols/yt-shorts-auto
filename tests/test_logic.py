@@ -6,6 +6,7 @@ from unittest.mock import patch
 
 import numpy as np
 from moviepy.editor import ColorClip
+from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -13,8 +14,9 @@ import main
 import footage
 import script_gen
 import uploader
+import video
 from utils import normalized_topic, read_json, write_json
-from video import _caption_clips, _fit_clip, _scene_durations
+from video import _caption_clips, _fit_clip, _scene_durations, create_thumbnail
 from voice import _tempo_adjustment
 
 
@@ -183,6 +185,59 @@ class TopicAndFormatTests(unittest.TestCase):
         )
         self.assertEqual(result, "Learn Raycast.\n\n#Shorts #Raycast #Coding")
 
+    def test_video_upload_sets_custom_thumbnail(self):
+        class FakeRequest:
+            def next_chunk(self, num_retries):
+                return None, {"id": "video-id"}
+
+            def execute(self):
+                return {"items": []}
+
+        class FakeResource:
+            def insert(self, **kwargs):
+                self.insert_args = kwargs
+                return FakeRequest()
+
+            def set(self, **kwargs):
+                self.set_args = kwargs
+                return FakeRequest()
+
+        class FakeYouTube:
+            def __init__(self):
+                self.video_resource = FakeResource()
+                self.thumbnail_resource = FakeResource()
+
+            def videos(self):
+                return self.video_resource
+
+            def thumbnails(self):
+                return self.thumbnail_resource
+
+        with tempfile.TemporaryDirectory() as directory:
+            video_path = Path(directory) / "final.mp4"
+            thumbnail_path = Path(directory) / "thumbnail.jpg"
+            video_path.touch()
+            thumbnail_path.touch()
+            youtube = FakeYouTube()
+            metadata = {
+                "title": "Quick AI demo",
+                "description": "A useful tool.",
+                "tags": ["AI tools", "beginners", "coding"],
+                "thumbnail_path": str(thumbnail_path),
+            }
+            with (
+                patch.object(uploader, "_credentials", return_value=object()),
+                patch.object(uploader, "build", return_value=youtube),
+                patch.object(uploader, "MediaFileUpload", return_value="media") as media_upload,
+            ):
+                video_id = uploader.upload_video(metadata, video_path, {"privacy_status": "public"})
+
+        self.assertEqual(video_id, "video-id")
+        self.assertEqual(metadata["thumbnail_status"], "uploaded")
+        self.assertEqual(youtube.thumbnail_resource.set_args["videoId"], "video-id")
+        self.assertEqual(youtube.thumbnail_resource.set_args["media_body"], "media")
+        self.assertEqual(media_upload.call_count, 2)
+
 
 class PersistenceAndQuotaTests(unittest.TestCase):
     def test_json_state_round_trip(self):
@@ -203,6 +258,27 @@ class PersistenceAndQuotaTests(unittest.TestCase):
 
 
 class CaptionTests(unittest.TestCase):
+    def test_thumbnail_uses_video_frame_and_recommended_shorts_dimensions(self):
+        class FakeVideo:
+            duration = 2
+
+            def get_frame(self, timestamp):
+                self.timestamp = timestamp
+                return np.full((192, 108, 3), (25, 70, 120), dtype=np.uint8)
+
+            def close(self):
+                pass
+
+        with tempfile.TemporaryDirectory() as directory:
+            output_path = Path(directory) / "thumbnail.jpg"
+            clip = FakeVideo()
+            with patch.object(video, "VideoFileClip", return_value=clip):
+                create_thumbnail(Path("video.mp4"), "Generate AI Images Fast", output_path)
+            with Image.open(output_path) as thumbnail:
+                self.assertEqual(thumbnail.size, (2160, 3840))
+                self.assertEqual(thumbnail.format, "JPEG")
+            self.assertEqual(clip.timestamp, 0.5)
+
     def test_word_captions_divide_the_audio_duration_evenly(self):
         clips = _caption_clips("One useful example for a beginner", 6, 1080, 1920, 72)
         try:

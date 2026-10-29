@@ -92,6 +92,45 @@ def _save_credentials(credentials: Credentials, token_path: Path) -> None:
         raise RuntimeError(f"Could not save YouTube OAuth token to {token_path}: {exc}") from exc
 
 
+def _set_thumbnail(
+    youtube: Any,
+    video_id: str,
+    thumbnail_path: Path,
+    metadata: dict[str, Any],
+) -> None:
+    if not thumbnail_path.is_file():
+        metadata["thumbnail_status"] = "failed"
+        metadata["thumbnail_error"] = f"Thumbnail image not found: {thumbnail_path}"
+        LOGGER.warning(metadata["thumbnail_error"])
+        return
+    try:
+        youtube.thumbnails().set(
+            videoId=video_id,
+            media_body=MediaFileUpload(
+                str(thumbnail_path),
+                mimetype="image/jpeg",
+            ),
+        ).execute()
+        metadata["thumbnail_status"] = "uploaded"
+        metadata.pop("thumbnail_error", None)
+        LOGGER.info("Set custom thumbnail for video %s.", video_id)
+    except HttpError as exc:
+        metadata["thumbnail_status"] = "failed"
+        metadata["thumbnail_error"] = (
+            f"YouTube rejected the custom thumbnail with HTTP "
+            f"{exc.resp.status}: {exc.reason}."
+        )
+        LOGGER.warning("%s", metadata["thumbnail_error"])
+
+
+def set_video_thumbnail(video_id: str, thumbnail_path: Path, config: dict[str, Any]) -> dict[str, Any]:
+    credentials = _credentials(config)
+    youtube = build("youtube", "v3", credentials=credentials, cache_discovery=False)
+    metadata: dict[str, Any] = {}
+    _set_thumbnail(youtube, video_id, thumbnail_path, metadata)
+    return metadata
+
+
 def _credentials(config: dict[str, Any]) -> Credentials:
     oauth = config.get("oauth_client_secrets", "credentials/client_secret.json")
     token = config.get("token_file", "token.json")
@@ -178,6 +217,12 @@ def upload_video(metadata: dict[str, Any], video_path: Path, config: dict[str, A
         if not isinstance(video_id, str) or not video_id:
             raise RuntimeError("YouTube reported upload success without returning a video ID.")
         LOGGER.info("Uploaded video %s (privacy: %s).", video_id, privacy)
+        thumbnail_value = metadata.get("thumbnail_path")
+        if thumbnail_value:
+            thumbnail_path = Path(str(thumbnail_value))
+            if not thumbnail_path.is_absolute():
+                thumbnail_path = PROJECT_DIR / thumbnail_path
+            _set_thumbnail(youtube, video_id, thumbnail_path, metadata)
         return video_id
     except HttpError as exc:
         raise RuntimeError(

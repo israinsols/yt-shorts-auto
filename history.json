@@ -296,6 +296,8 @@
     "duration_seconds": 21.17,
     "created_at": "2026-10-29T09:55:55.301738+00:00",
     "status": "uploaded",
-    "youtube_video_id": "6gUYrFOVGRk"
+    "youtube_video_id": "6gUYrFOVGRk",
+    "thumbnail_path": "output\\20261029T094404Z-8034894b\\thumbnail.jpg",
+    "thumbnail_status": "uploaded"
   }
 ]

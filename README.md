@@ -56,6 +56,8 @@ The output is 1080x1920 at 30 fps. Scripts target 45-60 spoken words and 20-25 s
 
 Titles and descriptions are generated around each video's actual topic, search phrases, and beginner takeaway. Uploads include up to three relevant description hashtags, including `#Shorts`; on-screen captions display in short, readable phrase cards rather than flashing one word at a time. Tool-demo scripts lead with the outcome and keep to one tool and one result.
 
+Each video also gets a vertical 2160x3840 custom thumbnail using a frame from its footage and the generated title. Uploads set it through the YouTube Data API; custom thumbnail access requires a verified YouTube account. If YouTube rejects the thumbnail, the video upload still succeeds and the thumbnail error is recorded in the run metadata and log.
+
 ## 5. Google Cloud OAuth setup (uploads only)
 
 1. In [Google Cloud Console](https://console.cloud.google.com/), create/select a project and enable **YouTube Data API v3**.

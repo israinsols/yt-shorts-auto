@@ -17,7 +17,7 @@ from moviepy.editor import (
 )
 from moviepy.audio.fx import all as audio_fx
 from moviepy.video.fx import all as video_fx
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 LOGGER = logging.getLogger(__name__)
 
@@ -160,6 +160,78 @@ def _background_track(config: dict[str, Any], duration: float) -> AudioFileClip 
         track.close()
         raise RuntimeError("music.volume must be between 0 and 1.")
     return track.fx(audio_fx.audio_loop, duration=duration).volumex(volume)
+
+
+def create_thumbnail(video_path: Path, title: str, output_path: Path) -> None:
+    if not title.strip():
+        raise RuntimeError("Cannot create a thumbnail for an empty title.")
+    clip = VideoFileClip(str(video_path))
+    try:
+        if clip.duration <= 0:
+            raise RuntimeError(f"Cannot create a thumbnail from empty video {video_path}.")
+        frame = Image.fromarray(clip.get_frame(min(0.5, clip.duration / 2)).astype(np.uint8))
+    finally:
+        clip.close()
+
+    image = ImageOps.fit(frame.convert("RGB"), (1080, 1920), method=Image.Resampling.LANCZOS)
+    canvas = image.convert("RGBA")
+    gradient = Image.new("RGBA", (1080, 1050), (0, 0, 0, 0))
+    alpha_values = np.linspace(220, 0, gradient.height, dtype=np.float32)
+    alpha_values = np.power(alpha_values / 220, 1.5) * 220
+    alpha = Image.fromarray(
+        np.tile(alpha_values.astype(np.uint8)[:, np.newaxis], (1, gradient.width))
+    )
+    gradient.putalpha(alpha)
+    canvas.alpha_composite(gradient, (0, 0))
+    draw = ImageDraw.Draw(canvas)
+    badge_font = _caption_font(38)
+    draw.rounded_rectangle((64, 82, 454, 158), radius=30, fill=(67, 211, 255, 255))
+    draw.text((88, 98), "FREE AI TOOL  |  QUICK DEMO", font=badge_font, fill=(5, 23, 39, 255))
+
+    clean_title = title.removesuffix(" #Shorts").strip()
+    font_size = 100
+    title_font = _caption_font(font_size)
+    max_width = 950
+    lines: list[str] = []
+    while True:
+        lines = []
+        line = ""
+        for word in clean_title.split():
+            candidate = f"{line} {word}".strip()
+            bounds = draw.textbbox((0, 0), candidate, font=title_font, stroke_width=2)
+            if line and bounds[2] - bounds[0] > max_width:
+                lines.append(line)
+                line = word
+            else:
+                line = candidate
+        if line:
+            lines.append(line)
+        if len(lines) <= 4 or font_size <= 68:
+            break
+        font_size -= 4
+        title_font = _caption_font(font_size)
+
+    y = 238
+    for line in lines:
+        draw.text(
+            (68, y),
+            line,
+            font=title_font,
+            fill="white",
+            stroke_width=4,
+            stroke_fill=(5, 17, 31, 255),
+        )
+        bounds = draw.textbbox((68, y), line, font=title_font, stroke_width=4)
+        y += bounds[3] - bounds[1] + 20
+    draw.rounded_rectangle((68, y + 4, 280, y + 20), radius=8, fill=(67, 211, 255, 255))
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    canvas.convert("RGB").resize((2160, 3840), Image.Resampling.LANCZOS).save(
+        output_path,
+        format="JPEG",
+        quality=88,
+        optimize=True,
+    )
 
 
 def assemble_video(
