@@ -40,32 +40,65 @@ def _caption_clips(script: str, duration: float, width: int, height: int, font_s
         raise RuntimeError("Cannot create captions for an empty script.")
     font = _caption_font(font_size)
     clips: list[ImageClip] = []
+    group_size = 3
+    max_text_width = width - 120
     segment_duration = duration / len(words)
-    for index, word in enumerate(words):
-        text = word
-        bounds = ImageDraw.Draw(Image.new("RGBA", (1, 1))).textbbox(
-            (0, 0), text, font=font, stroke_width=3
-        )
-        while bounds[2] - bounds[0] > width - 100 and font_size > 28:
-            font_size -= 2
-            font = _caption_font(font_size)
-        text_width = bounds[2] - bounds[0]
-        text_height = bounds[3] - bounds[1]
-        padding = 12
+    for index in range(0, len(words), group_size):
+        group = words[index : index + group_size]
+        lines: list[str] = []
+        line = ""
+        for word in group:
+            candidate = f"{line} {word}".strip()
+            bounds = ImageDraw.Draw(Image.new("RGBA", (1, 1))).textbbox(
+                (0, 0), candidate, font=font, stroke_width=2
+            )
+            while bounds[2] - bounds[0] > max_text_width and font_size > 28:
+                font_size -= 2
+                font = _caption_font(font_size)
+                bounds = ImageDraw.Draw(Image.new("RGBA", (1, 1))).textbbox(
+                    (0, 0), candidate, font=font, stroke_width=2
+                )
+            if line and bounds[2] - bounds[0] > max_text_width:
+                lines.append(line)
+                line = word
+            else:
+                line = candidate
+        if line:
+            lines.append(line)
+        measure = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+        line_bounds = [
+            measure.textbbox((0, 0), text, font=font, stroke_width=2)
+            for text in lines
+        ]
+        padding_x = 28
+        padding_y = 20
+        line_gap = 8
+        text_width = max(bounds[2] - bounds[0] for bounds in line_bounds)
+        text_height = sum(bounds[3] - bounds[1] for bounds in line_bounds)
         image = Image.new(
             "RGBA",
-            (text_width + padding * 2, text_height + padding * 2),
+            (text_width + padding_x * 2, text_height + padding_y * 2 + line_gap * (len(lines) - 1)),
             (0, 0, 0, 0),
         )
         draw = ImageDraw.Draw(image)
-        x = padding - bounds[0]
-        y = padding - bounds[1]
-        draw.text((x, y), text, font=font, fill="white", stroke_width=3, stroke_fill="black")
+        draw.rounded_rectangle(
+            (0, 0, image.width - 1, image.height - 1),
+            radius=22,
+            fill=(8, 15, 30, 218),
+            outline=(65, 205, 255, 255),
+            width=3,
+        )
+        y = padding_y
+        for text, bounds in zip(lines, line_bounds):
+            line_width = bounds[2] - bounds[0]
+            x = (image.width - line_width) / 2 - bounds[0]
+            draw.text((x, y - bounds[1]), text, font=font, fill="white", stroke_width=2, stroke_fill=(8, 15, 30))
+            y += bounds[3] - bounds[1] + line_gap
         clips.append(
             ImageClip(np.asarray(image), transparent=True)
             .set_start(index * segment_duration)
-            .set_duration(segment_duration)
-            .set_position(("center", int(height * 0.76 - image.height / 2)))
+            .set_duration(len(group) * segment_duration)
+            .set_position(("center", int(height * 0.73 - image.height / 2)))
         )
     return clips
 

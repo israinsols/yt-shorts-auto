@@ -53,6 +53,8 @@ Edit `config.yaml`:
 
 The output is 1080x1920 at 30 fps. The script is requested at 75-100 spoken words and the generated narration is checked to be 30-45 seconds; out-of-range narration stops with an actionable error rather than producing an invalid Short.
 
+Titles and descriptions are generated around each video's actual topic, search phrases, and beginner takeaway. Uploads include up to three relevant description hashtags, including `#Shorts`; on-screen captions display in short, readable phrase cards rather than flashing one word at a time.
+
 ## 5. Google Cloud OAuth setup (uploads only)
 
 1. In [Google Cloud Console](https://console.cloud.google.com/), create/select a project and enable **YouTube Data API v3**.

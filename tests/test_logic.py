@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import main
 import footage
 import script_gen
+import uploader
 from utils import normalized_topic, read_json, write_json
 from video import _caption_clips, _fit_clip, _scene_durations
 from voice import _tempo_adjustment
@@ -87,6 +88,23 @@ class TopicAndFormatTests(unittest.TestCase):
         self.assertEqual(search.call_args_list[0].kwargs["params"]["query"], "typing text prompt v0.dev")
         self.assertEqual(search.call_args_list[1].kwargs["params"]["query"], "coding laptop programming")
 
+    def test_description_gets_three_relevant_unique_hashtags(self):
+        result = uploader._description_with_hashtags(
+            "Learn beginner Python coding.",
+            ["python", "coding tips", "Python"],
+        )
+        self.assertEqual(
+            result,
+            "Learn beginner Python coding.\n\n#Shorts #Python #CodingTips",
+        )
+
+    def test_description_does_not_duplicate_existing_hashtags(self):
+        result = uploader._description_with_hashtags(
+            "Learn coding. #Shorts",
+            ["coding tricks", "AI tools"],
+        )
+        self.assertEqual(result, "Learn coding. #Shorts\n\n#CodingTricks #AITools")
+
 
 class PersistenceAndQuotaTests(unittest.TestCase):
     def test_json_state_round_trip(self):
@@ -108,11 +126,11 @@ class PersistenceAndQuotaTests(unittest.TestCase):
 
 class CaptionTests(unittest.TestCase):
     def test_word_captions_divide_the_audio_duration_evenly(self):
-        clips = _caption_clips("One useful example", 36, 1080, 1920, 72)
+        clips = _caption_clips("One useful example for a beginner", 6, 1080, 1920, 72)
         try:
-            self.assertEqual([clip.start for clip in clips], [0, 12, 24])
-            self.assertEqual([clip.duration for clip in clips], [12, 12, 12])
-            self.assertTrue(all(clip.w < 500 and clip.h < 200 for clip in clips))
+            self.assertEqual([clip.start for clip in clips], [0, 3])
+            self.assertEqual([clip.duration for clip in clips], [3, 3])
+            self.assertTrue(all(clip.w < 960 and clip.h < 250 for clip in clips))
         finally:
             for clip in clips:
                 clip.close()

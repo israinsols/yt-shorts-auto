@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 import os
+import re
 from pathlib import Path
 from typing import Any
 
@@ -19,6 +20,37 @@ from utils import PROJECT_DIR
 
 LOGGER = logging.getLogger(__name__)
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+
+
+def _hashtags(tags: list[str]) -> list[str]:
+    result = ["#Shorts"]
+    seen = {"shorts"}
+    for tag in tags:
+        words = re.findall(r"[^\W_]+", tag, flags=re.UNICODE)
+        if not words:
+            continue
+        key = "".join(word.lower() for word in words)
+        if key in seen:
+            continue
+        hashtag = "#" + "".join(
+            word.upper() if len(word) <= 2 else word.capitalize() for word in words
+        )
+        if len(hashtag) > 30:
+            continue
+        seen.add(key)
+        result.append(hashtag)
+        if len(result) == 3:
+            break
+    return result
+
+
+def _description_with_hashtags(description: str, tags: list[str]) -> str:
+    description = description.strip()
+    existing = {tag.lower() for tag in re.findall(r"#[\w]+", description)}
+    hashtags = [tag for tag in _hashtags(tags) if tag.lower() not in existing]
+    if not hashtags:
+        return description
+    return f"{description}\n\n{' '.join(hashtags)}"
 
 
 def _configured_path(config_value: str, environment_variable: str) -> Path:
@@ -87,7 +119,10 @@ def upload_video(metadata: dict[str, Any], video_path: Path, config: dict[str, A
     credentials = _credentials(config)
     snippet = {
         "title": (str(metadata["title"]).removesuffix(" #Shorts") + " #Shorts")[:100],
-        "description": str(metadata["description"]),
+        "description": _description_with_hashtags(
+            str(metadata["description"]),
+            metadata["tags"],
+        ),
         "tags": metadata["tags"],
         "categoryId": str(config.get("category_id", "27")),
     }
