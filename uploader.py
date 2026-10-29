@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import logging
 import os
 import re
@@ -20,6 +21,7 @@ from utils import PROJECT_DIR
 
 LOGGER = logging.getLogger(__name__)
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+ANALYTICS_SCOPE = "https://www.googleapis.com/auth/yt-analytics.readonly"
 
 
 def _hashtags(tags: list[str]) -> list[str]:
@@ -131,21 +133,34 @@ def set_video_thumbnail(video_id: str, thumbnail_path: Path, config: dict[str, A
     return metadata
 
 
-def _credentials(config: dict[str, Any]) -> Credentials:
+def _credentials(
+    config: dict[str, Any],
+    required_scopes: list[str] | None = None,
+) -> Credentials:
+    scopes = required_scopes or SCOPES
     oauth = config.get("oauth_client_secrets", "credentials/client_secret.json")
     token = config.get("token_file", "token.json")
     client_path = _configured_path(str(oauth), "YOUTUBE_OAUTH_CLIENT_FILE")
     token_path = _configured_path(str(token), "YOUTUBE_TOKEN_FILE")
     credentials: Credentials | None = None
+    missing_scopes: set[str] = set()
     if token_path.exists():
         try:
-            credentials = Credentials.from_authorized_user_file(str(token_path), SCOPES)
+            token_data = json.loads(token_path.read_text(encoding="utf-8"))
+            if not isinstance(token_data, dict):
+                raise ValueError("OAuth token must contain a JSON object.")
+            stored_scopes = token_data.get("scopes")
+            if isinstance(stored_scopes, list):
+                missing_scopes = set(scopes) - set(stored_scopes)
+            elif ANALYTICS_SCOPE in scopes:
+                missing_scopes = set(scopes)
+            credentials = Credentials.from_authorized_user_file(str(token_path), scopes)
         except (OSError, ValueError) as exc:
             raise RuntimeError(
                 f"Could not read YouTube token at {token_path}. Remove the invalid token "
                 "and run python main.py once to authenticate again."
             ) from exc
-    if credentials and credentials.expired and credentials.refresh_token:
+    if credentials and credentials.expired and credentials.refresh_token and not missing_scopes:
         try:
             credentials.refresh(Request())
             _save_credentials(credentials, token_path)
@@ -153,7 +168,7 @@ def _credentials(config: dict[str, Any]) -> Credentials:
             raise RuntimeError(
                 f"Could not refresh YouTube OAuth token: {exc}. Reauthorize with python main.py."
             ) from exc
-    if credentials and credentials.valid:
+    if credentials and credentials.valid and not missing_scopes:
         return credentials
     interactive = os.getenv("YOUTUBE_INTERACTIVE_LOGIN", "1").strip().lower() not in {
         "0",
@@ -161,6 +176,13 @@ def _credentials(config: dict[str, Any]) -> Credentials:
         "no",
     }
     if not interactive:
+        if missing_scopes:
+            missing = ", ".join(sorted(missing_scopes))
+            raise RuntimeError(
+                f"The saved YouTube token is missing required OAuth scope(s): {missing}. "
+                "Run python analytics.py locally to authorize analytics, then update "
+                "YOUTUBE_TOKEN_JSON_B64 in GitHub Actions."
+            )
         raise RuntimeError(
             "YouTube token is missing or expired and interactive login is disabled. "
             "Set YOUTUBE_TOKEN_JSON_B64 in GitHub Actions or authenticate locally first."
@@ -171,7 +193,7 @@ def _credentials(config: dict[str, Any]) -> Credentials:
             "OAuth client JSON from Google Cloud and save it there; see README.md."
         )
     try:
-        flow = InstalledAppFlow.from_client_secrets_file(str(client_path), SCOPES)
+        flow = InstalledAppFlow.from_client_secrets_file(str(client_path), scopes)
         credentials = flow.run_local_server(port=0, prompt="consent")
     except (OSError, ValueError, RuntimeError) as exc:
         raise RuntimeError(f"YouTube OAuth login failed: {exc}") from exc

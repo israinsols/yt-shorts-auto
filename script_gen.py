@@ -37,13 +37,35 @@ def _generate_json(prompt: str, config: dict[str, Any], api_key: str) -> Any:
         ) from exc
 
 
-def generate_topic(config: dict[str, Any], previous_topics: list[str]) -> str:
+def generate_topic(
+    config: dict[str, Any],
+    previous_topics: list[str],
+    performance_insights: list[dict[str, Any]] | None = None,
+) -> str:
     api_key = require_api_key(config, "gemini")
     niche = str(config.get("niche", "")).strip()
     if not niche:
         raise RuntimeError("Set a non-empty niche in config.yaml.")
     previous_set = {normalized_topic(topic) for topic in previous_topics}
     history = json.dumps(previous_topics, ensure_ascii=False)
+    insights = performance_insights or []
+    performance_guidance = ""
+    if insights:
+        examples = [
+            {
+                key: insight[key]
+                for key in ("title", "topic")
+                if isinstance(insight.get(key), str) and insight[key]
+            }
+            for insight in insights
+        ]
+        performance_guidance = (
+            "These recent public video topics were the strongest performers in the "
+            "channel's analytics (use them only to infer useful formats; do not copy "
+            "their topics): "
+            f"{json.dumps(examples, ensure_ascii=False)}. Prefer a fresh tool or demo "
+            "with similar practical qualities. "
+        )
     for _ in range(3):
         result = _generate_json(
             "Choose one specific, practical topic for a 20-25 second beginner YouTube Short "
@@ -53,6 +75,7 @@ def generate_topic(config: dict[str, Any], previous_topics: list[str]) -> str:
             "be illustrated with specific footage. Avoid vague AI news, broad tool lists, "
             "unsupported 'free/unlimited' claims, and tools whose free access is unclear. "
             "Do not repeat or closely rephrase any prior topic. "
+            f"{performance_guidance}"
             f"Prior topics (avoid all): {history}. Return only JSON {{\"topic\":\"...\"}}.",
             config,
             api_key,

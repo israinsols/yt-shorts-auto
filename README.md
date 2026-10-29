@@ -60,13 +60,13 @@ Each video also gets a vertical 2160x3840 custom thumbnail using a frame from it
 
 ## 5. Google Cloud OAuth setup (uploads only)
 
-1. In [Google Cloud Console](https://console.cloud.google.com/), create/select a project and enable **YouTube Data API v3**.
+1. In [Google Cloud Console](https://console.cloud.google.com/), create/select a project and enable **YouTube Data API v3** and **YouTube Analytics API**.
 2. Configure the OAuth consent screen. Add your own Google account as a test user if the app is in testing.
 3. Create an OAuth client ID with application type **Desktop app** and download its JSON.
 4. Save it as `credentials/client_secret.json` (or set `YOUTUBE_OAUTH_CLIENT_FILE` in `.env` to another path).
 5. Keep the downloaded client JSON and `token.json` private. Do not commit either file.
 
-The first upload opens a browser to authorize the app. The resulting `token.json` is saved locally and refreshed when possible. Revoke access or delete the token to make the app ask for authorization again.
+The first upload opens a browser to authorize the app. The app requests YouTube upload permission and read-only YouTube Analytics permission. The resulting `token.json` is saved locally and refreshed when possible. Revoke access or delete the token to make the app ask for authorization again.
 
 YouTube uploads use category 27, `selfDeclaredMadeForKids: false`, configured privacy, and the `containsSyntheticMedia` disclosure field to identify the AI-generated narration. The YouTube API may reject fields not enabled for your project; the app reports the API error. **Public uploads from new or unverified API projects may remain private until the project passes YouTube's API compliance audit.** The disclosure flag does not replace YouTube's own altered/synthetic-content requirements.
 
@@ -103,6 +103,14 @@ GitHub discovers workflow files in the repository root `.github/workflows/` dire
 3. For automatic uploads, set `review_mode: false` and choose the desired `privacy_status` in `config.yaml`.
 4. Complete OAuth locally with YouTube upload and management permissions. Add the base64-encoded downloaded client JSON as `YOUTUBE_OAUTH_CLIENT_JSON_B64` and the authorized `token.json` as `YOUTUBE_TOKEN_JSON_B64`. The workflow writes both files privately before running. Only store these secrets in a trusted repository, and rotate/revoke them if exposed.
 5. Enable Actions for the repository. The scheduled workflow runs daily at 14:30 UTC (19:30 Pakistan time) and uploads automatically. Use **Actions → Daily YouTube Short → Run workflow** to test manually.
+
+Before analytics can guide scheduled topics, run `python analytics.py` locally once. If prompted, sign in and approve the additional read-only analytics permission. Then update the GitHub token secret with the newly authorized token:
+
+```powershell
+gh secret set YOUTUBE_TOKEN_JSON_B64 --body ([Convert]::ToBase64String([IO.File]::ReadAllBytes("token.json")))
+```
+
+The workflow fetches recent views and average view duration/percentage each run, then asks Gemini to favor fresh topics with qualities similar to the best-retained Shorts. Exact metrics stay in memory and are not sent to Gemini or committed; only titles and topics of the strongest public examples are used as format guidance. If the Analytics API or OAuth permission is unavailable, the run logs a warning and continues with the existing topic strategy.
 
 The workflow commits topic, voice, history, and quota state so later scheduled runs can avoid repeats and enforce the daily limit. Keep `GITHUB_TOKEN`'s repository contents permission enabled. GitHub Actions has usage limits; check the free allowance for your repository.
 

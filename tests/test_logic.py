@@ -1,3 +1,4 @@
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -10,6 +11,7 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+import analytics
 import main
 import footage
 import script_gen
@@ -36,6 +38,96 @@ class TopicAndFormatTests(unittest.TestCase):
         ):
             topic = script_gen.generate_topic(config, ["Known Topic"])
         self.assertEqual(topic, "A different discovery")
+
+    def test_topic_generation_uses_performance_insights(self):
+        response = {"topic": "A fresh browser AI demo"}
+        insight = {
+            "title": "Run Any AI Model in Your Browser",
+            "views": 321,
+            "average_view_percentage": 45.6,
+        }
+        with (
+            patch.object(script_gen, "require_api_key", return_value="test-key"),
+            patch.object(script_gen, "_generate_json", return_value=response) as generate_json,
+        ):
+            topic = script_gen.generate_topic(
+                {"niche": "AI tools", "gemini": {"model": "test"}},
+                [],
+                [insight],
+            )
+        self.assertEqual(topic, "A fresh browser AI demo")
+        prompt = generate_json.call_args.args[0]
+        self.assertIn("Run Any AI Model in Your Browser", prompt)
+        self.assertNotIn("45.6", prompt)
+        self.assertIn("do not copy", prompt)
+
+    def test_analytics_returns_recent_metrics_for_uploaded_videos_only(self):
+        class FakeRequest:
+            def execute(self):
+                return {
+                    "columnHeaders": [
+                        {"name": "video"},
+                        {"name": "views"},
+                        {"name": "averageViewDuration"},
+                        {"name": "averageViewPercentage"},
+                    ],
+                    "rows": [
+                        ["winning-video", 321, 14.2, 45.6],
+                        ["untracked-video", 999, 19.0, 70.0],
+                        ["other-video", 50, 5.0, 20.0],
+                    ],
+                }
+
+        class FakeReports:
+            def query(self, **kwargs):
+                self.query_args = kwargs
+                return FakeRequest()
+
+        class FakeService:
+            def __init__(self):
+                self.report_api = FakeReports()
+
+            def reports(self):
+                return self.report_api
+
+        service = FakeService()
+        history = [
+            {
+                "status": "uploaded",
+                "youtube_video_id": "winning-video",
+                "title": "Browser AI Demo",
+                "topic": "Use a free browser AI model",
+            },
+            {
+                "status": "pending_review",
+                "youtube_video_id": "other-video",
+                "title": "Pending Short",
+                "topic": "Not uploaded",
+            },
+        ]
+        with (
+            patch.object(analytics, "_credentials", return_value=object()),
+            patch.object(analytics, "build", return_value=service),
+        ):
+            insights = analytics.fetch_performance_insights(history, {})
+
+        self.assertEqual(
+            insights,
+            [
+                {
+                    "topic": "Use a free browser AI model",
+                    "title": "Browser AI Demo",
+                    "views": 321,
+                    "average_view_duration_seconds": 14.2,
+                    "average_view_percentage": 45.6,
+                }
+            ],
+        )
+        self.assertEqual(service.report_api.query_args["ids"], "channel==MINE")
+        self.assertEqual(
+            service.report_api.query_args["metrics"],
+            "views,averageViewDuration,averageViewPercentage",
+        )
 
     def test_script_generation_enforces_short_word_count(self):
         script = (
@@ -237,6 +329,32 @@ class TopicAndFormatTests(unittest.TestCase):
         self.assertEqual(youtube.thumbnail_resource.set_args["videoId"], "video-id")
         self.assertEqual(youtube.thumbnail_resource.set_args["media_body"], "media")
         self.assertEqual(media_upload.call_count, 2)
+
+    def test_analytics_requires_a_token_with_read_only_scope(self):
+        class FakeCredentials:
+            valid = True
+            expired = False
+            refresh_token = None
+
+        with tempfile.TemporaryDirectory() as directory:
+            token_path = Path(directory) / "token.json"
+            token_path.write_text(
+                json.dumps({"scopes": uploader.SCOPES}),
+                encoding="utf-8",
+            )
+            with (
+                patch.object(
+                    uploader.Credentials,
+                    "from_authorized_user_file",
+                    return_value=FakeCredentials(),
+                ),
+                patch.dict(uploader.os.environ, {"YOUTUBE_INTERACTIVE_LOGIN": "0"}),
+            ):
+                with self.assertRaisesRegex(RuntimeError, "missing required OAuth scope"):
+                    uploader._credentials(
+                        {"token_file": str(token_path)},
+                        analytics.ANALYTICS_SCOPES,
+                    )
 
 
 class PersistenceAndQuotaTests(unittest.TestCase):

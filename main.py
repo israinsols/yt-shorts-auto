@@ -12,6 +12,7 @@ from typing import Any
 
 from dotenv import load_dotenv
 
+from analytics import fetch_performance_insights
 from footage import configured_clip_count, download_clips
 from script_gen import generate_script, generate_topic
 from uploader import upload_video
@@ -114,7 +115,15 @@ def run(dry_run: bool) -> Path:
     history = load_list(_state_path("history.json"), "generation history")
     if not all(isinstance(topic, str) for topic in topics):
         raise RuntimeError("topics.json must contain only topic strings.")
-    topic = generate_topic(config, topics)
+    try:
+        performance_insights = fetch_performance_insights(history, config)
+    except RuntimeError as exc:
+        LOGGER.warning(
+            "YouTube analytics unavailable; generating without performance feedback: %s",
+            exc,
+        )
+        performance_insights = []
+    topic = generate_topic(config, topics, performance_insights)
     LOGGER.info("Selected new topic: %s", topic)
 
     script_data = generate_script(topic, config, _next_hook_style(history))
