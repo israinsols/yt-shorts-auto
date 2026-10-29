@@ -1,6 +1,6 @@
 # YouTube Shorts generator
 
-A Python project that makes one original vertical Short per run with Gemini, Edge TTS, Pexels footage, word-by-word captions, and optional local music. It can require human approval before any upload. The software uses free APIs/tools; free-tier limits and YouTube's API policies still apply.
+A Python project that makes one original vertical Short per run with Gemini, Edge TTS, Pexels footage, phrase captions, and optional local music. It can require human approval before any upload. The software uses free APIs/tools; free-tier limits and YouTube's API policies still apply.
 
 ## What you need
 
@@ -19,6 +19,7 @@ py -3 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+python -m playwright install chromium
 Copy-Item .env.example .env
 ```
 
@@ -29,7 +30,7 @@ On macOS/Linux, activate the environment with `source .venv/bin/activate` instea
 1. Open [Google AI Studio](https://aistudio.google.com/).
 2. Sign in and create an API key.
 3. Put it in `.env` as `GEMINI_API_KEY=your_key`.
-4. Choose a model available to your account in `config.yaml` under `gemini.model`. The default is `gemini-2.0-flash`; model availability and free quotas can change.
+4. Choose a model available to your account in `config.yaml` under `gemini.model`. Model availability and free quotas can change.
 
 The app uses Gemini's REST API and requests JSON responses. No paid SDK or model is required.
 
@@ -101,7 +102,7 @@ GitHub discovers workflow files in the repository root `.github/workflows/` dire
 4. Complete OAuth locally with YouTube upload and management permissions. Add the base64-encoded downloaded client JSON as `YOUTUBE_OAUTH_CLIENT_JSON_B64` and the authorized `token.json` as `YOUTUBE_TOKEN_JSON_B64`. The workflow writes both files privately before running. Only store these secrets in a trusted repository, and rotate/revoke them if exposed.
 5. Enable Actions for the repository. The scheduled workflow runs daily at 14:30 UTC (19:30 Pakistan time) and uploads automatically. Use **Actions → Daily YouTube Short → Run workflow** to test manually.
 
-The workflow commits only the topic, clip-ID, voice, history, and quota JSON state files so later scheduled runs can avoid repeats and enforce the daily limit. Keep `GITHUB_TOKEN`'s repository contents permission enabled. GitHub Actions has usage limits; check the free allowance for your repository.
+The workflow commits topic, voice, history, and quota state so later scheduled runs can avoid repeats and enforce the daily limit. Keep `GITHUB_TOKEN`'s repository contents permission enabled. GitHub Actions has usage limits; check the free allowance for your repository.
 
 ## 8. Schedule runs on your own computer instead
 
