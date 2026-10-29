@@ -46,7 +46,7 @@ Pexels' API has rate limits. The app tracks downloaded clip IDs in `used_clip_id
 
 Edit `config.yaml`:
 
-- `niche`: the subject area for topics and scripts.
+- `niche`: the subject area for topics and scripts. The default matches the Tech Buzz Daily channel description: beginner tech tips, useful apps/tools, phone and PC tricks, productivity, and practical automation.
 - `review_mode: true`: generates into `pending/<id>/` without uploading. Set to `false` for automatic uploads.
 - `privacy_status: public`: generated uploads are public. Use `private` or `unlisted` if you prefer.
 - `voice.voices`: Edge TTS voices are selected in rotation.

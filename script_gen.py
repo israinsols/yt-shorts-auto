@@ -69,11 +69,13 @@ def generate_topic(
     for _ in range(3):
         result = _generate_json(
             "Choose one specific, practical topic for a 20-25 second beginner YouTube Short "
-            f"in this niche: {niche!r}. Strongly prefer a named AI tool or open-source model "
-            "that viewers can try in a web browser using a genuinely available free demo or "
-            "free tier. Focus on one useful result a beginner can get quickly and that can "
-            "be illustrated with specific footage. Avoid vague AI news, broad tool lists, "
-            "unsupported 'free/unlimited' claims, and tools whose free access is unclear. "
+            f"for the channel niche: {niche!r}. Rotate naturally across quick tech tips, "
+            "useful apps and tools, phone and PC tricks, productivity hacks, and practical "
+            "automation ideas; AI tools are welcome but must not dominate every topic. "
+            "Focus on one useful result a beginner can get quickly and that can be illustrated "
+            "with specific footage. Prefer familiar, accessible tools and accurate steps. "
+            "Avoid vague tech news, broad tool lists, unsupported 'free/unlimited' claims, "
+            "and tools whose availability or features are unclear. "
             "Do not repeat or closely rephrase any prior topic. "
             f"{performance_guidance}"
             f"Prior topics (avoid all): {history}. Return only JSON {{\"topic\":\"...\"}}.",

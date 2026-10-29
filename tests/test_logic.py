@@ -30,14 +30,16 @@ class TopicAndFormatTests(unittest.TestCase):
         config = {"niche": "science", "gemini": {"model": "test"}}
         with (
             patch.object(script_gen, "require_api_key", return_value="test-key"),
-            patch.object(
-                script_gen,
-                "_generate_json",
-                side_effect=[{"topic": "Known Topic!"}, {"topic": "A different discovery"}],
-            ),
+            patch.object(script_gen, "_generate_json", side_effect=[
+                {"topic": "Known Topic!"},
+                {"topic": "A different discovery"},
+            ]) as generate_json,
         ):
             topic = script_gen.generate_topic(config, ["Known Topic"])
         self.assertEqual(topic, "A different discovery")
+        prompt = generate_json.call_args.args[0]
+        self.assertIn("phone and PC tricks", prompt)
+        self.assertIn("must not dominate every topic", prompt)
 
     def test_topic_generation_uses_performance_insights(self):
         response = {"topic": "A fresh browser AI demo"}
