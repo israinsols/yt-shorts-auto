@@ -230,5 +230,38 @@
     "created_at": "2026-10-28T19:46:16.379209+00:00",
     "status": "uploaded",
     "youtube_video_id": "7hdHwF68k5s"
+  },
+  {
+    "id": "20261029T083054Z-2396ce71",
+    "topic": "How to use Raycast to instantly launch apps, manage snippets, and run developer tools with a single keystroke for free.",
+    "title": "Raycast Tutorial: Launch Apps and Snippets Fast",
+    "description": "Learn how to use Raycast to instantly launch apps, manage text snippets, and run developer tools for free.",
+    "tags": [
+      "Raycast tutorial",
+      "developer tools for beginners",
+      "coding tricks",
+      "productivity apps",
+      "Mac launcher"
+    ],
+    "script": "Stop wasting time clicking through menus. Here are the top three ways Raycast upgrades your workflow for free. First, press option space to instantly launch any app or file without touching your mouse. Second, save repetitive code blocks and email replies as snippets and insert them anywhere using a custom shortcut. Third, run powerful developer tools like GitHub PR trackers and window management commands directly from the same search bar. It replaces a dozen separate background apps while keeping your entire desktop lightning fast.",
+    "keywords": [
+      "Mac desktop opening Raycast search bar",
+      "typing shortcut to paste code snippet",
+      "GitHub pull request list inside Raycast",
+      "closing multiple app windows instantly"
+    ],
+    "hook_style": "top_3",
+    "voice": "en-GB-RyanNeural",
+    "clip_ids": [
+      4167404,
+      7989667,
+      7448471,
+      38410501
+    ],
+    "video_path": "output/20261029T083054Z-2396ce71/final.mp4",
+    "duration_seconds": 34.82,
+    "created_at": "2026-10-29T08:33:44.357207+00:00",
+    "status": "uploaded",
+    "youtube_video_id": "j5FuuOiz7Uw"
   }
 ]
