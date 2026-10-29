@@ -299,5 +299,40 @@
     "youtube_video_id": "6gUYrFOVGRk",
     "thumbnail_path": "output\\20261029T094404Z-8034894b\\thumbnail.jpg",
     "thumbnail_status": "uploaded"
+  },
+  {
+    "id": "20261029T125929Z-142ebb56",
+    "topic": "How to use ElevenLabs to instantly generate hyper-realistic voiceovers from text for free right in your browser.",
+    "title": "ElevenLabs Free AI Voice Generator Tutorial for Beginners",
+    "description": "Learn how to use ElevenLabs to instantly generate hyper-realistic voiceovers from text for free right in your browser.",
+    "tags": [
+      "ElevenLabs",
+      "free AI voice generator",
+      "text to speech",
+      "AI voiceover",
+      "beginner AI tutorial"
+    ],
+    "script": "Want to generate hyper-realistic voiceovers from text for free right in your browser? Simply go to the ElevenLabs website, paste your written script into the text box, and click the generate button. Instantly, you get studio-quality audio to download and use in your video projects.",
+    "keywords": [
+      "ElevenLabs website homepage on screen",
+      "pasting text into the generator box",
+      "clicking the blue generate button",
+      "downloading the finished audio file"
+    ],
+    "hook_style": "question",
+    "voice": "en-US-GuyNeural",
+    "clip_ids": [
+      3626151,
+      4554456,
+      37287054,
+      12330877
+    ],
+    "video_path": "output\\20261029T125929Z-142ebb56\\final.mp4",
+    "thumbnail_path": "output\\20261029T125929Z-142ebb56\\thumbnail.jpg",
+    "duration_seconds": 21.02,
+    "created_at": "2026-10-29T13:11:51.678555+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "HFo3OZy2qm4"
   }
 ]
