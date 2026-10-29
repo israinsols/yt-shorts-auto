@@ -20,8 +20,8 @@ video:
   width: 1080
   height: 1920
   fps: 30
-  minimum_seconds: 30
-  maximum_seconds: 45
+  minimum_seconds: 20
+  maximum_seconds: 25
   caption_font_size: 72
 
 music:

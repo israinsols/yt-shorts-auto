@@ -93,13 +93,13 @@ def generate_script(
         "takeaway and includes the main search phrase once. Provide 5-8 specific, relevant "
         "YouTube search tags including the tool/topic name, beginner intent, and closely "
         "related terms; do not include hashtag symbols in tags. Avoid keyword stuffing. "
-        f"Use this hook style exactly: {preferred_hook_style}. Vary between myth-versus-fact, "
-        "surprising fact, top-three list, mini-story, and question hook across videos. "
-        "Script must be 75-100 spoken words, take about 30-45 seconds, start "
-        "with the concrete result or benefit in the first sentence. For tool tutorials, "
-        "name the exact tool, give 2-3 concise steps in the order a beginner would follow, "
-        "and explain the result viewers should see. Include one genuinely useful detail; "
-        "avoid long setup, generic filler, unsupported pricing/feature claims, and calls "
+        "Use this hook style as a guide, but prioritize an immediate result-first opening "
+        "over a slow setup or abstract question. The first spoken sentence must state or "
+        "show the specific outcome. Script must be 45-60 spoken words and take about "
+        "20-25 seconds. For tool tutorials, name the exact tool, give at most 2-3 concise "
+        "steps in the order a beginner would follow, and end with the visible result. "
+        "Keep only information needed to achieve that one result; cut greetings, repeated "
+        "claims, long setup, generic filler, unsupported pricing/feature claims, and calls "
         "to subscribe. "
         "Make it sound natural when spoken aloud. Do not include stage directions.",
         config,
@@ -132,8 +132,9 @@ def generate_script(
     if len(result["tags"]) > 8 or sum(len(tag) for tag in result["tags"]) > 500:
         raise RuntimeError("Gemini script tags must fit YouTube's eight-tag, 500-character limit.")
     word_count = len(result["script"].split())
-    if not 75 <= word_count <= 100:
+    if not 45 <= word_count <= 60:
         raise RuntimeError(
-            f"Gemini script has {word_count} words; expected 75-100. Regenerate the script."
+            f"Gemini script has {word_count} words; expected 45-60 for a 20-25 second Short. "
+            "Regenerate the script."
         )
     return result

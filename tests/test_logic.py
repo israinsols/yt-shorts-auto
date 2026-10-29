@@ -35,6 +35,37 @@ class TopicAndFormatTests(unittest.TestCase):
             topic = script_gen.generate_topic(config, ["Known Topic"])
         self.assertEqual(topic, "A different discovery")
 
+    def test_script_generation_enforces_short_word_count(self):
+        script = (
+            "Turn a sketch into a working page with Excalidraw. Open the canvas, draw a "
+            "simple layout, then use the export option to get a starting point for your "
+            "code. Keep the drawing clear and label the main sections. You can refine the "
+            "result in your editor. Check which export features are currently available "
+            "before relying on them."
+        )
+        response = {
+            "title": "Excalidraw to Code",
+            "description": "A quick Excalidraw demo.",
+            "tags": ["Excalidraw", "beginner coding", "AI tools"],
+            "script": script,
+            "keywords": ["draw layout", "canvas", "code editor", "web page"],
+            "hook_style": "question",
+        }
+        config = {"niche": "AI tools", "gemini": {"api_key_env": "TEST_KEY"}}
+        with (
+            patch.object(script_gen, "require_api_key", return_value="key"),
+            patch.object(script_gen, "_generate_json", return_value=response),
+        ):
+            generated = script_gen.generate_script("Excalidraw demo", config, "question")
+        self.assertEqual(generated["script"], script)
+        response["script"] = " ".join(["word"] * 61)
+        with (
+            patch.object(script_gen, "require_api_key", return_value="key"),
+            patch.object(script_gen, "_generate_json", return_value=response),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "expected 45-60"):
+                script_gen.generate_script("Excalidraw demo", config, "question")
+
     def test_hook_style_rotation_advances_and_wraps(self):
         self.assertEqual(main._next_hook_style([]), "myth_vs_fact")
         self.assertEqual(

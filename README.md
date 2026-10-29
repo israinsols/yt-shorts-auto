@@ -51,9 +51,9 @@ Edit `config.yaml`:
 - `voice.voices`: Edge TTS voices are selected in rotation.
 - `music.enabled`: set `false` to disable local music. Otherwise, add royalty-free audio you are permitted to use to `music/`; its volume defaults to 10%.
 
-The output is 1080x1920 at 30 fps. The script is requested at 75-100 spoken words and the generated narration is checked to be 30-45 seconds; out-of-range narration stops with an actionable error rather than producing an invalid Short.
+The output is 1080x1920 at 30 fps. Scripts target 45-60 spoken words and 20-25 seconds, starting with the specific result in the opening line. Narration outside the configured duration stops with an actionable error if it cannot be corrected naturally.
 
-Titles and descriptions are generated around each video's actual topic, search phrases, and beginner takeaway. Uploads include up to three relevant description hashtags, including `#Shorts`; on-screen captions display in short, readable phrase cards rather than flashing one word at a time.
+Titles and descriptions are generated around each video's actual topic, search phrases, and beginner takeaway. Uploads include up to three relevant description hashtags, including `#Shorts`; on-screen captions display in short, readable phrase cards rather than flashing one word at a time. Tool-demo scripts lead with the outcome and keep to one tool and one result.
 
 ## 5. Google Cloud OAuth setup (uploads only)
 
