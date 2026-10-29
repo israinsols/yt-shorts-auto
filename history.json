@@ -334,5 +334,41 @@
     "status": "uploaded",
     "thumbnail_status": "uploaded",
     "youtube_video_id": "HFo3OZy2qm4"
+  },
+  {
+    "id": "20261029T194559Z-28a72fca",
+    "topic": "How to use Windows PowerToys Text Extractor to instantly copy unselectable text from images, videos, or PDFs for free using a simple keyboard shortcut.",
+    "title": "Windows PowerToys Text Extractor: Copy Unselectable Text Instantly",
+    "description": "Learn how to use Windows PowerToys Text Extractor to easily copy unselectable text from images, videos, and PDFs for free.",
+    "tags": [
+      "Windows PowerToys Text Extractor",
+      "copy unselectable text",
+      "extract text from image",
+      "PC productivity hacks",
+      "useful Windows tools",
+      "beginner tech tips"
+    ],
+    "script": "You can instantly copy unselectable text from any image, video, or PDF on your PC for free. First, download the free Microsoft PowerToys app and enable Text Extractor. Next, press Windows plus Shift plus T. Finally, drag a box over any text on your screen, and it is automatically copied to your clipboard.",
+    "keywords": [
+      "Unselectable text on a computer screen",
+      "Microsoft PowerToys settings menu",
+      "Hands pressing keyboard shortcut keys",
+      "Highlighting text box over image"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "en-GB-SoniaNeural",
+    "clip_ids": [
+      34771082,
+      13441336,
+      8128023,
+      6650932
+    ],
+    "video_path": "output/20261029T194559Z-28a72fca/final.mp4",
+    "thumbnail_path": "output/20261029T194559Z-28a72fca/thumbnail.jpg",
+    "duration_seconds": 22.22,
+    "created_at": "2026-10-29T19:48:57.081029+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "TaliGoRmh_4"
   }
 ]
