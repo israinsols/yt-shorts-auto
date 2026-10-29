@@ -76,7 +76,7 @@ def generate_script(
     api_key = require_api_key(config, "gemini")
     if preferred_hook_style not in HOOK_STYLES:
         raise RuntimeError(f"Unsupported preferred hook style: {preferred_hook_style!r}.")
-    result = _generate_json(
+    prompt = (
         "Write an original, factual YouTube Short script about this topic: "
         f"{topic!r}. Niche: {config.get('niche', '')!r}. Return only a JSON object with "
         "exactly these fields: title (string), description (string), tags (array of 3-8 "
@@ -92,7 +92,8 @@ def generate_script(
         "takeaway and includes the main search phrase once. Provide 5-8 specific, relevant "
         "YouTube search tags including the tool/topic name, beginner intent, and closely "
         "related terms; do not include hashtag symbols in tags. Avoid keyword stuffing. "
-        "Use this hook style as a guide, but prioritize an immediate result-first opening "
+        f"The required hook_style value is exactly {preferred_hook_style!r}; set it to "
+        "that exact value, not another style. Prioritize an immediate result-first opening "
         "over a slow setup or abstract question. The first spoken sentence must state or "
         "show the specific outcome. Script must be 45-60 spoken words and take about "
         "20-25 seconds. For tool tutorials, name the exact tool, give at most 2-3 concise "
@@ -100,10 +101,33 @@ def generate_script(
         "Keep only information needed to achieve that one result; cut greetings, repeated "
         "claims, long setup, generic filler, unsupported pricing/feature claims, and calls "
         "to subscribe. "
-        "Make it sound natural when spoken aloud. Do not include stage directions.",
-        config,
-        api_key,
+        "Make it sound natural when spoken aloud. Do not include stage directions."
     )
+    for attempt in range(3):
+        result = _generate_json(prompt, config, api_key)
+        if not isinstance(result, dict):
+            break
+        corrections = []
+        script = result.get("script")
+        if isinstance(script, str):
+            word_count = len(script.split())
+            if not 45 <= word_count <= 60:
+                corrections.append(
+                    f"the script had {word_count} words, but must have 45-60"
+                )
+        hook_style = result.get("hook_style")
+        if isinstance(hook_style, str) and hook_style in HOOK_STYLES:
+            if hook_style != preferred_hook_style:
+                corrections.append(
+                    f"hook_style was {hook_style!r}, but must be {preferred_hook_style!r}"
+                )
+        if not corrections or attempt == 2:
+            break
+        prompt += (
+            "\nCorrection: The previous draft did not meet these requirements: "
+            + "; ".join(corrections)
+            + ". Rewrite it to satisfy them exactly."
+        )
     if not isinstance(result, dict):
         raise RuntimeError("Gemini returned a script that is not a JSON object.")
     required = {"title", "description", "tags", "script", "keywords", "hook_style"}

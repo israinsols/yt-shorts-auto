@@ -54,10 +54,14 @@ class TopicAndFormatTests(unittest.TestCase):
         config = {"niche": "AI tools", "gemini": {"api_key_env": "TEST_KEY"}}
         with (
             patch.object(script_gen, "require_api_key", return_value="key"),
-            patch.object(script_gen, "_generate_json", return_value=response),
+            patch.object(script_gen, "_generate_json", return_value=response) as generate_json,
         ):
             generated = script_gen.generate_script("Excalidraw demo", config, "question")
         self.assertEqual(generated["script"], script)
+        self.assertIn(
+            "required hook_style value is exactly 'question'",
+            generate_json.call_args.args[0],
+        )
         response["script"] = " ".join(["word"] * 61)
         with (
             patch.object(script_gen, "require_api_key", return_value="key"),
@@ -65,6 +69,35 @@ class TopicAndFormatTests(unittest.TestCase):
         ):
             with self.assertRaisesRegex(RuntimeError, "expected 45-60"):
                 script_gen.generate_script("Excalidraw demo", config, "question")
+
+    def test_script_generation_retries_hook_style_mismatch(self):
+        response = {
+            "title": "Excalidraw to Code",
+            "description": "A quick Excalidraw demo.",
+            "tags": ["Excalidraw", "beginner coding", "AI tools"],
+            "script": (
+                "Turn a sketch into a working page with Excalidraw. Open the canvas, draw a "
+                "simple layout, then use the export option to get a starting point for your "
+                "code. Keep the drawing clear and label the main sections. You can refine the "
+                "result in your editor. Check which export features are currently available "
+                "before relying on them."
+            ),
+            "keywords": ["draw layout", "canvas", "code editor", "web page"],
+            "hook_style": "story",
+        }
+        config = {"niche": "AI tools", "gemini": {"api_key_env": "TEST_KEY"}}
+        with (
+            patch.object(script_gen, "require_api_key", return_value="key"),
+            patch.object(
+                script_gen,
+                "_generate_json",
+                side_effect=[{**response, "hook_style": "question"}, response],
+            ) as generate_json,
+        ):
+            generated = script_gen.generate_script("Excalidraw demo", config, "story")
+        self.assertEqual(generated["hook_style"], "story")
+        self.assertEqual(generate_json.call_count, 2)
+        self.assertIn("must be 'story'", generate_json.call_args.args[0])
 
     def test_hook_style_rotation_advances_and_wraps(self):
         self.assertEqual(main._next_hook_style([]), "myth_vs_fact")

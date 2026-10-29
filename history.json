@@ -263,5 +263,39 @@
     "created_at": "2026-10-29T08:33:44.357207+00:00",
     "status": "uploaded",
     "youtube_video_id": "j5FuuOiz7Uw"
+  },
+  {
+    "id": "20261029T094404Z-8034894b",
+    "topic": "How to use Civitai to instantly generate stunning AI images using free web-based generators without installing local software.",
+    "title": "Civitai Tutorial: Generate Stunning AI Images Free Online",
+    "description": "Learn how to use Civitai to instantly generate stunning AI images using free web-based generators without installing local software.",
+    "tags": [
+      "Civitai",
+      "free AI image generator",
+      "Civitai tutorial",
+      "AI art for beginners",
+      "browser AI generator",
+      "open source AI models"
+    ],
+    "script": "You can generate stunning AI art for free directly in your browser without any local software. First, open Civitai dot com and pick a community model you like. Second, click generate on the image page to load it into a free web generator. Finally, type your prompt and hit run to get your result instantly.",
+    "keywords": [
+      "Civitai website homepage displayed on screen",
+      "clicking the generate button on a model page",
+      "typing a prompt into the online generator box",
+      "stunning AI generated image appearing on screen"
+    ],
+    "hook_style": "story",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      5083552,
+      36460762,
+      34771072,
+      7859800
+    ],
+    "video_path": "output\\20261029T094404Z-8034894b\\final.mp4",
+    "duration_seconds": 21.17,
+    "created_at": "2026-10-29T09:55:55.301738+00:00",
+    "status": "uploaded",
+    "youtube_video_id": "6gUYrFOVGRk"
   }
 ]
