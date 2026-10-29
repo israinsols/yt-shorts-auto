@@ -184,9 +184,22 @@ def create_thumbnail(video_path: Path, title: str, output_path: Path) -> None:
     gradient.putalpha(alpha)
     canvas.alpha_composite(gradient, (0, 0))
     draw = ImageDraw.Draw(canvas)
-    badge_font = _caption_font(38)
-    draw.rounded_rectangle((64, 82, 454, 158), radius=30, fill=(67, 211, 255, 255))
-    draw.text((88, 98), "FREE AI TOOL  |  QUICK DEMO", font=badge_font, fill=(5, 23, 39, 255))
+    badge_label = "FREE AI TOOL  |  QUICK DEMO"
+    badge_font = _caption_font(30)
+    badge_bounds = draw.textbbox((0, 0), badge_label, font=badge_font)
+    badge_width = badge_bounds[2] - badge_bounds[0] + 48
+    badge_height = badge_bounds[3] - badge_bounds[1] + 32
+    draw.rounded_rectangle(
+        (64, 82, 64 + badge_width, 82 + badge_height),
+        radius=24,
+        fill=(67, 211, 255, 255),
+    )
+    draw.text(
+        (88, 98 - badge_bounds[1]),
+        badge_label,
+        font=badge_font,
+        fill=(5, 23, 39, 255),
+    )
 
     clean_title = title.removesuffix(" #Shorts").strip()
     font_size = 100
