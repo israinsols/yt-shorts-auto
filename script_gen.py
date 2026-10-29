@@ -46,8 +46,14 @@ def generate_topic(config: dict[str, Any], previous_topics: list[str]) -> str:
     history = json.dumps(previous_topics, ensure_ascii=False)
     for _ in range(3):
         result = _generate_json(
-            "Choose one specific, interesting, verifiable topic for a YouTube Short in this "
-            f"niche: {niche!r}. Do not repeat or closely rephrase any prior topic. "
+            "Choose one specific, practical, verifiable topic for a YouTube Short in this "
+            f"niche: {niche!r}. Strongly prefer a named AI tool or open-source model that "
+            "viewers can try in a web browser using a genuinely available free demo or free "
+            "tier. Focus on one surprising, useful result a beginner can get quickly, such "
+            "as generating an image, trying a model, building a small app, or transforming "
+            "an input. Prefer topics that can be demonstrated in a clear, short sequence. "
+            "Avoid vague AI news, broad tool lists, unsupported 'free/unlimited' claims, "
+            "and tools whose free access is unclear. Do not repeat or closely rephrase any prior topic. "
             f"Prior topics (avoid all): {history}. Return only JSON {{\"topic\":\"...\"}}.",
             config,
             api_key,
@@ -90,8 +96,11 @@ def generate_script(
         f"Use this hook style exactly: {preferred_hook_style}. Vary between myth-versus-fact, "
         "surprising fact, top-three list, mini-story, and question hook across videos. "
         "Script must be 75-100 spoken words, take about 30-45 seconds, start "
-        "with a strong hook, include one specific and genuinely useful/novel insight or "
-        "example, and avoid generic filler, unsupported claims, and calls to subscribe. "
+        "with the concrete result or benefit in the first sentence. For tool tutorials, "
+        "name the exact tool, give 2-3 concise steps in the order a beginner would follow, "
+        "and explain the result viewers should see. Include one genuinely useful detail; "
+        "avoid long setup, generic filler, unsupported pricing/feature claims, and calls "
+        "to subscribe. "
         "Make it sound natural when spoken aloud. Do not include stage directions.",
         config,
         api_key,
