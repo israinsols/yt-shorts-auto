@@ -370,5 +370,40 @@
     "status": "uploaded",
     "thumbnail_status": "uploaded",
     "youtube_video_id": "TaliGoRmh_4"
+  },
+  {
+    "id": "20261030T193457Z-b08bfd21",
+    "topic": "How to use Windows PowerToys Always on Top to pin any app window above all others using a quick keyboard shortcut.",
+    "title": "Windows PowerToys Always on Top: Pin Any Window Instantly",
+    "description": "Learn how to use Windows PowerToys Always on Top to pin any app window above all others using a quick keyboard shortcut.",
+    "tags": [
+      "Windows PowerToys Always on Top",
+      "pin window on top",
+      "Windows 11 productivity",
+      "useful PC apps",
+      "beginner tech tips"
+    ],
+    "script": "Did you know you can pin any app window above all others on your Windows PC instantly? Just open the free Microsoft tool called Windows PowerToys and enable Always on Top. Now, click the window you want to keep visible and press Windows Key plus Control plus T. You will see a blue border appear, locking that app in place.",
+    "keywords": [
+      "desktop with overlapping application windows",
+      "Windows PowerToys settings menu open on screen",
+      "hands pressing Windows Control T on a keyboard",
+      "desktop showing app window with a blue border"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "en-GB-RyanNeural",
+    "clip_ids": [
+      7279193,
+      36460573,
+      7660185,
+      39500868
+    ],
+    "video_path": "output/20261030T193457Z-b08bfd21/final.mp4",
+    "thumbnail_path": "output/20261030T193457Z-b08bfd21/thumbnail.jpg",
+    "duration_seconds": 20.88,
+    "created_at": "2026-10-30T19:36:38.605134+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "jePof94kz3Y"
   }
 ]
