@@ -405,5 +405,41 @@
     "status": "uploaded",
     "thumbnail_status": "uploaded",
     "youtube_video_id": "jePof94kz3Y"
+  },
+  {
+    "id": "20261031T184109Z-5b9e24f5",
+    "topic": "How to use Windows PowerToys FancyZones to create custom window layouts and snap apps perfectly on your screen with a simple shortcut.",
+    "title": "Windows PowerToys FancyZones: Custom Window Layouts Guide",
+    "description": "Learn how to use Windows PowerToys FancyZones to create custom window layouts and snap your apps perfectly in seconds.",
+    "tags": [
+      "Windows PowerToys FancyZones",
+      "custom window layouts",
+      "snap apps Windows",
+      "productivity hacks",
+      "PC tricks for beginners",
+      "multitasking tools"
+    ],
+    "script": "Snap your windows into custom layouts instantly using Windows PowerToys FancyZones. First, open PowerToys and enable FancyZones in the settings menu. Next, press Win and backtick to open the editor and design your grid. Finally, hold shift while dragging any app window into your newly created zone to snap it perfectly.",
+    "keywords": [
+      "Windows PowerToys settings menu showing FancyZones toggle",
+      "FancyZones grid editor open on computer screen",
+      "mouse dragging app window across desktop grid",
+      "app snapping perfectly into custom zone on monitor"
+    ],
+    "hook_style": "top_3",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      1858094,
+      29380116,
+      29247789,
+      34453413
+    ],
+    "video_path": "output/20261031T184109Z-5b9e24f5/final.mp4",
+    "thumbnail_path": "output/20261031T184109Z-5b9e24f5/thumbnail.jpg",
+    "duration_seconds": 22.46,
+    "created_at": "2026-10-31T18:42:15.825343+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "Tyefix6LUj0"
   }
 ]
