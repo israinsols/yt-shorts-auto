@@ -15,15 +15,17 @@ import yaml
 PROJECT_DIR = Path(__file__).resolve().parent
 
 
-def load_config() -> dict[str, Any]:
-    config_path = PROJECT_DIR / "config.yaml"
+def load_config(config_path: str | Path | None = None) -> dict[str, Any]:
+    path = Path(config_path) if config_path is not None else Path("config.yaml")
+    if not path.is_absolute():
+        path = PROJECT_DIR / path
     try:
-        with config_path.open("r", encoding="utf-8") as handle:
+        with path.open("r", encoding="utf-8") as handle:
             config = yaml.safe_load(handle)
     except OSError as exc:
-        raise RuntimeError(f"Could not read {config_path}: {exc}") from exc
+        raise RuntimeError(f"Could not read {path}: {exc}") from exc
     if not isinstance(config, dict):
-        raise RuntimeError(f"{config_path} must contain a YAML mapping.")
+        raise RuntimeError(f"{path} must contain a YAML mapping.")
     return config
 
 

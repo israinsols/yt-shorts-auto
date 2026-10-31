@@ -1,0 +1,42 @@
+niche: "Pakistan ke regional foods, local ingredients, khanay ki riwayat, aur dishes ke peeche ki verified kahaniyan"
+content_language: "Roman Urdu"
+expected_channel_name: "Zaiqa Ki Kahani"
+analytics_enabled: false
+
+gemini:
+  model: "gemini-3.5-flash-lite"
+  api_key_env: "GEMINI_API_KEY"
+
+pexels:
+  api_key_env: "PEXELS_API_KEY"
+  clip_count: 4
+
+voice:
+  voices:
+    - "ur-PK-UzmaNeural"
+    - "ur-PK-AsadNeural"
+  rate: "+0%"
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  minimum_seconds: 20
+  maximum_seconds: 25
+  caption_font_size: 72
+
+music:
+  enabled: true
+  folder: "music"
+  volume: 0.10
+
+review_mode: false
+privacy_status: "public"
+daily_upload_limit: 1
+category_id: "22"
+oauth_client_secrets: "credentials/client_secret.json"
+token_file: "credentials/zaiqa_token.json"
+state_folder: "state/zaiqa"
+log_file: "runs_zaiqa.log"
+output_folder: "output/zaiqa"
+pending_folder: "pending/zaiqa"

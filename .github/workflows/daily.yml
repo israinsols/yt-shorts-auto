@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: daily-youtube-short
+  group: shorts-state-persistence
   cancel-in-progress: false
 
 jobs:

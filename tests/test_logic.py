@@ -12,12 +12,13 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import analytics
+import authorize_channel
 import main
 import footage
 import script_gen
 import uploader
 import video
-from utils import normalized_topic, read_json, write_json
+from utils import PROJECT_DIR, load_config, normalized_topic, read_json, write_json
 from video import _caption_clips, _fit_clip, _scene_durations, create_thumbnail
 from voice import _tempo_adjustment
 
@@ -62,6 +63,73 @@ class TopicAndFormatTests(unittest.TestCase):
         self.assertIn("Run Any AI Model in Your Browser", prompt)
         self.assertNotIn("45.6", prompt)
         self.assertIn("do not copy", prompt)
+
+    def test_food_profile_generates_roman_urdu_food_topics(self):
+        response = {"topic": "Peshawar ke chapli kebab ki kahani"}
+        config = {
+            "niche": "Pakistan regional food stories",
+            "content_language": "Roman Urdu",
+            "gemini": {"model": "test"},
+        }
+        with (
+            patch.object(script_gen, "require_api_key", return_value="key"),
+            patch.object(script_gen, "_generate_json", return_value=response) as generate_json,
+        ):
+            topic = script_gen.generate_topic(config, [])
+        self.assertEqual(topic, response["topic"])
+        prompt = generate_json.call_args.args[0]
+        self.assertIn("region-specific food", prompt)
+        self.assertIn("Roman Urdu", prompt)
+        self.assertNotIn("phone and PC tricks", prompt)
+
+    def test_channel_profile_has_isolated_state_and_oauth_paths(self):
+        config = load_config("config_zaiqa.yaml")
+        self.assertEqual(
+            main._state_path("history.json", config),
+            PROJECT_DIR / "state" / "zaiqa" / "history.json",
+        )
+        self.assertEqual(main._state_path("history.json"), PROJECT_DIR / "history.json")
+        self.assertEqual(config["token_file"], "credentials/zaiqa_token.json")
+        self.assertFalse(config["analytics_enabled"])
+
+    def test_channel_authorization_rejects_the_wrong_channel(self):
+        class FakeRequest:
+            def execute(self):
+                return {
+                    "items": [
+                        {
+                            "id": "tech-channel-id",
+                            "snippet": {"title": "Tech Buzz Daily"},
+                        }
+                    ]
+                }
+
+        class FakeChannels:
+            def list(self, **kwargs):
+                self.request_args = kwargs
+                return FakeRequest()
+
+        class FakeYouTube:
+            def __init__(self):
+                self.channel_api = FakeChannels()
+
+            def channels(self):
+                return self.channel_api
+
+        youtube = FakeYouTube()
+        with (
+            patch.object(authorize_channel, "load_dotenv"),
+            patch.object(
+                authorize_channel,
+                "load_config",
+                return_value={"expected_channel_name": "Zaiqa Ki Kahani"},
+            ),
+            patch.object(authorize_channel, "_credentials", return_value=object()),
+            patch.object(authorize_channel, "build", return_value=youtube),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "expects 'Zaiqa Ki Kahani'"):
+                authorize_channel.authorize("config_zaiqa.yaml")
+        self.assertTrue(youtube.channel_api.request_args["mine"])
 
     def test_analytics_returns_recent_metrics_for_uploaded_videos_only(self):
         class FakeRequest:
@@ -166,6 +234,38 @@ class TopicAndFormatTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "expected 45-60"):
                 script_gen.generate_script("Excalidraw demo", config, "question")
 
+    def test_roman_urdu_script_uses_urdu_voiceover_text(self):
+        roman_script = (
+            "Peshawar ka chapli kebab apne masalay daar zaiqay ke liye mashhoor hai. "
+            "Qeema, hara dhania, piyaz aur khushk anar dana milakar iska khaas mixture "
+            "tayyar hota hai. Phir ise chapti tikki ki shakal de kar taway par pakaya "
+            "jata hai. Iska naam chapli, yani chapta, iski isi shakal ki taraf ishara karta hai."
+        )
+        narration_script = " ".join(["یہ پشاوری کھانا بہت مشہور ہے۔"] * 10)
+        response = {
+            "title": "Peshawar Chapli Kebab Ki Kahani",
+            "description": "Peshawar ke chapli kebab ki kahani aur zaiqa.",
+            "tags": ["Peshawar food", "chapli kebab", "Pakistani food"],
+            "script": roman_script,
+            "narration_script": narration_script,
+            "keywords": ["chapli kebab cooking", "minced meat spices", "kebab patty frying", "Peshawar food"],
+            "hook_style": "story",
+        }
+        config = {
+            "niche": "Pakistan regional food",
+            "content_language": "Roman Urdu",
+            "gemini": {"api_key_env": "TEST_KEY"},
+        }
+        with (
+            patch.object(script_gen, "require_api_key", return_value="key"),
+            patch.object(script_gen, "_generate_json", return_value=response) as generate_json,
+        ):
+            generated = script_gen.generate_script("Chapli kebab story", config, "story")
+        prompt = generate_json.call_args.args[0]
+        self.assertIn("natural, easy Roman Urdu", prompt)
+        self.assertIn("narration_script", prompt)
+        self.assertEqual(generated["narration_script"], narration_script)
+
     def test_script_generation_retries_hook_style_mismatch(self):
         response = {
             "title": "Excalidraw to Code",
@@ -214,7 +314,11 @@ class TopicAndFormatTests(unittest.TestCase):
                 patch.object(main, "load_dotenv"),
                 patch.object(main, "load_config", return_value=config),
                 patch.object(main, "require_api_key", return_value="test-key"),
-                patch.object(main, "_state_path", side_effect=lambda name: state_dir / name),
+                patch.object(
+                    main,
+                    "_state_path",
+                    side_effect=lambda name, config=None: state_dir / name,
+                ),
                 patch.object(main, "generate_topic", return_value="Retry this topic"),
                 patch.object(
                     main,

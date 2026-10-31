@@ -46,6 +46,25 @@ def generate_topic(
     niche = str(config.get("niche", "")).strip()
     if not niche:
         raise RuntimeError("Set a non-empty niche in config.yaml.")
+    content_language = str(config.get("content_language", "English")).strip()
+    if content_language.casefold() == "roman urdu":
+        topic_guidance = (
+            "Focus on one interesting, region-specific food, ingredient, cooking tradition, "
+            "or verified story from Pakistan that can be illustrated with specific footage. "
+            "Prefer lesser-known regional dishes over generic food facts. Avoid inventing "
+            "origins, health claims, or historical details; choose a topic with facts that "
+            "can be reliably verified. "
+        )
+    else:
+        topic_guidance = (
+            "Rotate naturally across quick tech tips, useful apps and tools, phone and PC "
+            "tricks, productivity hacks, and practical automation ideas; AI tools are welcome "
+            "but must not dominate every topic. Focus on one useful result a beginner can "
+            "get quickly and that can be illustrated with specific footage. Prefer familiar, "
+            "accessible tools and accurate steps. Avoid vague tech news, broad tool lists, "
+            "unsupported 'free/unlimited' claims, and tools whose availability or features "
+            "are unclear. "
+        )
     previous_set = {normalized_topic(topic) for topic in previous_topics}
     history = json.dumps(previous_topics, ensure_ascii=False)
     insights = performance_insights or []
@@ -69,13 +88,9 @@ def generate_topic(
     for _ in range(3):
         result = _generate_json(
             "Choose one specific, practical topic for a 20-25 second beginner YouTube Short "
-            f"for the channel niche: {niche!r}. Rotate naturally across quick tech tips, "
-            "useful apps and tools, phone and PC tricks, productivity hacks, and practical "
-            "automation ideas; AI tools are welcome but must not dominate every topic. "
-            "Focus on one useful result a beginner can get quickly and that can be illustrated "
-            "with specific footage. Prefer familiar, accessible tools and accurate steps. "
-            "Avoid vague tech news, broad tool lists, unsupported 'free/unlimited' claims, "
-            "and tools whose availability or features are unclear. "
+            f"for the channel niche: {niche!r}. "
+            f"Generate the topic in {content_language} for that speaking audience. "
+            f"{topic_guidance}"
             "Do not repeat or closely rephrase any prior topic. "
             f"{performance_guidance}"
             f"Prior topics (avoid all): {history}. Return only JSON {{\"topic\":\"...\"}}.",
@@ -101,13 +116,35 @@ def generate_script(
     api_key = require_api_key(config, "gemini")
     if preferred_hook_style not in HOOK_STYLES:
         raise RuntimeError(f"Unsupported preferred hook style: {preferred_hook_style!r}.")
+    content_language = str(config.get("content_language", "English")).strip()
+    roman_urdu = content_language.casefold() == "roman urdu"
+    fields = (
+        "title (string), description (string), tags (array of 3-8 strings), "
+        "script (string), keywords (array of exactly 4 concise visual search phrases "
+        "in chronological narration order), hook_style (one of myth_vs_fact, did_you_know, "
+        "top_3, story, question)"
+    )
+    language_instructions = ""
+    if roman_urdu:
+        fields += ", narration_script (string)"
+        language_instructions = (
+            "Write title, description, tags, and the on-screen script in natural, easy "
+            "Roman Urdu using Latin letters; do not use Urdu script. The script must be "
+            "45-60 spoken words. Also provide narration_script with the same meaning and "
+            "sequence in natural Urdu script, suitable for an Urdu voice, in 45-60 words. "
+            "Keep every visual keyword in concise English for stock-footage search. "
+            "Avoid unsupported claims and clearly distinguish local tradition from "
+            "verified historical fact. "
+        )
+    else:
+        language_instructions = (
+            f"Write all viewer-facing text naturally in {content_language}. "
+        )
     prompt = (
         "Write an original, factual YouTube Short script about this topic: "
-        f"{topic!r}. Niche: {config.get('niche', '')!r}. Return only a JSON object with "
-        "exactly these fields: title (string), description (string), tags (array of 3-8 "
-        "strings), script (string), keywords (array of exactly 4 concise visual search "
-        "phrases in chronological narration order), hook_style (one of myth_vs_fact, "
-        "did_you_know, top_3, story, question). Each keyword must describe a distinct, "
+        f"{topic!r}. Niche: {config.get('niche', '')!r}. "
+        f"{language_instructions}Return only a JSON object with exactly these fields: "
+        f"{fields}. Each keyword must describe a distinct, "
         "specific visual for its corresponding consecutive quarter of the script. Use "
         "concrete subjects and actions from the narration; avoid generic browser, laptop, "
         "or typing footage unless that is what the current scene actually describes. "
@@ -158,6 +195,18 @@ def generate_script(
     required = {"title", "description", "tags", "script", "keywords", "hook_style"}
     if not required.issubset(result):
         raise RuntimeError(f"Gemini script JSON is missing fields: {sorted(required - set(result))}.")
+    if roman_urdu and (
+        not isinstance(result.get("narration_script"), str)
+        or not result["narration_script"].strip()
+    ):
+        raise RuntimeError(
+            "Gemini script JSON must contain a non-empty Urdu narration_script for "
+            "the Roman Urdu channel."
+        )
+    if roman_urdu and not 45 <= len(result["narration_script"].split()) <= 60:
+        raise RuntimeError(
+            "Gemini Urdu narration_script must contain 45-60 spoken words."
+        )
     if not all(
         isinstance(result[key], str) and result[key].strip()
         for key in ("title", "description", "script")

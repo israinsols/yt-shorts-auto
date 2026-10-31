@@ -114,7 +114,26 @@ The workflow fetches recent views and average view duration/percentage each run,
 
 The workflow commits topic, voice, history, and quota state so later scheduled runs can avoid repeats and enforce the daily limit. Keep `GITHUB_TOKEN`'s repository contents permission enabled. GitHub Actions has usage limits; check the free allowance for your repository.
 
-## 8. Schedule runs on your own computer instead
+## 8. Add the separate Zaiqa Ki Kahani channel
+
+The `config_zaiqa.yaml` profile and `.github/workflows/zaiqa-daily.yml` workflow keep this channel separate from Tech Buzz Daily. The profile creates Roman Urdu topics, titles, descriptions, tags, and on-screen captions, with Urdu-script narration for the Urdu Edge TTS voices. It has its own OAuth token, topic history, Pexels reuse history, upload quota, logs, and output folder. Its schedule is 15:00 UTC (20:00 Pakistan time); it does not change the original channel's 19:30 schedule.
+
+Before enabling uploads:
+
+1. Create the channel as **Zaiqa Ki Kahani** and make sure its name is visible on the Google account/channel you will authorize.
+2. With the Google OAuth client JSON already saved in `credentials/client_secret.json`, run `python authorize_channel.py`. Sign in with the account for **Zaiqa Ki Kahani** and approve YouTube upload and read-only channel-identity access. The script checks the returned channel name and saves this profile's token to `credentials/zaiqa_token.json`, without modifying `token.json`.
+3. If the verified channel name is correct, store the token as a separate GitHub Actions secret:
+
+   ```powershell
+   gh secret set ZAIQA_YOUTUBE_TOKEN_JSON_B64 --body ([Convert]::ToBase64String([IO.File]::ReadAllBytes("credentials/zaiqa_token.json")))
+   ```
+
+4. Confirm the repository already has `YOUTUBE_OAUTH_CLIENT_JSON_B64`, `GEMINI_API_KEY`, and `PEXELS_API_KEY`. The Zaiqa workflow stays paused until its separate token and OAuth client secrets are available. Then test it from **Actions → Daily Zaiqa Ki Kahani Short → Run workflow**.
+5. The scheduled job generates one public Short per day. Review the run and its `state/zaiqa/` history after the first upload. The standard Tech Buzz Daily workflow and its token/state are unchanged.
+
+This food profile currently leaves analytics feedback disabled, so it does not require the YouTube Analytics API or read-only analytics consent.
+
+## 9. Schedule runs on your own computer instead
 
 On Windows, open **Task Scheduler → Create Basic Task**, choose a daily trigger, and set the action to start a program. Use the full path to this project's `.venv\Scripts\python.exe` for **Program/script**, `main.py` for **Add arguments**, and this project's folder for **Start in**. Leave your API keys in `.env`; do not put them in the task's arguments. Local runs in review mode create pending videos for you to inspect and approve.
 
@@ -128,7 +147,7 @@ Cron uses the machine's local timezone; make sure the `.venv` exists and the pro
 
 ## Files and privacy
 
-- `main.py`, `approve.py`: generation and explicit approval entry points.
+- `main.py`, `approve.py`, `authorize_channel.py`: generation, explicit approval, and separate-channel authorization entry points.
 - `script_gen.py`, `voice.py`, `footage.py`, `video.py`, `uploader.py`: pipeline modules.
 - `config.yaml`: niche, models, voice, review, privacy, and output configuration.
 - `.env`, OAuth files, generated audio/video, and local music are ignored by Git.
