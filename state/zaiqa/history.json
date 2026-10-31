@@ -1,1 +1,40 @@
-[]
+[
+  {
+    "id": "20261031T111254Z-4cc37751",
+    "topic": "Balochistan ki authentic 'Sajji' banane ka asal rowayati tareeqa aur iski nomad (khana badosh) history",
+    "title": "Balochistan Sajji: Asal Rowayati Tareeqa aur Tareekh",
+    "description": "Balochistan ki authentic Sajji banane ka asal rowayati tareeqa aur khana badosh riwayat ki sachchai jaaniye. Yeh choti video aapko is traditional dish ki asal kahani batati hai.",
+    "tags": [
+      "Balochi Sajji",
+      "authentic Sajji recipe",
+      "Balochistan food history",
+      "traditional Pakistani food",
+      "nomadic food culture",
+      "Sajji banane ka tareeqa"
+    ],
+    "script": "Balochi Sajji ka asal rowayati tareeqa yeh hai ke gosht par sirf namak lagakar aag ke gird rakha jata hai. Khana badosh qabeelay safar mein aisi hi asaan tarkeeb istemal karte thay. Kaghzi taur par yeh nomad history se jurra hai, jahan masala nahi sirf khalis gosht pakaya jata tha.",
+    "narration_script": "بلوچی سجی کا اصل روایتی طریقہ یہ ہے کہ گوشت پر صرف نمک لگا کر آگ کے گرد رکھا جاتا ہے۔ خانہ بدوش قبیلے سفر میں ایسی ہی آسان ترکیب استعمال کرتے تھے۔ تاریخی روایات کے مطابق، اس نمدی طرزِ زندگی میں مصالحے کے بغیر خالص گوشت پکایا جاتا تھا۔",
+    "keywords": [
+      "raw lamb meat with salt",
+      "campfire burning outdoors",
+      "meat roasting on wooden skewers",
+      "traditional nomadic landscape"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "ur-PK-UzmaNeural",
+    "clip_ids": [
+      8159294,
+      5916971,
+      15046014,
+      27937932
+    ],
+    "video_path": "output\\zaiqa\\20261031T111254Z-4cc37751\\final.mp4",
+    "thumbnail_path": "output\\zaiqa\\20261031T111254Z-4cc37751\\thumbnail.jpg",
+    "duration_seconds": 21.02,
+    "created_at": "2026-10-31T11:21:16.074876+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "kD87veh4IjM"
+  }
+]
