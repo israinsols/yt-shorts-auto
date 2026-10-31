@@ -90,7 +90,42 @@ class TopicAndFormatTests(unittest.TestCase):
         )
         self.assertEqual(main._state_path("history.json"), PROJECT_DIR / "history.json")
         self.assertEqual(config["token_file"], "credentials/zaiqa_token.json")
+        self.assertEqual(config["token_file_env"], "ZAIQA_YOUTUBE_TOKEN_FILE")
         self.assertFalse(config["analytics_enabled"])
+
+    def test_channel_token_uses_profile_specific_environment_override(self):
+        class FakeCredentials:
+            valid = True
+            expired = False
+            refresh_token = None
+
+        with tempfile.TemporaryDirectory() as directory:
+            zaiqa_path = Path(directory) / "zaiqa-token.json"
+            zaiqa_path.write_text(json.dumps({"scopes": uploader.SCOPES}), encoding="utf-8")
+            config = {
+                "oauth_client_secrets": "unused-client.json",
+                "token_file": "credentials/zaiqa_token.json",
+                "token_file_env": "ZAIQA_YOUTUBE_TOKEN_FILE",
+            }
+            with (
+                patch.dict(
+                    uploader.os.environ,
+                    {
+                        "YOUTUBE_TOKEN_FILE": "token.json",
+                        "ZAIQA_YOUTUBE_TOKEN_FILE": str(zaiqa_path),
+                        "YOUTUBE_INTERACTIVE_LOGIN": "0",
+                    },
+                ),
+                patch.object(
+                    uploader.Credentials,
+                    "from_authorized_user_file",
+                    return_value=FakeCredentials(),
+                ) as read_token,
+            ):
+                credentials = uploader._credentials(config)
+
+        self.assertIsInstance(credentials, FakeCredentials)
+        self.assertEqual(read_token.call_args.args[0], str(zaiqa_path))
 
     def test_channel_authorization_rejects_the_wrong_channel(self):
         class FakeRequest:

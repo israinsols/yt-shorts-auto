@@ -36,6 +36,7 @@ daily_upload_limit: 1
 category_id: "22"
 oauth_client_secrets: "credentials/client_secret.json"
 token_file: "credentials/zaiqa_token.json"
+token_file_env: "ZAIQA_YOUTUBE_TOKEN_FILE"
 state_folder: "state/zaiqa"
 log_file: "runs_zaiqa.log"
 output_folder: "output/zaiqa"

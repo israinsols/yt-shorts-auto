@@ -116,7 +116,7 @@ The workflow commits topic, voice, history, and quota state so later scheduled r
 
 ## 8. Add the separate Zaiqa Ki Kahani channel
 
-The `config_zaiqa.yaml` profile and `.github/workflows/zaiqa-daily.yml` workflow keep this channel separate from Tech Buzz Daily. The profile creates Roman Urdu topics, titles, descriptions, tags, and on-screen captions, with Urdu-script narration for the Urdu Edge TTS voices. It has its own OAuth token, topic history, Pexels reuse history, upload quota, logs, and output folder. Its schedule is 15:00 UTC (20:00 Pakistan time); it does not change the original channel's 19:30 schedule.
+The `config_zaiqa.yaml` profile and `.github/workflows/zaiqa-daily.yml` workflow keep this channel separate from Tech Buzz Daily. The profile creates Roman Urdu topics, titles, descriptions, tags, and on-screen captions, with Urdu-script narration for the Urdu Edge TTS voices. It has its own OAuth token (`ZAIQA_YOUTUBE_TOKEN_FILE`), topic history, Pexels reuse history, upload quota, logs, and output folder. Its schedule is 15:00 UTC (20:00 Pakistan time); it does not change the original channel's 19:30 schedule.
 
 Before enabling uploads:
 

@@ -75,6 +75,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          ZAIQA_YOUTUBE_TOKEN_FILE: credentials/zaiqa_token.json
           YOUTUBE_INTERACTIVE_LOGIN: "0"
         run: python main.py --config config_zaiqa.yaml
 

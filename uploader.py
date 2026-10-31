@@ -140,8 +140,11 @@ def _credentials(
     scopes = required_scopes or SCOPES
     oauth = config.get("oauth_client_secrets", "credentials/client_secret.json")
     token = config.get("token_file", "token.json")
+    token_environment = config.get("token_file_env", "YOUTUBE_TOKEN_FILE")
+    if not isinstance(token_environment, str) or not token_environment.strip():
+        raise RuntimeError("token_file_env must be a non-empty environment variable name.")
     client_path = _configured_path(str(oauth), "YOUTUBE_OAUTH_CLIENT_FILE")
-    token_path = _configured_path(str(token), "YOUTUBE_TOKEN_FILE")
+    token_path = _configured_path(str(token), token_environment)
     credentials: Credentials | None = None
     missing_scopes: set[str] = set()
     if token_path.exists():
