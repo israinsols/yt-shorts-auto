@@ -441,5 +441,39 @@
     "status": "uploaded",
     "thumbnail_status": "uploaded",
     "youtube_video_id": "Tyefix6LUj0"
+  },
+  {
+    "id": "20261101T190327Z-138c0a07",
+    "topic": "How to use Windows PowerToys Quick Accent to easily type special characters and foreign accents using a simple key hold.",
+    "title": "Windows PowerToys Quick Accent: Type Special Characters Easily",
+    "description": "Learn how to use Windows PowerToys Quick Accent to easily type special characters and foreign accents using a simple key hold.",
+    "tags": [
+      "Windows PowerToys Quick Accent",
+      "type special characters",
+      "foreign accents shortcut",
+      "Windows productivity hacks",
+      "beginner tech tips",
+      "useful PC tools"
+    ],
+    "script": "Typing foreign accents without memorizing numeric codes is finally effortless on Windows. First, open Microsoft PowerToys and turn on Quick Accent. Next, hold down the base letter key, like e or a. Finally, press your left or right arrow key to select the exact accent you need, and release.",
+    "keywords": [
+      "Windows PowerToys settings menu showing the Quick Accent toggle switch turned on",
+      "close up of a hand pressing and holding the letter e key on a computer keyboard",
+      "small floating selection menu appearing above the letter showing various accent marks",
+      "computer screen displaying typed accented characters in a text document"
+    ],
+    "hook_style": "story",
+    "voice": "en-US-GuyNeural",
+    "clip_ids": [
+      8678467,
+      5805638,
+      3831742,
+      8480478
+    ],
+    "video_path": "output/20261101T190327Z-138c0a07/final.mp4",
+    "thumbnail_path": "output/20261101T190327Z-138c0a07/thumbnail.jpg",
+    "duration_seconds": 21.02,
+    "created_at": "2026-11-01T19:05:24.628643+00:00",
+    "status": "generated"
   }
 ]
