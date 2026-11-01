@@ -36,5 +36,44 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "kD87veh4IjM"
+  },
+  {
+    "id": "20261101T131157Z-de6b23ea",
+    "topic": "Tharparkar ka roenwala gosht banane ka tareeqa aur iski registani zindagi se jurhi kahani",
+    "title": "Roenwala gosht banane ka tareeqa aur Tharparkar ki kahani",
+    "description": "Jaaniye Tharparkar ke mashhoor roenwala gosht banane ka tareeqa aur iski registani zindagi se jurhi rochak kahani. Yeh riwayati dish local ingredients se tayyar hoti hai.",
+    "tags": [
+      "roenwala gosht",
+      "Tharparkar food",
+      "Pakistani regional foods",
+      "Sindh traditional food",
+      "desi gosht recipe",
+      "registani khanay",
+      "local food history"
+    ],
+    "script": "Did you know Tharparkar ka roenwala gosht registan ki purani riwayat ka hissa hai? Is khane ko bananey ke liye bakray ya oont ke gosht ko desi ghee aur namak ke sath mitti ki handi mein dheemi aanch par pakaya jata hai. Yeh tariqa wahan ke gariro ki purani lifestyle ko represent karta hai.",
+    "narration_script": "کیا آپ جانتے ہیں تھرپارکر کا روئیں والا گوشت ریگستان کی پرانی روایت کا حصہ ہے؟ اس کھانے کو بنانے کے لیے بکرے یا اونٹ کے گوشت کو دیسی گھی اور نمک کے ساتھ مٹی کی ہانڈی میں دھیمی آنچ پر پکایا جاتا ہے۔ یہ طریقہ وہاں کے گاریڑوں کی پرانی لائف اسٹائل کو ریپریزنٹ کرتا ہے۔",
+    "keywords": [
+      "Tharparkar desert landscape",
+      "raw mutton meat pieces",
+      "traditional clay pot cooking",
+      "cooked meat dish served"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [
+      20554938,
+      39327769,
+      34804077,
+      34228452
+    ],
+    "video_path": "output\\zaiqa\\20261101T131157Z-de6b23ea\\final.mp4",
+    "thumbnail_path": "output\\zaiqa\\20261101T131157Z-de6b23ea\\thumbnail.jpg",
+    "duration_seconds": 21.02,
+    "created_at": "2026-11-01T13:20:45.209164+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "BFsFEsLYKuY"
   }
 ]
