@@ -23,8 +23,14 @@ def available_voices(config: dict[str, Any]) -> list[str]:
     return voices
 
 
-async def _save_speech(text: str, voice: str, rate: str, output_path: Path) -> None:
-    communicate = edge_tts.Communicate(text, voice, rate=rate)
+async def _save_speech(
+    text: str,
+    voice: str,
+    rate: str,
+    pitch: str,
+    output_path: Path,
+) -> None:
+    communicate = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch)
     await communicate.save(str(output_path))
 
 
@@ -52,9 +58,10 @@ def _tempo_adjustment(duration: float, minimum: float, maximum: float) -> float 
 
 def generate_voice(text: str, voice: str, config: dict[str, Any], output_path: Path) -> None:
     rate = str(config.get("voice", {}).get("rate", "+0%"))
+    pitch = str(config.get("voice", {}).get("pitch", "+0Hz"))
     output_path.parent.mkdir(parents=True, exist_ok=True)
     try:
-        asyncio.run(_save_speech(text, voice, rate, output_path))
+        asyncio.run(_save_speech(text, voice, rate, pitch, output_path))
     except (OSError, asyncio.TimeoutError, edge_tts.exceptions.EdgeTTSError) as exc:
         raise RuntimeError(
             f"Could not generate Edge TTS narration using {voice!r}: {exc}. "

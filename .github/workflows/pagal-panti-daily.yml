@@ -1,0 +1,90 @@
+name: Daily Pagal Panti Plus Short
+
+on:
+  schedule:
+    - cron: "0 17 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shorts-state-persistence
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check required channel secrets
+        id: channel_oauth
+        env:
+          YOUTUBE_OAUTH_CLIENT_JSON_B64: ${{ secrets.YOUTUBE_OAUTH_CLIENT_JSON_B64 }}
+          PAGAL_PANTI_YOUTUBE_TOKEN_JSON_B64: ${{ secrets.PAGAL_PANTI_YOUTUBE_TOKEN_JSON_B64 }}
+        run: |
+          if [ -z "$YOUTUBE_OAUTH_CLIENT_JSON_B64" ] || [ -z "$PAGAL_PANTI_YOUTUBE_TOKEN_JSON_B64" ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::error::Set YOUTUBE_OAUTH_CLIENT_JSON_B64 and PAGAL_PANTI_YOUTUBE_TOKEN_JSON_B64 repository secrets."
+            exit 1
+          fi
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python
+        if: steps.channel_oauth.outputs.ready == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install FFmpeg and Python dependencies
+        if: steps.channel_oauth.outputs.ready == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ffmpeg
+          python -m pip install -r requirements.txt
+
+      - name: Prepare channel-specific YouTube OAuth files
+        if: steps.channel_oauth.outputs.ready == 'true'
+        env:
+          YOUTUBE_OAUTH_CLIENT_JSON_B64: ${{ secrets.YOUTUBE_OAUTH_CLIENT_JSON_B64 }}
+          PAGAL_PANTI_YOUTUBE_TOKEN_JSON_B64: ${{ secrets.PAGAL_PANTI_YOUTUBE_TOKEN_JSON_B64 }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          files = (
+              ("YOUTUBE_OAUTH_CLIENT_JSON_B64", Path("credentials/client_secret.json")),
+              ("PAGAL_PANTI_YOUTUBE_TOKEN_JSON_B64", Path("credentials/pagal_panti_token.json")),
+          )
+          for env_name, output_path in files:
+              value = os.environ.get(env_name, "").strip()
+              if not value:
+                  raise RuntimeError(f"Missing required GitHub secret: {env_name}")
+              output_path.parent.mkdir(parents=True, exist_ok=True)
+              output_path.write_bytes(base64.b64decode(value, validate=True))
+          PY
+
+      - name: Generate and upload Pagal Panti Plus Short
+        if: steps.channel_oauth.outputs.ready == 'true'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PAGAL_PANTI_YOUTUBE_TOKEN_FILE: credentials/pagal_panti_token.json
+          YOUTUBE_INTERACTIVE_LOGIN: "0"
+        run: python main.py --config config_pagal_panti.yaml
+
+      - name: Persist Pagal Panti Plus state
+        if: always() && steps.channel_oauth.outputs.ready == 'true'
+        run: |
+          git add -- state/pagal_panti/
+          if git diff --cached --quiet; then
+            echo "No Pagal Panti Plus state changes to persist."
+          else
+            git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "Update Pagal Panti Plus Shorts state"
+            git push
+          fi

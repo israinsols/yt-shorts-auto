@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from runner_gameplay import generate_original_runner_clip
 from utils import request_with_retry
 
 SEARCH_URL = "https://api.pexels.com/videos/search"
@@ -12,6 +13,11 @@ FALLBACK_QUERIES = (
     "coding laptop programming",
     "person typing on laptop",
     "computer technology workspace",
+)
+GAMEPLAY_FALLBACK_QUERIES = (
+    "mobile game gameplay vertical",
+    "video game gameplay screen vertical",
+    "parkour game gameplay",
 )
 
 
@@ -36,8 +42,20 @@ def _portrait_file(video: dict[str, Any]) -> str | None:
     return portrait_files[0]["link"]
 
 
-def _find_video(keyword: str, api_key: str, excluded_ids: set[int]) -> tuple[int, str]:
-    queries = list(dict.fromkeys((keyword, *FALLBACK_QUERIES)))
+def _find_video(
+    keyword: str,
+    api_key: str,
+    excluded_ids: set[int],
+    footage_style: str = "stock",
+) -> tuple[int, str]:
+    if footage_style == "gameplay":
+        queries = list(
+            dict.fromkeys((f"video game gameplay {keyword}", *GAMEPLAY_FALLBACK_QUERIES))
+        )
+    elif footage_style == "stock":
+        queries = list(dict.fromkeys((keyword, *FALLBACK_QUERIES)))
+    else:
+        raise RuntimeError(f"Unsupported Pexels footage style: {footage_style!r}.")
     for query in queries:
         for page in range(1, 4):
             response = request_with_retry(
@@ -71,15 +89,19 @@ def download_clips(
     api_key: str,
     used_ids: list[int],
     output_dir: Path,
+    footage_style: str = "stock",
 ) -> tuple[list[Path], list[int]]:
     if not all(isinstance(video_id, int) and video_id > 0 for video_id in used_ids):
         raise RuntimeError("used_clip_ids.json must contain only positive integer Pexels video IDs.")
     output_dir.mkdir(parents=True, exist_ok=True)
+    if footage_style == "original_runner":
+        path = generate_original_runner_clip(output_dir / "original-runner.mp4")
+        return [path], []
     excluded = set(used_ids)
     paths: list[Path] = []
     selected_ids: list[int] = []
     for index, keyword in enumerate(keywords):
-        video_id, link = _find_video(keyword, api_key, excluded)
+        video_id, link = _find_video(keyword, api_key, excluded, footage_style)
         response = request_with_retry("Pexels video download", "GET", link, stream=True, timeout=120)
         path = output_dir / f"pexels-{video_id}.mp4"
         try:

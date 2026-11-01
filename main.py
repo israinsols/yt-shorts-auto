@@ -65,12 +65,12 @@ def _daily_uploads(config: dict[str, Any] | None = None) -> int:
     return uploads
 
 
-def ensure_upload_capacity(config: dict[str, Any]) -> None:
+def ensure_upload_capacity(config: dict[str, Any], allow_one_extra: bool = False) -> None:
     limit = config.get("daily_upload_limit", DAILY_UPLOAD_LIMIT)
     if not isinstance(limit, int) or not 1 <= limit <= DAILY_UPLOAD_LIMIT:
         raise RuntimeError(f"daily_upload_limit must be an integer from 1 to {DAILY_UPLOAD_LIMIT}.")
     count = _daily_uploads(config)
-    if count >= limit:
+    if count >= limit and not (allow_one_extra and count == limit):
         raise RuntimeError(
             f"Daily upload limit reached ({count}/{limit}). Try again after the quota date resets."
         )
@@ -111,12 +111,21 @@ def _next_hook_style(history: list[Any]) -> str:
     return HOOK_STYLE_ROTATION[next_index]
 
 
-def run(dry_run: bool, config_path: str | Path | None = None) -> Path:
+def run(
+    dry_run: bool,
+    config_path: str | Path | None = None,
+    allow_one_extra_upload: bool = False,
+) -> Path:
     load_dotenv(PROJECT_DIR / ".env")
     config = load_config(config_path)
-    pexels_key = require_api_key(config, "pexels")
+    footage_style = str(config.get("pexels", {}).get("footage_style", "stock"))
+    pexels_key = (
+        ""
+        if footage_style == "original_runner"
+        else require_api_key(config, "pexels")
+    )
     if not dry_run and not config.get("review_mode", True):
-        ensure_upload_capacity(config)
+        ensure_upload_capacity(config, allow_one_extra_upload)
     topics = load_list(_state_path("topics.json", config), "topic history")
     history = load_list(_state_path("history.json", config), "generation history")
     if not all(isinstance(topic, str) for topic in topics):
@@ -145,7 +154,7 @@ def run(dry_run: bool, config_path: str | Path | None = None) -> Path:
         output_dir = _project_path(config.get("pending_folder", "pending")) / run_id
         status = "pending_review"
     else:
-        ensure_upload_capacity(config)
+        ensure_upload_capacity(config, allow_one_extra_upload)
         output_dir = _project_path(config.get("output_folder", "output")) / run_id
         status = "generated"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -162,7 +171,13 @@ def run(dry_run: bool, config_path: str | Path | None = None) -> Path:
     clip_count = configured_clip_count(config)
     keywords = script_data["keywords"][:clip_count]
     clips_dir = output_dir / "clips"
-    footage_paths, clip_ids = download_clips(keywords, pexels_key, used_ids, clips_dir)
+    footage_paths, clip_ids = download_clips(
+        keywords,
+        pexels_key,
+        used_ids,
+        clips_dir,
+        footage_style,
+    )
     all_used = set(used_ids)
     all_used.update(clip_ids)
     write_json(_state_path("used_clip_ids.json", config), sorted(all_used))
@@ -207,7 +222,7 @@ def run(dry_run: bool, config_path: str | Path | None = None) -> Path:
             run_id,
         )
     else:
-        ensure_upload_capacity(config)
+        ensure_upload_capacity(config, allow_one_extra_upload)
         youtube_id = upload_video(metadata, video_path, config)
         metadata["status"] = "uploaded"
         metadata["youtube_video_id"] = youtube_id
@@ -232,11 +247,16 @@ def main() -> int:
         default="config.yaml",
         help="Path to the channel profile YAML configuration.",
     )
+    parser.add_argument(
+        "--allow-one-extra-upload",
+        action="store_true",
+        help="Allow one upload beyond the daily limit only when exactly at the limit.",
+    )
     args = parser.parse_args()
     config = load_config(args.config)
     _setup_logging(config)
     try:
-        run(args.dry_run, args.config)
+        run(args.dry_run, args.config, args.allow_one_extra_upload)
     except Exception as exc:
         LOGGER.exception("Short generation failed: %s", exc)
         print(f"ERROR: {exc}", file=sys.stderr)

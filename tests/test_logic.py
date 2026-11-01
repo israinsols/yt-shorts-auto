@@ -17,7 +17,9 @@ import main
 import footage
 import script_gen
 import uploader
+import voice
 import video
+import runner_gameplay
 from utils import PROJECT_DIR, load_config, normalized_topic, read_json, write_json
 from video import _caption_clips, _fit_clip, _scene_durations, create_thumbnail
 from voice import _tempo_adjustment
@@ -82,6 +84,54 @@ class TopicAndFormatTests(unittest.TestCase):
         self.assertIn("Roman Urdu", prompt)
         self.assertNotIn("phone and PC tricks", prompt)
 
+    def test_comedy_profile_generates_roman_urdu_sketch_prompts(self):
+        config = {
+            "niche": "Pakistani everyday comedy",
+            "content_language": "Roman Urdu",
+            "content_style": "comedy",
+            "pexels": {"footage_style": "gameplay"},
+            "gemini": {"model": "test"},
+        }
+        response = {"topic": "Ammi aur mehmaan aane se pehle ki safai"}
+        with (
+            patch.object(script_gen, "require_api_key", return_value="key"),
+            patch.object(script_gen, "_generate_json", return_value=response) as generate_json,
+        ):
+            topic = script_gen.generate_topic(config, [])
+        self.assertEqual(topic, response["topic"])
+        self.assertIn("narrated comedy story", generate_json.call_args.args[0])
+        self.assertIn("endless-runner game footage", generate_json.call_args.args[0])
+
+        script = " ".join(["aaj ghar mein funny scene hua"] * 9)
+        narration = " ".join(["آج گھر میں مزاحیہ بات ہوئی۔"] * 9)
+        response = {
+            "title": "Ammi Aur Mehmaan Ki Funny Safai",
+            "description": "Mehmaan aane se pehle ghar ki funny safai.",
+            "tags": ["desi comedy", "Pakistani funny", "family humor"],
+            "script": script,
+            "narration_script": narration,
+            "keywords": [
+                "mobile racing gameplay",
+                "parkour jumping gameplay",
+                "obstacle course gameplay",
+                "arcade game gameplay",
+            ],
+            "hook_style": "myth_vs_fact",
+        }
+        with (
+            patch.object(script_gen, "require_api_key", return_value="key"),
+            patch.object(script_gen, "_generate_json", return_value=response) as generate_json,
+        ):
+            script_gen.generate_script("Ammi aur mehmaan", config, "myth_vs_fact")
+        prompt = generate_json.call_args.args[0]
+        self.assertIn("funny and relatable fictional comedy Short", prompt)
+        self.assertIn("clear setup, quick escalation, and punchline", prompt)
+        self.assertIn("natural Urdu script", prompt)
+        self.assertIn("four visual keywords", prompt)
+        self.assertIn("not be described as if it depicts the story", prompt)
+        self.assertIn("no profanity, abusive language, slurs, insults", prompt)
+        self.assertIn("or double meanings", prompt)
+
     def test_channel_profile_has_isolated_state_and_oauth_paths(self):
         config = load_config("config_zaiqa.yaml")
         self.assertEqual(
@@ -92,6 +142,49 @@ class TopicAndFormatTests(unittest.TestCase):
         self.assertEqual(config["token_file"], "credentials/zaiqa_token.json")
         self.assertEqual(config["token_file_env"], "ZAIQA_YOUTUBE_TOKEN_FILE")
         self.assertFalse(config["analytics_enabled"])
+
+    def test_pagal_panti_profile_has_isolated_state_and_oauth(self):
+        config = load_config("config_pagal_panti.yaml")
+        self.assertEqual(config["expected_channel_name"], "Pagal Panti Plus")
+        self.assertEqual(config["expected_channel_id"], "UC65G5hn9N39ReTO_kpg3enw")
+        self.assertEqual(config["token_file"], "credentials/pagal_panti_token.json")
+        self.assertEqual(config["token_file_env"], "PAGAL_PANTI_YOUTUBE_TOKEN_FILE")
+        self.assertEqual(config["pexels"]["footage_style"], "original_runner")
+        self.assertEqual(config["voice"]["voices"], ["ur-PK-AsadNeural"])
+        self.assertEqual(config["voice"]["pitch"], "+5Hz")
+        self.assertEqual(
+            main._state_path("history.json", config),
+            PROJECT_DIR / "state" / "pagal_panti" / "history.json",
+        )
+        self.assertFalse(config["analytics_enabled"])
+        self.assertNotIn("api_key_env", config["pexels"])
+
+    def test_original_runner_profile_does_not_require_pexels_key(self):
+        config = {
+            "review_mode": True,
+            "pexels": {"footage_style": "original_runner"},
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            state_dir = Path(directory)
+            with (
+                patch.object(main, "load_dotenv"),
+                patch.object(main, "load_config", return_value=config),
+                patch.object(main, "require_api_key", return_value="gemini-key") as require_key,
+                patch.object(main, "generate_topic", return_value="A clean comedy topic"),
+                patch.object(
+                    main,
+                    "generate_script",
+                    side_effect=RuntimeError("stop after key validation"),
+                ),
+                patch.object(
+                    main,
+                    "_state_path",
+                    side_effect=lambda name, config=None: state_dir / name,
+                ),
+            ):
+                with self.assertRaisesRegex(RuntimeError, "stop after key validation"):
+                    main.run(dry_run=True)
+        require_key.assert_not_called()
 
     def test_channel_token_uses_profile_specific_environment_override(self):
         class FakeCredentials:
@@ -165,6 +258,87 @@ class TopicAndFormatTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "expects 'Zaiqa Ki Kahani'"):
                 authorize_channel.authorize("config_zaiqa.yaml")
         self.assertTrue(youtube.channel_api.request_args["mine"])
+
+    def test_channel_authorization_rejects_the_wrong_channel_id(self):
+        response = {
+            "items": [
+                {"id": "different-channel-id", "snippet": {"title": "Pagal Panti Plus"}}
+            ]
+        }
+
+        class FakeRequest:
+            def execute(self):
+                return response
+
+        class FakeChannels:
+            def list(self, **kwargs):
+                return FakeRequest()
+
+        class FakeYouTube:
+            def channels(self):
+                return FakeChannels()
+
+        with (
+            patch.object(authorize_channel, "load_dotenv"),
+            patch.object(
+                authorize_channel,
+                "load_config",
+                return_value={
+                    "expected_channel_name": "Pagal Panti Plus",
+                    "expected_channel_id": "expected-channel-id",
+                },
+            ),
+            patch.object(authorize_channel, "_credentials", return_value=object()),
+            patch.object(authorize_channel, "build", return_value=FakeYouTube()),
+            patch.object(authorize_channel, "_save_credentials") as save_credentials,
+        ):
+            with self.assertRaisesRegex(RuntimeError, "expects 'expected-channel-id'"):
+                authorize_channel.authorize("config_pagal_panti.yaml")
+        save_credentials.assert_not_called()
+
+    def test_channel_authorization_saves_token_after_channel_id_matches(self):
+        response = {
+            "items": [
+                {
+                    "id": "expected-channel-id",
+                    "snippet": {"title": "Pagal Panti Plus"},
+                }
+            ]
+        }
+
+        class FakeRequest:
+            def execute(self):
+                return response
+
+        class FakeChannels:
+            def list(self, **kwargs):
+                return FakeRequest()
+
+        class FakeYouTube:
+            def channels(self):
+                return FakeChannels()
+
+        credentials = object()
+        config = {
+            "expected_channel_name": "Pagal Panti Plus",
+            "expected_channel_id": "expected-channel-id",
+            "token_file": "credentials/pagal_panti_token.json",
+            "token_file_env": "PAGAL_PANTI_YOUTUBE_TOKEN_FILE",
+        }
+        with (
+            patch.object(authorize_channel, "load_dotenv"),
+            patch.object(authorize_channel, "load_config", return_value=config),
+            patch.object(authorize_channel, "_credentials", return_value=credentials),
+            patch.object(authorize_channel, "build", return_value=FakeYouTube()),
+            patch.object(authorize_channel, "_save_credentials") as save_credentials,
+        ):
+            result = authorize_channel.authorize("config_pagal_panti.yaml")
+
+        self.assertEqual(result, ("Pagal Panti Plus", "expected-channel-id"))
+        save_credentials.assert_called_once_with(
+            credentials,
+            PROJECT_DIR / "credentials" / "pagal_panti_token.json",
+        )
 
     def test_analytics_returns_recent_metrics_for_uploaded_videos_only(self):
         class FakeRequest:
@@ -301,6 +475,47 @@ class TopicAndFormatTests(unittest.TestCase):
         self.assertIn("narration_script", prompt)
         self.assertEqual(generated["narration_script"], narration_script)
 
+    def test_roman_urdu_script_retries_when_voiceover_is_too_short(self):
+        script = " ".join(["desi ghar ka yeh scene bohat funny hota hai"] * 6)
+        valid_narration = " ".join(["یہ مزاحیہ بات گھر میں اکثر ہوتی ہے۔"] * 6)
+        response = {
+            "title": "Ghar Ka Funny Scene",
+            "description": "Ghar ke rozmarra scene ki funny kahani.",
+            "tags": ["desi comedy", "Pakistani humor", "family funny"],
+            "script": script,
+            "narration_script": "یہ چھوٹا جملہ ہے۔",
+            "keywords": [
+                "mobile game gameplay",
+                "racing game gameplay",
+                "parkour game gameplay",
+                "arcade game gameplay",
+            ],
+            "hook_style": "story",
+        }
+        config = {
+            "niche": "Pakistani everyday comedy",
+            "content_language": "Roman Urdu",
+            "content_style": "comedy",
+            "pexels": {"footage_style": "gameplay"},
+            "gemini": {"api_key_env": "TEST_KEY"},
+        }
+        with (
+            patch.object(script_gen, "require_api_key", return_value="key"),
+            patch.object(
+                script_gen,
+                "_generate_json",
+                side_effect=[
+                    response,
+                    {**response, "narration_script": valid_narration},
+                ],
+            ) as generate_json,
+        ):
+            generated = script_gen.generate_script("A funny desi scene", config, "story")
+
+        self.assertEqual(generated["narration_script"], valid_narration)
+        self.assertEqual(generate_json.call_count, 2)
+        self.assertIn("Urdu narration_script had 4 words", generate_json.call_args.args[0])
+
     def test_script_generation_retries_hook_style_mismatch(self):
         response = {
             "title": "Excalidraw to Code",
@@ -386,6 +601,97 @@ class TopicAndFormatTests(unittest.TestCase):
         self.assertEqual(result, (123, "https://example.com/video.mp4"))
         self.assertEqual(search.call_args_list[0].kwargs["params"]["query"], "typing text prompt v0.dev")
         self.assertEqual(search.call_args_list[1].kwargs["params"]["query"], "coding laptop programming")
+
+    def test_original_runner_footage_is_generated_without_pexels(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output_dir = Path(directory) / "clips"
+            with patch.object(
+                footage,
+                "generate_original_runner_clip",
+                side_effect=lambda path: path,
+            ) as generate_clip:
+                paths, clip_ids = footage.download_clips(
+                    [],
+                    "",
+                    [],
+                    output_dir,
+                    "original_runner",
+                )
+        self.assertEqual(paths, [output_dir / "original-runner.mp4"])
+        self.assertEqual(clip_ids, [])
+        generate_clip.assert_called_once_with(output_dir / "original-runner.mp4")
+
+    def test_original_runner_video_is_portrait_and_playable(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "runner.mp4"
+            runner_gameplay.generate_original_runner_clip(
+                path,
+                duration_seconds=0.5,
+                fps=2,
+            )
+            clip = video.VideoFileClip(str(path))
+            try:
+                self.assertGreater(clip.duration, 0)
+                self.assertEqual((clip.w, clip.h), (432, 768))
+                self.assertGreater(clip.get_frame(0.25).mean(), 0)
+            finally:
+                clip.close()
+
+    def test_gameplay_footage_search_uses_only_gameplay_queries(self):
+        class SearchResponse:
+            def __init__(self, videos):
+                self.videos = videos
+
+            def json(self):
+                return {"videos": self.videos}
+
+        portrait_video = {
+            "id": 456,
+            "video_files": [{"link": "https://example.com/game.mp4", "width": 720, "height": 1280}],
+        }
+        with patch.object(
+            footage,
+            "request_with_retry",
+            side_effect=[SearchResponse([]), SearchResponse([portrait_video])],
+        ) as search:
+            result = footage._find_video(
+                "mobile racing gameplay",
+                "test-key",
+                set(),
+                "gameplay",
+            )
+        self.assertEqual(result, (456, "https://example.com/game.mp4"))
+        queries = [
+            call.kwargs["params"]["query"] for call in search.call_args_list
+        ]
+        self.assertEqual(queries[0], "video game gameplay mobile racing gameplay")
+        self.assertEqual(queries[1], "mobile game gameplay vertical")
+        self.assertTrue(all("game" in query or "gameplay" in query for query in queries))
+
+    def test_edge_tts_receives_configured_playful_pitch(self):
+        class FakeCommunicate:
+            async def save(self, output_path):
+                self.output_path = output_path
+
+        communicate = FakeCommunicate()
+        with patch.object(voice.edge_tts, "Communicate", return_value=communicate) as create:
+            import asyncio
+
+            asyncio.run(
+                voice._save_speech(
+                    "اردو میں مزاحیہ بات",
+                    "ur-PK-AsadNeural",
+                    "+8%",
+                    "+5Hz",
+                    Path("voice.mp3"),
+                )
+            )
+        create.assert_called_once_with(
+            "اردو میں مزاحیہ بات",
+            "ur-PK-AsadNeural",
+            rate="+8%",
+            pitch="+5Hz",
+        )
 
     def test_description_gets_three_relevant_unique_hashtags(self):
         result = uploader._description_with_hashtags(
@@ -514,6 +820,11 @@ class PersistenceAndQuotaTests(unittest.TestCase):
                 main.ensure_upload_capacity({"daily_upload_limit": 6})
         with self.assertRaisesRegex(RuntimeError, "from 1 to 6"):
             main.ensure_upload_capacity({"daily_upload_limit": 7})
+        with patch.object(main, "_daily_uploads", return_value=1):
+            main.ensure_upload_capacity({"daily_upload_limit": 1}, allow_one_extra=True)
+        with patch.object(main, "_daily_uploads", return_value=2):
+            with self.assertRaisesRegex(RuntimeError, "Daily upload limit reached"):
+                main.ensure_upload_capacity({"daily_upload_limit": 1}, allow_one_extra=True)
 
 
 class CaptionTests(unittest.TestCase):

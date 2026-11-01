@@ -136,6 +136,7 @@ def set_video_thumbnail(video_id: str, thumbnail_path: Path, config: dict[str, A
 def _credentials(
     config: dict[str, Any],
     required_scopes: list[str] | None = None,
+    persist: bool = True,
 ) -> Credentials:
     scopes = required_scopes or SCOPES
     oauth = config.get("oauth_client_secrets", "credentials/client_secret.json")
@@ -166,7 +167,8 @@ def _credentials(
     if credentials and credentials.expired and credentials.refresh_token and not missing_scopes:
         try:
             credentials.refresh(Request())
-            _save_credentials(credentials, token_path)
+            if persist:
+                _save_credentials(credentials, token_path)
         except (GoogleAuthError, OSError, ValueError) as exc:
             raise RuntimeError(
                 f"Could not refresh YouTube OAuth token: {exc}. Reauthorize with python main.py."
@@ -183,12 +185,12 @@ def _credentials(
             missing = ", ".join(sorted(missing_scopes))
             raise RuntimeError(
                 f"The saved YouTube token is missing required OAuth scope(s): {missing}. "
-                "Run python analytics.py locally to authorize analytics, then update "
-                "YOUTUBE_TOKEN_JSON_B64 in GitHub Actions."
+                f"Authorize the required scopes locally, then update {token_environment} "
+                "in GitHub Actions."
             )
         raise RuntimeError(
             "YouTube token is missing or expired and interactive login is disabled. "
-            "Set YOUTUBE_TOKEN_JSON_B64 in GitHub Actions or authenticate locally first."
+            f"Set {token_environment} in GitHub Actions or authenticate locally first."
         )
     if not client_path.is_file():
         raise RuntimeError(
@@ -200,7 +202,8 @@ def _credentials(
         credentials = flow.run_local_server(port=0, prompt="consent")
     except (OSError, ValueError, RuntimeError) as exc:
         raise RuntimeError(f"YouTube OAuth login failed: {exc}") from exc
-    _save_credentials(credentials, token_path)
+    if persist:
+        _save_credentials(credentials, token_path)
     return credentials
 
 

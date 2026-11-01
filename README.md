@@ -116,7 +116,7 @@ The workflow commits topic, voice, history, and quota state so later scheduled r
 
 ## 8. Add the separate Zaiqa Ki Kahani channel
 
-The `config_zaiqa.yaml` profile and `.github/workflows/zaiqa-daily.yml` workflow keep this channel separate from Tech Buzz Daily. The profile creates Roman Urdu topics, titles, descriptions, tags, and on-screen captions, with Urdu-script narration for the Urdu Edge TTS voices. It has its own OAuth token (`ZAIQA_YOUTUBE_TOKEN_FILE`), topic history, Pexels reuse history, upload quota, logs, and output folder. Its schedule is 15:00 UTC (20:00 Pakistan time); it does not change the original channel's 19:30 schedule.
+The `config_zaiqa.yaml` profile and `.github/workflows/zaiqa-daily.yml` workflow keep this channel separate from Tech Buzz Daily. The profile creates Roman Urdu topics, titles, descriptions, tags, and on-screen captions, with Urdu-script narration for the Urdu Edge TTS voices. It has its own OAuth token (`ZAIQA_YOUTUBE_TOKEN_FILE`), topic history, Pexels reuse history, upload quota, logs, and output folder. Its schedule is 11:00 UTC (16:00 / 4:00 PM Pakistan time); it does not change the original channel's 19:30 schedule.
 
 Before enabling uploads:
 
@@ -133,7 +133,23 @@ Before enabling uploads:
 
 This food profile currently leaves analytics feedback disabled, so it does not require the YouTube Analytics API or read-only analytics consent.
 
-## 9. Schedule runs on your own computer instead
+## 9. Add the separate Pagal Panti Plus channel
+
+The `config_pagal_panti.yaml` profile and `.github/workflows/pagal-panti-daily.yml` workflow keep this Roman Urdu comedy channel separate from Tech Buzz Daily and Zaiqa Ki Kahani. It creates original, harmless desi comedy Shorts over automatically generated portrait endless-runner gameplay, narrated with a playful male Urdu voice. The runner visuals are original and do not use Temple Run assets or third-party gameplay clips; Pexels is not required for this profile. It has its own channel-checked OAuth token, topic/clip history, upload quota, logs, and output folder. Its daily schedule is 17:00 UTC (22:00 / 10:00 PM Pakistan time).
+
+Before enabling uploads:
+
+1. In Google Cloud Console, add the Google account that manages **Pagal Panti Plus** as an OAuth test user. The profile checks both the channel name and the channel ID shown in the channel URL.
+2. With the OAuth client JSON already saved in `credentials/client_secret.json`, run `python authorize_channel.py --config config_pagal_panti.yaml`. Sign in with the account for **Pagal Panti Plus** and approve YouTube upload and read-only channel-identity access. The script verifies the configured channel name and ID, then saves a separate token to `credentials/pagal_panti_token.json`.
+3. If verification succeeds, add the token as its own GitHub Actions secret:
+
+   ```powershell
+   gh secret set PAGAL_PANTI_YOUTUBE_TOKEN_JSON_B64 --body ([Convert]::ToBase64String([IO.File]::ReadAllBytes("credentials/pagal_panti_token.json")))
+   ```
+
+4. Confirm the repository has `YOUTUBE_OAUTH_CLIENT_JSON_B64` and `GEMINI_API_KEY` secrets. Pexels is not needed for this profile. Then run **Actions → Daily Pagal Panti Plus Short → Run workflow** to verify a public upload. Scheduled runs also publish one public Short per day. The Tech Buzz Daily and Zaiqa Ki Kahani workflows, tokens, and state remain separate and unchanged.
+
+## 10. Schedule runs on your own computer instead
 
 On Windows, open **Task Scheduler → Create Basic Task**, choose a daily trigger, and set the action to start a program. Use the full path to this project's `.venv\Scripts\python.exe` for **Program/script**, `main.py` for **Add arguments**, and this project's folder for **Start in**. Leave your API keys in `.env`; do not put them in the task's arguments. Local runs in review mode create pending videos for you to inspect and approve.
 

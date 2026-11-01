@@ -1,0 +1,45 @@
+niche: "relatable Pakistani everyday situations and harmless desi comedy sketches about family, friends, school, work, and daily life"
+content_language: "Roman Urdu"
+content_style: "comedy"
+expected_channel_name: "Pagal Panti Plus"
+expected_channel_id: "UC65G5hn9N39ReTO_kpg3enw"
+analytics_enabled: false
+
+gemini:
+  model: "gemini-3.5-flash-lite"
+  api_key_env: "GEMINI_API_KEY"
+
+pexels:
+  clip_count: 4
+  footage_style: "original_runner"
+
+voice:
+  voices:
+    - "ur-PK-AsadNeural"
+  rate: "+8%"
+  pitch: "+5Hz"
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  minimum_seconds: 20
+  maximum_seconds: 25
+  caption_font_size: 72
+
+music:
+  enabled: true
+  folder: "music"
+  volume: 0.10
+
+review_mode: false
+privacy_status: "public"
+daily_upload_limit: 1
+category_id: "23"
+oauth_client_secrets: "credentials/client_secret.json"
+token_file: "credentials/pagal_panti_token.json"
+token_file_env: "PAGAL_PANTI_YOUTUBE_TOKEN_FILE"
+state_folder: "state/pagal_panti"
+log_file: "runs_pagal_panti.log"
+output_folder: "output/pagal_panti"
+pending_folder: "pending/pagal_panti"

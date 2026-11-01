@@ -47,7 +47,28 @@ def generate_topic(
     if not niche:
         raise RuntimeError("Set a non-empty niche in config.yaml.")
     content_language = str(config.get("content_language", "English")).strip()
-    if content_language.casefold() == "roman urdu":
+    comedy = config.get("content_style") == "comedy"
+    if comedy:
+        if config.get("pexels", {}).get("footage_style") in {"gameplay", "original_runner"}:
+            topic_guidance = (
+                "Choose a fresh, funny and highly relatable Pakistani everyday situation "
+                "that works as a narrated comedy story over original endless-runner game "
+                "footage. Draw on harmless family, school, work, shopping, or friends humor. "
+                "Keep it family-friendly: no profanity, abusive language, slurs, insults, "
+                "sexual content, innuendo, double meanings, or humiliating anyone. Avoid "
+                "targeting real people or groups, cruelty, dangerous behavior, or presenting "
+                "fiction as real news. "
+            )
+        else:
+            topic_guidance = (
+                "Choose a fresh, funny and highly relatable Pakistani everyday situation "
+                "that can become a short fictional comedy sketch. Draw on harmless family, "
+                "school, work, shopping, or friends humor. Keep it family-friendly: no "
+                "profanity, abusive language, slurs, insults, sexual content, innuendo, "
+                "double meanings, or humiliating anyone. Avoid targeting real people or "
+                "groups, cruelty, dangerous behavior, or presenting fiction as real news. "
+            )
+    elif content_language.casefold() == "roman urdu":
         topic_guidance = (
             "Focus on one interesting, region-specific food, ingredient, cooking tradition, "
             "or verified story from Pakistan that can be illustrated with specific footage. "
@@ -118,6 +139,7 @@ def generate_script(
         raise RuntimeError(f"Unsupported preferred hook style: {preferred_hook_style!r}.")
     content_language = str(config.get("content_language", "English")).strip()
     roman_urdu = content_language.casefold() == "roman urdu"
+    comedy = config.get("content_style") == "comedy"
     fields = (
         "title (string), description (string), tags (array of 3-8 strings), "
         "script (string), keywords (array of exactly 4 concise visual search phrases "
@@ -127,42 +149,112 @@ def generate_script(
     language_instructions = ""
     if roman_urdu:
         fields += ", narration_script (string)"
-        language_instructions = (
-            "Write title, description, tags, and the on-screen script in natural, easy "
-            "Roman Urdu using Latin letters; do not use Urdu script. The script must be "
-            "45-60 spoken words. Also provide narration_script with the same meaning and "
-            "sequence in natural Urdu script, suitable for an Urdu voice, in 45-60 words. "
-            "Keep every visual keyword in concise English for stock-footage search. "
-            "Avoid unsupported claims and clearly distinguish local tradition from "
-            "verified historical fact. "
-        )
+        if comedy:
+            if config.get("pexels", {}).get("footage_style") in {"gameplay", "original_runner"}:
+                language_instructions = (
+                    "Write title, description, tags, and the on-screen script in natural, "
+                    "easy Roman Urdu using Latin letters; do not use Urdu script. The script "
+                    "must be 45-60 spoken words. Also provide narration_script with the same "
+                    "meaning and sequence in natural Urdu script, suitable for a male Urdu "
+                    "voice, in 45-60 words. Keep every visual keyword in concise English "
+                    "and describe original endless-runner game actions suitable for portrait "
+                    "footage, not people holding controllers or clips from named games. Make the "
+                    "story original, lighthearted, and relatable, with a clear setup, quick "
+                    "escalation, and punchline. Use lively, playful Pakistani Urdu phrasing "
+                    "that sounds funny when narrated. Keep every line family-friendly: no "
+                    "profanity, abusive language, slurs, insults, sexual content, innuendo, "
+                    "or double meanings. Do not target real people or groups, include "
+                    "dangerous imitation, or present fiction as fact. "
+                )
+            else:
+                language_instructions = (
+                    "Write title, description, tags, and the on-screen script in natural, "
+                    "easy Roman Urdu using Latin letters; do not use Urdu script. The script "
+                    "must be 45-60 spoken words. Also provide narration_script with the same "
+                    "meaning and sequence in natural Urdu script, suitable for an Urdu voice, "
+                    "in 45-60 words. Keep every visual keyword in concise English for "
+                    "stock-footage search. Make the sketch original, lighthearted, and "
+                    "relatable, with a clear setup, quick escalation, and punchline. Do not "
+                    "use profanity, abusive language, slurs, insults, sexual content, "
+                    "innuendo, or double meanings. Do not bully or target real people or "
+                    "groups, include dangerous imitation, or present fiction as fact. "
+                )
+        else:
+            language_instructions = (
+                "Write title, description, tags, and the on-screen script in natural, easy "
+                "Roman Urdu using Latin letters; do not use Urdu script. The script must be "
+                "45-60 spoken words. Also provide narration_script with the same meaning and "
+                "sequence in natural Urdu script, suitable for an Urdu voice, in 45-60 words. "
+                "Keep every visual keyword in concise English for stock-footage search. "
+                "Avoid unsupported claims and clearly distinguish local tradition from "
+                "verified historical fact. "
+            )
     else:
         language_instructions = (
             f"Write all viewer-facing text naturally in {content_language}. "
         )
+    prompt_subject = (
+        "Write an original, funny and relatable fictional comedy Short"
+        if comedy
+        else "Write an original, factual YouTube Short script"
+    )
+    creative_guidance = (
+        (
+            "Build one recognizable desi situation into a quick setup, escalation, and a "
+            "memorable punchline told naturally over gameplay. The gameplay is background "
+            "and must not be described as if it depicts the story. Set the four visual "
+            "keywords to original runner-game actions such as collecting coins, jumping "
+            "over obstacles, shifting lanes, and sprinting; each keyword must include "
+            "'gameplay'. Do not name or imitate a specific commercial game. Keep the humor "
+            "kind and harmless; do not target real people or groups, use dangerous behavior, "
+            "or imitate real breaking news. "
+        )
+        if comedy and config.get("pexels", {}).get("footage_style") in {
+            "gameplay",
+            "original_runner",
+        }
+        else "Build one recognizable desi situation into a quick setup, escalation, and a "
+        "memorable punchline. Keep it kind and harmless; do not target real people or "
+        "groups, use dangerous behavior, imitate real breaking news, use profanity, "
+        "abusive language, sexual innuendo, or double meanings. Choose four visual moments "
+        "that suit the comedy. "
+        if comedy
+        else "Prioritize an immediate result-first opening over a slow setup or abstract "
+        "question. The first spoken sentence must state or show the specific outcome. "
+        "For tool tutorials, name the exact tool, give at most 2-3 concise steps in the "
+        "order a beginner would follow, and end with the visible result. Keep only "
+        "information needed to achieve that one result; cut greetings, repeated claims, "
+        "long setup, generic filler, unsupported pricing/feature claims, and calls to "
+        "subscribe. "
+    )
+    metadata_guidance = (
+        "Make the title concise, funny, compelling, and naturally include the topic's "
+        "main search phrase near the beginning; do not use misleading clickbait. Write a "
+        "natural 1-2 sentence description that accurately describes the comedy Short. "
+        "Keep titles, descriptions, tags, and every spoken/on-screen line family-friendly: "
+        "no profanity, abuse, slurs, insults, sexual references, innuendo, or double "
+        "meanings. Provide 5-8 specific, relevant YouTube search tags for the topic; do "
+        "not include hashtag symbols in tags. Avoid keyword stuffing. "
+        if comedy
+        else "Make the title concise, accurate, compelling, and naturally include the tool "
+        "or topic's main search phrase near the beginning; do not use misleading clickbait. "
+        "Write a natural 1-2 sentence description that explains the exact beginner "
+        "takeaway and includes the main search phrase once. Provide 5-8 specific, relevant "
+        "YouTube search tags including the tool/topic name, beginner intent, and closely "
+        "related terms; do not include hashtag symbols in tags. Avoid keyword stuffing. "
+    )
     prompt = (
-        "Write an original, factual YouTube Short script about this topic: "
+        f"{prompt_subject} about this topic: "
         f"{topic!r}. Niche: {config.get('niche', '')!r}. "
         f"{language_instructions}Return only a JSON object with exactly these fields: "
         f"{fields}. Each keyword must describe a distinct, "
         "specific visual for its corresponding consecutive quarter of the script. Use "
         "concrete subjects and actions from the narration; avoid generic browser, laptop, "
-        "or typing footage unless that is what the current scene actually describes. "
-        "Make the title concise, accurate, compelling, and naturally include the tool or "
-        "topic's main search phrase near the beginning; do not use misleading clickbait. "
-        "Write a natural 1-2 sentence description that explains the exact beginner "
-        "takeaway and includes the main search phrase once. Provide 5-8 specific, relevant "
-        "YouTube search tags including the tool/topic name, beginner intent, and closely "
-        "related terms; do not include hashtag symbols in tags. Avoid keyword stuffing. "
+        f"or typing footage unless that is what the current scene actually describes. "
+        f"{metadata_guidance}"
         f"The required hook_style value is exactly {preferred_hook_style!r}; set it to "
-        "that exact value, not another style. Prioritize an immediate result-first opening "
-        "over a slow setup or abstract question. The first spoken sentence must state or "
-        "show the specific outcome. Script must be 45-60 spoken words and take about "
-        "20-25 seconds. For tool tutorials, name the exact tool, give at most 2-3 concise "
-        "steps in the order a beginner would follow, and end with the visible result. "
-        "Keep only information needed to achieve that one result; cut greetings, repeated "
-        "claims, long setup, generic filler, unsupported pricing/feature claims, and calls "
-        "to subscribe. "
+        f"that exact value, not another style. {creative_guidance}"
+        "Script must be 45-60 spoken words and take about 20-25 seconds. "
         "Make it sound natural when spoken aloud. Do not include stage directions."
     )
     for attempt in range(3):
@@ -176,6 +268,14 @@ def generate_script(
             if not 45 <= word_count <= 60:
                 corrections.append(
                     f"the script had {word_count} words, but must have 45-60"
+                )
+        narration_script = result.get("narration_script")
+        if roman_urdu and isinstance(narration_script, str):
+            narration_word_count = len(narration_script.split())
+            if not 45 <= narration_word_count <= 60:
+                corrections.append(
+                    "the Urdu narration_script had "
+                    f"{narration_word_count} words, but must have 45-60"
                 )
         hook_style = result.get("hook_style")
         if isinstance(hook_style, str) and hook_style in HOOK_STYLES:
