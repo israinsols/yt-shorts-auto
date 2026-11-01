@@ -73,5 +73,38 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "yzOv-MB7FnU"
+  },
+  {
+    "id": "20261101T130052Z-e8587c51",
+    "topic": "Jab aap ghar ke akele member hon aur bahar gate par bell baje, toh aapko lagta hai ke aap FBI ke undercover agent hain aur aapko chupke se rreng kar window se dekhna parta hai ke Ammi aayi hain ya koi unchaha rishtedaar.",
+    "title": "Jab aap ghar ke akele member hon aur bahar gate par bell baje",
+    "description": "Ek mazedaar aur relatable kahani jab ghar par akele reh kar gate ki bell bajne par FBI agent wali feeling aati hai.",
+    "tags": [
+      "desi comedy",
+      "pakistani comedy",
+      "relatable moments",
+      "funny shorts",
+      "family comedy",
+      "desi life"
+    ],
+    "script": "Jab ghar par akele hon aur achanak gate ki bell baje, toh dil ki dharkan tez ho jati hai. Lagta hai hum koi secret undercover FBI agent hain. Phir chupke se reng kar window ke paas jana parta hai, yeh dekhne ke liye ke Ammi aayi hain ya koi unchaha rishtedaar tapak para hai.",
+    "narration_script": "جب گھر پر اکیلے ہوں اور اچانک گیٹ کی گھنٹی بج جائے، تو دل کی دھڑکن تیز ہو جاتی ہے۔ لگتا ہے ہم کوئی سیکریٹ انڈرکور ایف بی آئی ایجنٹ ہیں۔ پھر چپکے سے رینگ کر ونڈو کے پاس جانا پڑتا ہے، یہ دیکھنے کے لیے کہ امی آئی ہیں یا کوئی انچاہا رشتے دار ٹپک پڑا ہے۔",
+    "keywords": [
+      "character sprinting gameplay",
+      "character jumping over obstacles gameplay",
+      "character shifting lanes gameplay",
+      "character collecting coins gameplay"
+    ],
+    "hook_style": "top_3",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output\\pagal_panti\\20261101T130052Z-e8587c51\\final.mp4",
+    "thumbnail_path": "output\\pagal_panti\\20261101T130052Z-e8587c51\\thumbnail.jpg",
+    "duration_seconds": 21.02,
+    "created_at": "2026-11-01T13:07:23.813688+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "BzwMT4qBWps"
   }
 ]

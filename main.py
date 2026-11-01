@@ -70,7 +70,7 @@ def ensure_upload_capacity(config: dict[str, Any], allow_one_extra: bool = False
     if not isinstance(limit, int) or not 1 <= limit <= DAILY_UPLOAD_LIMIT:
         raise RuntimeError(f"daily_upload_limit must be an integer from 1 to {DAILY_UPLOAD_LIMIT}.")
     count = _daily_uploads(config)
-    if count >= limit and not (allow_one_extra and count == limit):
+    if count >= limit and not (allow_one_extra and count <= limit + 1):
         raise RuntimeError(
             f"Daily upload limit reached ({count}/{limit}). Try again after the quota date resets."
         )

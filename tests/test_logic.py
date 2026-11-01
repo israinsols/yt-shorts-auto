@@ -823,6 +823,8 @@ class PersistenceAndQuotaTests(unittest.TestCase):
         with patch.object(main, "_daily_uploads", return_value=1):
             main.ensure_upload_capacity({"daily_upload_limit": 1}, allow_one_extra=True)
         with patch.object(main, "_daily_uploads", return_value=2):
+            main.ensure_upload_capacity({"daily_upload_limit": 1}, allow_one_extra=True)
+        with patch.object(main, "_daily_uploads", return_value=3):
             with self.assertRaisesRegex(RuntimeError, "Daily upload limit reached"):
                 main.ensure_upload_capacity({"daily_upload_limit": 1}, allow_one_extra=True)
 
