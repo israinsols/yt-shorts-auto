@@ -475,5 +475,39 @@
     "duration_seconds": 21.02,
     "created_at": "2026-11-01T19:05:24.628643+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261102T225043Z-bed307f7",
+    "topic": "How to use Windows PowerToys File Locksmith to instantly see which app or process is using a locked file and close it with one click.",
+    "title": "Windows PowerToys File Locksmith: How to Unlock Files Instantly",
+    "description": "Learn how to use Windows PowerToys File Locksmith to instantly find which app is using a locked file and close it with one click.",
+    "tags": [
+      "Windows PowerToys File Locksmith",
+      "how to unlock locked files",
+      "close background processes Windows",
+      "Windows 11 productivity tips",
+      "fix file in use error PC",
+      "beginner tech tutorials"
+    ],
+    "script": "Ever get that annoying message that a file is open in another program and you cannot delete it? Right-click the stuck file and select File Locksmith. Instantly see every app currently using it. Just click end task next to the process, and your file is unlocked and ready.",
+    "keywords": [
+      "Windows error message pop up file in use",
+      "right clicking a file and selecting File Locksmith",
+      "list of active background processes in File Locksmith window",
+      "clicking end task button to unlock the file"
+    ],
+    "hook_style": "question",
+    "voice": "en-GB-SoniaNeural",
+    "clip_ids": [
+      5896048,
+      6332866,
+      38901962,
+      7952165
+    ],
+    "video_path": "output/20261102T225043Z-bed307f7/final.mp4",
+    "thumbnail_path": "output/20261102T225043Z-bed307f7/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-02T22:53:07.621646+00:00",
+    "status": "generated"
   }
 ]
