@@ -75,5 +75,43 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "BFsFEsLYKuY"
+  },
+  {
+    "id": "20261102T203923Z-ec862395",
+    "topic": "Chitral ki traditional dish 'Shoushoo' banane ka tareeqa aur iski wahan ki sardi aur local dry fruits ki kahani",
+    "title": "Chitral ki traditional dish Shoushoo banane ka tareeqa",
+    "description": "Seekhiye Chitral ki traditional dish Shoushoo banane ka tareeqa, jo wahan ki sardi aur local dry fruits ki kahani se judi ek riwayat hai.",
+    "tags": [
+      "Shoushoo recipe",
+      "Chitral traditional food",
+      "Pakistani regional foods",
+      "local dry fruits dishes",
+      "Chitral food culture",
+      "Shoushoo banane ka tareeqa"
+    ],
+    "script": "Chitral ki sardi mein garam Shoushoo aisi traditional dish hai jo local dry fruits aur roghan se tayyar ki jati hai. Sardi se bachne ki yeh maqami riwayat ek sacha khana hai. Akhrot aur badam ko pees kar isme gandum ka aata milaya jata hai, aur phir ise halki aanch par paka kar serve kiya jata hai.",
+    "narration_script": "چترال کی سردی میں گرم شوشو ایسی ٹریڈیشنل ڈش ہے جو لوکل ڈرائی فروٹس اور روغن سے تیار کی جاتی ہے۔ سردی سے بچنے کی یہ مقامی روایت ایک سچ کھانا ہے۔ اخروٹ اور بادام کو پیس کر اس میں گندم کا آٹا ملایا جاتا ہے، اور پھر اسے ہلکی آنچ پر پکاکر سرو کیا جاتا ہے۔",
+    "keywords": [
+      "snowy Chitral mountains",
+      "various dry fruits",
+      "crushing walnuts and almonds",
+      "traditional cooking pot"
+    ],
+    "hook_style": "top_3",
+    "voice": "ur-PK-UzmaNeural",
+    "clip_ids": [
+      7593613,
+      8107386,
+      6268988,
+      34804174
+    ],
+    "video_path": "output/zaiqa/20261102T203923Z-ec862395/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261102T203923Z-ec862395/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-02T20:41:22.703082+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "lqUA_NEjmaM"
   }
 ]
