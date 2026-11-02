@@ -106,5 +106,38 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "BzwMT4qBWps"
+  },
+  {
+    "id": "20261102T235218Z-2da277a4",
+    "topic": "Jab aap guest room ka AC on karne ki koshish karein aur Ammi achanak aakar kahein ke 'yeh sirf mehmuno ke liye hai, tumhaari rooh ko thand chahiye toh chhat wale pankhe ki speed full karlo'.",
+    "title": "Jab guest room ka AC on karne jao aur Ammi aa jayein",
+    "description": "Ek funny aur relatable kahani jab guest room ke AC par Ammi ka pehra lag jata hai.",
+    "tags": [
+      "desi comedy",
+      "pakistani mom jokes",
+      "guest room ac",
+      "relatable reels",
+      "urdu comedy",
+      "funny sketches"
+    ],
+    "script": "Socha garmi se bachne ke liye guest room ka AC on kar loon. Remote uthaya hi tha ke Ammi achanak prakat ho gayin. Kehne lagin, yeh mehmuno ke liye hai! Rooh ko thand chahiye toh chhat wale pankhe ki full speed laga lo. Wahan toh thand ka naam o nishaan nahi hota bas hawa ghoomti hai.",
+    "narration_script": "سوچا گرمی سے بچنے کے لیے گیسٹ روم کا اے سی آن کر لوں۔ ریموٹ اٹھایا ہی تھا کہ امی اچانک پرکٹ ہو گئیں۔ کہنے لگیں، یہ مہمانوں کے لیے ہے! روح کو ٹھنڈ چاہیے تو چھت والے پنکھے کی فل اسپیڈ لگا لو۔ وہاں تو ٹھنڈ کا نام و نشان نہیں ہوتا بس ہوا گھومتی ہے۔",
+    "keywords": [
+      "vertical endless runner coin collection gameplay",
+      "character jumping over obstacles runner gameplay",
+      "side lane shifting endless runner gameplay",
+      "high speed character sprinting runner gameplay"
+    ],
+    "hook_style": "story",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261102T235218Z-2da277a4/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261102T235218Z-2da277a4/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-02T23:53:33.517612+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "Z40tO1VPzL0"
   }
 ]
