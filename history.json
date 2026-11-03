@@ -509,5 +509,39 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-02T22:53:07.621646+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261103T203417Z-f18e65fa",
+    "topic": "How to use Windows PowerToys Color Picker to instantly copy any color code from your screen with a simple keyboard shortcut.",
+    "title": "Windows PowerToys Color Picker: Copy Any Screen Color Instantly",
+    "description": "Learn how to use Windows PowerToys Color Picker to instantly copy any color code from your screen with a simple keyboard shortcut.",
+    "tags": [
+      "Windows PowerToys Color Picker",
+      "how to copy color code PC",
+      "Windows productivity hacks",
+      "beginner tech tips",
+      "useful PC tools",
+      "color picker shortcut"
+    ],
+    "script": "Stop wasting time guessing color codes on your PC. You can instantly copy any color from your screen using Windows PowerToys Color Picker. Just press Windows Shift and C at the same time. Hover over any pixel, click your mouse, and the exact hex code is automatically copied to your clipboard.",
+    "keywords": [
+      "cursor hovering over complex desktop graphics",
+      "pressing Windows Shift and C keyboard shortcut",
+      "magnifier tool hovering over a colored image element",
+      "clipboard notification banner showing the copied hex code"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "en-GB-RyanNeural",
+    "clip_ids": [
+      36805468,
+      5083045,
+      8830764,
+      5961632
+    ],
+    "video_path": "output/20261103T203417Z-f18e65fa/final.mp4",
+    "thumbnail_path": "output/20261103T203417Z-f18e65fa/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-03T20:36:23.266042+00:00",
+    "status": "generated"
   }
 ]
