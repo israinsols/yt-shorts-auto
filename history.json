@@ -543,5 +543,39 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-03T20:36:23.266042+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261104T205308Z-e8fef107",
+    "topic": "How to use Windows PowerToys Awake to keep your PC awake indefinitely without changing your main sleep settings using a quick system tray toggle.",
+    "title": "Windows PowerToys Awake: Keep PC Awake Without Changing Settings",
+    "description": "Learn how to use Windows PowerToys Awake to keep your computer awake indefinitely using a quick system tray toggle without changing your main sleep settings.",
+    "tags": [
+      "Windows PowerToys Awake",
+      "keep PC awake",
+      "prevent computer sleep",
+      "Windows productivity tips",
+      "PC tricks for beginners",
+      "Windows 11 tools"
+    ],
+    "script": "Did you know you can stop your Windows PC from going to sleep without changing your main system settings? Just install Microsoft PowerToys, open the app, and enable the Awake utility. Finally, right-click the blue coffee cup icon in your system tray and set it to keep awake indefinitely.",
+    "keywords": [
+      "Windows desktop screen showing Microsoft PowerToys app settings window",
+      "Close up of mouse cursor turning on the Awake toggle switch",
+      "System tray menu showing the blue coffee cup Awake icon",
+      "Windows taskbar notification area highlighting the active Awake icon"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      8051376,
+      39425816,
+      14252914,
+      35585641
+    ],
+    "video_path": "output/20261104T205308Z-e8fef107/final.mp4",
+    "thumbnail_path": "output/20261104T205308Z-e8fef107/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-04T20:54:57.779931+00:00",
+    "status": "generated"
   }
 ]
