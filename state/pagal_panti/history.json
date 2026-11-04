@@ -139,5 +139,37 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "Z40tO1VPzL0"
+  },
+  {
+    "id": "20261104T223115Z-1cc478d3",
+    "topic": "Jab aap guest ke aane par TV chalane ki koshish karein aur remote ki cell khatam honay par aap usay hath se mar kar theek karne ki purani Pakistani khufia technique istamal karein.",
+    "title": "Jab aap guest ke aane par TV chalane ki koshish karein aur remote chal na ho",
+    "description": "Ek relatable Pakistani comedy skit jisme mehman ke aane par dead remote ko hath se mar kar theek karne ki purani desi technique dikhayi gayi hai.",
+    "tags": [
+      "Pakistani Comedy",
+      "Desi Jokes",
+      "Relatable Memes",
+      "Remote Repair",
+      "Family Humor"
+    ],
+    "script": "Guest ghar aate hi sofa par beth gaye. Hum ne foran TV on karne ke liye remote uthaya magar cell dead nikle. Phir hum ne apni purani Pakistani khufia technique istamal ki. Remote ko hath par zor se mara. Jadu ho gaya! TV chal pada aur hum izzat bachaane me kamyaab ho gaye.",
+    "narration_script": "جیسے ہی مہمان گھر آئے، ہم نے ٹی وی آن کرنے کے لیے ریموٹ اٹھایا مگر سیل ختم تھے۔ پھر ہم نے اپنی پرانی پاکستانی خفیہ تکنیک استعمال کی۔ ریموٹ کو ہاتھ پر زور سے مارا، اور جادو ہو گیا! ٹی وی چل پڑا اور ہماری عزت بچ گئی۔",
+    "keywords": [
+      "endless runner coin collection gameplay",
+      "runner game jumping over obstacles gameplay",
+      "character lane shifting gameplay",
+      "high speed character sprinting gameplay"
+    ],
+    "hook_style": "question",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261104T223115Z-1cc478d3/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261104T223115Z-1cc478d3/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-04T22:32:32.754375+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "ocdM146h9aM"
   }
 ]
