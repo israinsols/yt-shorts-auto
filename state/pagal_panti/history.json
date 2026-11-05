@@ -171,5 +171,37 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "ocdM146h9aM"
+  },
+  {
+    "id": "20261105T223919Z-ed72432c",
+    "topic": "Jab aap grocery store par Ammi ke sath shopping cart pakde khare hon aur wo aisi aurtay milne par baatein shuru kardein ke aap cart ke sahare neend mein sone lag jayein.",
+    "title": "Grocery store par Ammi aur unki guftagu",
+    "description": "Jab ammi grocery store par kisi aunty se mil jayein aur cart pakde pakde neend ane lage.",
+    "tags": [
+      "grocery store shopping",
+      "pakistani mom jokes",
+      "desi family comedy",
+      "relatable reels",
+      "shopping cart struggles"
+    ],
+    "script": "Ammi ne bola beta bas do minute. Abhi aunty se mil kar aayi. Do minute mein pachaas saal ka purana kissa shuru ho gaya. Main cart ko sahara bana kar khara hoon. Aankh lag gayi hai. Aisa lagta hai ke abhi yahin so jaunga. Ammi ki batein khatam hi nahi hoti.",
+    "narration_script": "امی نے بولا بیٹا بس دو منٹ۔ ابھی آنٹی سے مل کر آئی۔ دو منٹ میں پچاس سال کا پرانا قصہ شروع ہو گیا۔ میں کارٹ کو سہارا بنا کر کھڑا ہوں۔ آنکھ لگ گئی ہے۔ ایسا لگتا ہے کہ ابھی یہیں سو جاؤں گا۔ امی کی باتیں ختم ہی نہیں ہوتیں۔",
+    "keywords": [
+      "runner collecting coins gameplay",
+      "runner jumping over obstacles gameplay",
+      "runner shifting lanes gameplay",
+      "runner sprinting fast gameplay"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261105T223919Z-ed72432c/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261105T223919Z-ed72432c/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-05T22:40:11.883597+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The thumbnail can't be set for the specified video. The request might not be properly authorized..",
+    "youtube_video_id": "8G77eYymV1Y"
   }
 ]
