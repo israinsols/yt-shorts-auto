@@ -577,5 +577,39 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-04T20:54:57.779931+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261105T211030Z-ce5e8e8b",
+    "topic": "How to use Google Drive's built-in document scanner on your phone to instantly capture and straighten multi-page receipts or notes into a clean PDF without downloading extra apps.",
+    "title": "Google Drive Document Scanner: Turn Receipts Into Clean PDFs Instantly",
+    "description": "Learn how to use Google Drive's built-in document scanner to turn multi-page receipts and notes into clean PDFs without downloading extra apps.",
+    "tags": [
+      "Google Drive document scanner",
+      "scan receipts with phone",
+      "phone productivity hacks",
+      "beginner tech tips",
+      "scan documents to PDF",
+      "useful mobile tools"
+    ],
+    "script": "Turn messy paper receipts into clean multi-page PDFs instantly using just Google Drive on your phone. First, open the Google Drive app and tap the colorful plus icon. Next, select the scan option and snap photos of your pages. Finally, let the app automatically crop and straighten everything into a single PDF, ready to save.",
+    "keywords": [
+      "person opening Google Drive app on smartphone",
+      "user tapping colorful plus icon on mobile screen",
+      "camera interface capturing paper receipt on desk",
+      "clean multi-page PDF document displayed on phone screen"
+    ],
+    "hook_style": "top_3",
+    "voice": "en-US-GuyNeural",
+    "clip_ids": [
+      4546864,
+      7679620,
+      36265959,
+      6611949
+    ],
+    "video_path": "output/20261105T211030Z-ce5e8e8b/final.mp4",
+    "thumbnail_path": "output/20261105T211030Z-ce5e8e8b/thumbnail.jpg",
+    "duration_seconds": 21.89,
+    "created_at": "2026-11-05T21:11:52.539430+00:00",
+    "status": "generated"
   }
 ]
