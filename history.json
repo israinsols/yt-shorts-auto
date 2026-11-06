@@ -611,5 +611,38 @@
     "duration_seconds": 21.89,
     "created_at": "2026-11-05T21:11:52.539430+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261106T202954Z-c319c118",
+    "topic": "How to use Windows built-in Snipping Tool to instantly extract text from any screenshot or image using its built-in text actions feature without installing extra apps.",
+    "title": "Snipping Tool Text Actions: Extract Text From Any Image Instantly",
+    "description": "Learn how to use Windows Snipping Tool text actions to instantly extract text from any screenshot or image without installing extra apps.",
+    "tags": [
+      "Snipping Tool text actions",
+      "extract text from image Windows",
+      "Windows productivity hacks",
+      "beginner tech tips",
+      "copy text from screenshot"
+    ],
+    "script": "You can instantly extract editable text from any image on your PC using just the built-in Windows Snipping Tool. First, take a screenshot of the image or open it in the app. Next, click the Text Actions button in the toolbar. Finally, highlight the text and copy it. You are done.",
+    "keywords": [
+      "Windows Snipping Tool window open on computer screen",
+      "clicking the Text Actions button in the top toolbar",
+      "highlighting words with the mouse cursor",
+      "pasting the copied text into a notepad document"
+    ],
+    "hook_style": "story",
+    "voice": "en-GB-SoniaNeural",
+    "clip_ids": [
+      19532053,
+      4883865,
+      35350050,
+      8655888
+    ],
+    "video_path": "output/20261106T202954Z-c319c118/final.mp4",
+    "thumbnail_path": "output/20261106T202954Z-c319c118/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-06T20:31:03.030341+00:00",
+    "status": "generated"
   }
 ]
