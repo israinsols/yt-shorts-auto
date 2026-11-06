@@ -190,5 +190,43 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "pGD9eV_YUg0"
+  },
+  {
+    "id": "20261106T182109Z-423b4d1d",
+    "topic": "Khuzdar ka traditional 'Khaddi Kabab' zameen ke andar garh kar pakane ka tareeqa aur iski Balochistan ki nomadic kahani",
+    "title": "Khaddi Kabab: Balochistan ka Zameen Doz Traditional Tariqa",
+    "description": "Khuzdar ka traditional Khaddi Kabab zameen ke andar garh kar pakane ki riwayat aur iski nomadic kahani jaanein. Ye video is iconic Baloch dish ke banane ke riwayati tareeqe ko samjhati hai.",
+    "tags": [
+      "Khaddi Kabab",
+      "Balochistan food",
+      "Khuzdar traditional food",
+      "Pakistani regional foods",
+      "Baloch nomadic recipes",
+      "underground cooking"
+    ],
+    "script": "Khaddi Kabab zameen ke andar garh kar pakaya jata hai. Log aksar sochte hain ke ye koi purani janghi tarkeeb hai, lekin ye asal mein Balochistan ke nomadic shepherds ki purani zaroorat thi. Gosht ko zameen mein garh kar lakdi ki aag se dhimi aanch par pakaya jata hai, jisse ye behtareen gal jata hai.",
+    "narration_script": "خڈی کباب زمین کے اندر گڑھ کر پکایا جاتا ہے۔ لوگ اکثر سوچتے ہیں کہ یہ کوئی پرانی جنگی ترکیب ہے, لیکن یہ اصل میں بلوچستان کے خانہ بدوش چرواہوں کی پرانی ضرورت تھی۔ گوشت کو زمین میں گڑھ کر لکڑی کی آگ سے دھیمی آنچ پر پکایا جاتا ہے, جس سے یہ بہترین گل جاتا ہے۔",
+    "keywords": [
+      "underground pit cooking fire",
+      "raw meat preparation outdoors",
+      "nomadic shepherd landscape",
+      "cooked traditional meat serving"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [
+      34403775,
+      8523033,
+      34382051,
+      6101031
+    ],
+    "video_path": "output/zaiqa/20261106T182109Z-423b4d1d/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261106T182109Z-423b4d1d/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-06T18:22:15.785894+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "pmhb1B_RECc"
   }
 ]
