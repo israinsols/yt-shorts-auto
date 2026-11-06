@@ -203,5 +203,38 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The thumbnail can't be set for the specified video. The request might not be properly authorized..",
     "youtube_video_id": "8G77eYymV1Y"
+  },
+  {
+    "id": "20261106T220037Z-e831fcdd",
+    "topic": "Jab aap phone par doston ke sath board exams ki tayari ke naam par ghanto planning karein aur aakhir mein sirf yeh tay ho ke pehle kaunsa subject nahi parhna.",
+    "title": "Board exams ki tayari aur doston ki planning mein ghante barbaad",
+    "description": "Board exams ki tayari ke naam par doston ke sath ghanto lambi phone calls aur sirf yeh decide karne ki kahani ke pehle kaun sa subject bilkul nahi parhna.",
+    "tags": [
+      "board exams preparation",
+      "desi study struggles",
+      "pakistani student comedy",
+      "funny phone calls",
+      "student life memes",
+      "relatable desi comedy"
+    ],
+    "script": "Board exams ke liye dost ko phone kiya. Poore do ghante planning ki. Notes khole, chai banayi, pura timetable banaya. Akhir mein bas yeh tay hua ke bhai, aaj toh kisi surat Physics ko hath hi nahi lagana. Kal se serious parhai shuru karenge. Wah re hamari tayari!",
+    "narration_script": "بورڈ امتحانات کے لیے دوست کو فون کیا۔ پورے دو گھنٹے پلاننگ کی۔ نوٹس کھولے، چائے بنائی، پورا ٹائم ٹیبل بنایا۔ آخر میں بس یہ طے ہوا کہ بھائی، آج تو کسی صورت فزکس کو ہاتھ ہی نہیں لگانا۔ کل سے سنجیدہ پڑھائی شروع کریں گے۔ واہ رے ہماری تیاری!",
+    "keywords": [
+      "runner game character collecting gold coins gameplay",
+      "runner game character jumping over wooden obstacles gameplay",
+      "runner game character shifting left and right lanes gameplay",
+      "runner game character sprinting fast through glowing tunnel gameplay"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261106T220037Z-e831fcdd/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261106T220037Z-e831fcdd/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-06T22:01:30.188175+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "ZFcETrhGPes"
   }
 ]
