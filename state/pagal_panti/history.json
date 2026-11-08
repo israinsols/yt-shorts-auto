@@ -236,5 +236,34 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "ZFcETrhGPes"
+  },
+  {
+    "id": "20261108T210238Z-d44953ef",
+    "topic": "Jab aap ghar mein apna naya phone ya laptop unbox kar rahe hon aur chhota bhai aakar bole ke 'is mein Free Fire chalegi kya'.",
+    "title": "Free Fire chalegi kya? Naya laptop unboxing ka dukh",
+    "description": "Ghar mein naya laptop unbox karo aur chhota bhai aakar Free Fire ki pooch le, toh saari khushi pal mein gayab ho jaati hai.",
+    "tags": [
+      "Free Fire chalegi kya",
+      "laptop unboxing funny",
+      "desi family comedy",
+      "chhota bhai moments",
+      "Pakistani relatable jokes"
+    ],
+    "script": "Naya laptop table par rakha, seal abhi kholi hi thi ke chhota bhai lapait kar aa gaya. Kehta hai, bhai is mein Free Fire chalegi kya? Abay bhai, yeh coding ke liye hai, tere bachpan ke doston ko helicopter se utarne ke liye nahi! Iski battery se zyada toh teri ammi ka gussa fast chalta hai.",
+    "narration_script": "نیا لپ ٹاپ میز پر رکھا، سیل ابھی کھولی ہی تھی کہ چھوٹا بھائی دوڑتا ہوا آ گیا۔ کہتا ہے، بھائی اس میں فری فائر چلے گی کیا؟ ارے بھائی، یہ کوڈنگ کے لیے ہے، تیرے بچپن کے دوستوں کو ہیلی کاپٹر سے اتارنے کے لیے نہیں! اس کی بیٹری سے زیادہ تو تیری امی کا غصہ فاسٹ چلتا ہے۔",
+    "keywords": [
+      "character collecting gold coins gameplay",
+      "avatar jumping over obstacles gameplay",
+      "runner shifting lanes gameplay",
+      "character sprinting fast gameplay"
+    ],
+    "hook_style": "top_3",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261108T210238Z-d44953ef/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261108T210238Z-d44953ef/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-08T21:03:27.890506+00:00",
+    "status": "generated"
   }
 ]
