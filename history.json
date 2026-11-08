@@ -679,5 +679,39 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-07T19:00:51.914649+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261108T185619Z-904b0512",
+    "topic": "How to use Windows built-in Steps Recorder to automatically capture screenshots and document every click while troubleshooting a computer issue without installing extra apps.",
+    "title": "Steps Recorder: How to Use Windows Hidden Troubleshooting Tool",
+    "description": "Learn how to use Windows built-in Steps Recorder to automatically capture screenshots and clicks for troubleshooting without installing extra apps.",
+    "tags": [
+      "Steps Recorder",
+      "Windows troubleshooting tool",
+      "capture screenshots PC",
+      "record computer clicks",
+      "Windows built in tools",
+      "tech tips for beginners"
+    ],
+    "script": "You don't need third-party software to document computer issues. Windows includes a hidden tool called Steps Recorder that automatically captures screenshots and describes every click you make. Just press the Windows key, type steps recorder, and hit enter. Click start record, reproduce the problem, and stop to save a complete step-by-step troubleshooting report.",
+    "keywords": [
+      "Windows start menu search bar typing steps recorder",
+      "Steps Recorder control panel window with record button",
+      "mouse clicking through computer settings menu",
+      "saved MHT report file displaying sequential screenshots"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      40123799,
+      12330934,
+      28786126,
+      33037097
+    ],
+    "video_path": "output/20261108T185619Z-904b0512/final.mp4",
+    "thumbnail_path": "output/20261108T185619Z-904b0512/thumbnail.jpg",
+    "duration_seconds": 23.88,
+    "created_at": "2026-11-08T18:58:00.433176+00:00",
+    "status": "generated"
   }
 ]
