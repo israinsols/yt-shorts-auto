@@ -228,5 +228,40 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "pmhb1B_RECc"
+  },
+  {
+    "id": "20261108T165621Z-3030d08d",
+    "topic": "Hazara ka traditional 'Char Khaur' ya 'Damaan' banane ka tareeqa aur iski wahan ke sardi ke mausam aur local grains ki purani riwayat",
+    "title": "Char Khaur recipe: Hazara ki sardi ka traditional local grain dish",
+    "description": "Char Khaur recipe seekhiye, jo Hazara ki sardi aur local grains ki purani riwayat se judi ek traditional dish hai.",
+    "tags": [
+      "Char Khaur recipe",
+      "Hazara traditional food",
+      "Pakistani regional foods",
+      "local grains recipes",
+      "winter traditional dishes",
+      "Hazara food culture"
+    ],
+    "script": "Hazara mein sardi se bachne ke liye local grains se Char Khaur ya Damaan banaya jata hai. Is purani riwayat mein mak ya gandum ka atta aur local ghee use hota hai. Pehle atta bhun kar pani ya doodh milate hain, phir is garam gadi dish ko sardi ke mausam mein khaya jata hai.",
+    "narration_script": "ہزارہ میں سردی سے بچنے کے لیے لوکل گرینز سے چار خور یا دامان بنایا جاتا ہے۔ اس پرانی روایت میں مک یا گندم کا آٹا اور لوکل گھی استعمال ہوتا ہے۔ پہلے آٹا بھون کر پانی یا دودھ ملاتے ہیں، پھر اس گرم گاڑھی ڈش کو سردی کے موسم میں کھایا جاتا ہے۔",
+    "keywords": [
+      "snowy Hazara mountains",
+      "local wheat grains",
+      "cooking flour in pot",
+      "warm traditional bowl"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "ur-PK-UzmaNeural",
+    "clip_ids": [
+      35058291,
+      36169910,
+      34104318,
+      8473984
+    ],
+    "video_path": "output/zaiqa/20261108T165621Z-3030d08d/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261108T165621Z-3030d08d/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-08T16:58:24.077608+00:00",
+    "status": "generated"
   }
 ]
