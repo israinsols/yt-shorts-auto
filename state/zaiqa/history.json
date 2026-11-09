@@ -263,5 +263,40 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-08T16:58:24.077608+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261109T212003Z-b63cec88",
+    "topic": "Skardu ki traditional dish 'Prashti' banane ka tareeqa aur iski wahan ke local grains aur sardi ke mausam se jurhi purani kahani",
+    "title": "Prashti recipe: Skardu ki sardi aur local grains ki traditional dish",
+    "description": "Prashti recipe sseekhiye jo Skardu ke local grains se banti hai aur wahan ki sardi ki riwayat se jurhi hai. Ye traditional dish banane ka asaan tareeqa dekhiye.",
+    "tags": [
+      "Prashti recipe",
+      "Skardu traditional food",
+      "Pakistani regional foods",
+      "Baltistan local grains",
+      "Winter special dishes",
+      "traditional cooking Pakistan"
+    ],
+    "script": "Skardu ki sardi mein banti hai traditional dish Prashti, jo wahan ke local grains aur sardi ke mausam ki purani kahani se jurhi hai. Isko banane ke liye local anaj ka aata pani mein ghool kar pakaya jata hai. Yeh garma garam dish thande mausam mein jism ko taqat deti hai aur wahan ki purani riwayat ka hissa hai.",
+    "narration_script": "سکھردو کی سردی میں بنتی ہے روایتی ڈش پراشتی، جو وہاں کے لوکل اناج اور سردی کے موسم کی پرانی کہانی سے جڑی ہے۔ اس کو بنانے کے لیے مقامی آٹے کو پانی میں گھول کر پکایا جاتا ہے۔ یہ گرما گرم ڈش ٹھنڈے موسم میں جسم کو طاقت دیتی ہے اور وہاں کی پرانی روایت کا حصہ ہے۔",
+    "keywords": [
+      "Skardu snow landscape",
+      "Baltistan local grains",
+      "Traditional pot cooking",
+      "Serving warm porridge"
+    ],
+    "hook_style": "top_3",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [
+      30545899,
+      39668970,
+      29153217,
+      8085596
+    ],
+    "video_path": "output/zaiqa/20261109T212003Z-b63cec88/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261109T212003Z-b63cec88/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-09T21:21:46.471781+00:00",
+    "status": "generated"
   }
 ]
