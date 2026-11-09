@@ -713,5 +713,39 @@
     "duration_seconds": 23.88,
     "created_at": "2026-11-08T18:58:00.433176+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261109T233010Z-ab6ff299",
+    "topic": "How to use Windows built-in Storage Sense to automatically clear temporary system files and free up disk space without installing third-party cleaning apps.",
+    "title": "Storage Sense: How to Automatically Clean Windows Temp Files",
+    "description": "Learn how to use Windows Storage Sense to automatically clear temporary system files and free up disk space without installing third-party cleaning apps.",
+    "tags": [
+      "Storage Sense",
+      "Windows cleanup",
+      "free up disk space",
+      "Windows temp files",
+      "PC optimization",
+      "beginner tech tips"
+    ],
+    "script": "You can automatically free up gigabytes of disk space on your PC without installing any third-party apps by using Windows Storage Sense. Open your Windows Settings, click on System, and select Storage. Turn on Storage Sense at the top, then open its configuration menu to choose how often Windows automatically deletes your temporary system files.",
+    "keywords": [
+      "Windows Settings home screen",
+      "System Storage settings menu",
+      "Storage Sense toggle switch turned on",
+      "Storage Sense configuration dropdown menus"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "en-US-GuyNeural",
+    "clip_ids": [
+      32197054,
+      6550137,
+      39109105,
+      36460608
+    ],
+    "video_path": "output/20261109T233010Z-ab6ff299/final.mp4",
+    "thumbnail_path": "output/20261109T233010Z-ab6ff299/thumbnail.jpg",
+    "duration_seconds": 20.95,
+    "created_at": "2026-11-09T23:31:49.722623+00:00",
+    "status": "generated"
   }
 ]
