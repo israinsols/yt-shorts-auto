@@ -298,5 +298,40 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-09T21:21:46.471781+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261110T183046Z-5cba8713",
+    "topic": "Dir ki traditional dish 'Kababish' banane ka tareeqa aur iski wahan ke local spices aur pathan riwayat se jurhi kahani",
+    "title": "Kababish recipe: Dir ki traditional dish banane ka tareeqa",
+    "description": "Kababish recipe seekhein aur iski Pathan riwayat se jurhi kahani jaanein. Yeh video Dir ke local spices aur authentic banane ka tareeqa batati hai.",
+    "tags": [
+      "Kababish recipe",
+      "Dir traditional dish",
+      "Pakistani regional foods",
+      "Pathan food culture",
+      "Dir local spices",
+      "Traditional Kababish"
+    ],
+    "script": "Dir ka mashhoor Kababish tayyar karna bohat asan hai. Pehle gosht ko local dry spices aur chilgoza oil ke sath achi tarah marinate karein. Phir ise Pathan riwayat ke mutabiq traditional patheron par koylon ki ag par halka bhun lein. Garam garam Kababish ab bilkul tayyar hai.",
+    "narration_script": "دیر کا مشہور کبابش تیار کرنا بہت آسان ہے۔ پہلے گوشت کو لوکل ڈرائی مصالحوں اور چلغوزہ آئل کے ساتھ اچھی طرح میرینیٹ کریں۔ پھر اسے پٹھان روایت کے مطابق روایتی پتھروں پر کوئلوں کی آگ پر ہلکا بھون لیں۔ گرما گرم کبابش اب بالکل تیار ہے۔",
+    "keywords": [
+      "raw meat marination with spices",
+      "traditional spices and oil",
+      "cooking meat on hot coals",
+      "served traditional Kababish dish"
+    ],
+    "hook_style": "story",
+    "voice": "ur-PK-UzmaNeural",
+    "clip_ids": [
+      8159292,
+      39548493,
+      27989762,
+      35972714
+    ],
+    "video_path": "output/zaiqa/20261110T183046Z-5cba8713/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261110T183046Z-5cba8713/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-10T18:32:21.204986+00:00",
+    "status": "generated"
   }
 ]
