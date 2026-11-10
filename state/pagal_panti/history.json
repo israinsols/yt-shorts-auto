@@ -265,5 +265,35 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-08T21:03:27.890506+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261110T003928Z-0bd3f849",
+    "topic": "Jab aap guest ke sath lounge mein bethe hon aur Ammi achanak aisi purani bachpan ki embarrassing tasveerein dikhana shuru kardein jismein aapne towel pehna ho ya munh par cake lagaya ho.",
+    "title": "Purani bachpan ki embarrassing tasveerein jab ammi mehmano ke samne khol dein",
+    "description": "Jab guest ke samne ammi bachpan ki towel aur cake wali tasveer dikha dein.",
+    "tags": [
+      "desi comedy",
+      "pakistani mom jokes",
+      "relatable comedy",
+      "bachpan ki tasveerein",
+      "family sketches",
+      "funny shorts"
+    ],
+    "script": "Guest lounge mein bethe thay ke ammi achanak photo album le aayin. Ek tasveer mein maine sirf towel pehna tha aur dusri mein pura cake munh par laga tha. Guest hasne lage aur main wahi zameen mein ghusne laga. Ammi ne hans kar kaha yeh mera favorite childhood pose hai.",
+    "narration_script": "مہمان لاؤنج میں بیٹھے تھے کہ امی اچانک فوٹو البم لے آئیں۔ ایک تصویر میں میں نے صرف تولیہ پہنا تھا اور دوسری میں پورا کیک منہ پر لگا تھا۔ مہمان ہنسنے لگے اور میں وہیں زمین میں گھسنے لگا۔ امی نے ہنس کر کہا یہ میرا فیورٹ چائلڈ ہڈ پوز ہے۔",
+    "keywords": [
+      "character collecting coins gameplay",
+      "runner jumping over obstacles gameplay",
+      "fast lane switching gameplay",
+      "endless sprinting gameplay"
+    ],
+    "hook_style": "story",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261110T003928Z-0bd3f849/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261110T003928Z-0bd3f849/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-10T00:40:41.983722+00:00",
+    "status": "generated"
   }
 ]
