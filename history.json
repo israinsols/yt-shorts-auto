@@ -747,5 +747,39 @@
     "duration_seconds": 20.95,
     "created_at": "2026-11-09T23:31:49.722623+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261110T205704Z-9ae627c3",
+    "topic": "How to use Windows built-in God Mode to access every hidden system setting and control panel tool in one single master folder without digging through menus.",
+    "title": "Windows God Mode: How to Unlock Every Hidden System Setting",
+    "description": "Learn how to enable Windows God Mode to instantly access every hidden system setting and control panel tool in one master folder.",
+    "tags": [
+      "Windows God Mode",
+      "hidden system settings",
+      "Windows tricks",
+      "PC productivity hacks",
+      "control panel shortcut",
+      "tech tips for beginners"
+    ],
+    "script": "Unlock every hidden Windows setting instantly by using God Mode. Right-click your desktop, create a new folder, and paste this exact code as the name. Press enter, and the folder transforms into a master control panel holding over two hundred essential system tools in one single place.",
+    "keywords": [
+      "desktop right click new folder",
+      "renaming folder with specific code",
+      "folder icon changing to control panel",
+      "clicking inside master settings folder"
+    ],
+    "hook_style": "top_3",
+    "voice": "en-GB-SoniaNeural",
+    "clip_ids": [
+      7818620,
+      7989668,
+      12330892,
+      8089529
+    ],
+    "video_path": "output/20261110T205704Z-9ae627c3/final.mp4",
+    "thumbnail_path": "output/20261110T205704Z-9ae627c3/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-10T20:59:43.995372+00:00",
+    "status": "generated"
   }
 ]
