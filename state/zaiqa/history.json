@@ -333,5 +333,40 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-10T18:32:21.204986+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261111T182621Z-14c25508",
+    "topic": "Multan ka traditional 'Sohan Halwa' aur iski Asaf Jahi / Sadozai daur ki verified tareekh",
+    "title": "Multan Ka Sohan Halwa: Asaf Jahi Daur Ki Asli Tareekh",
+    "description": "Multan ka traditional Sohan Halwa aik mashhoor mithai hai. Is video mein hum iski Asaf Jahi aur Sadozai daur ki verified tareekh par baat karenge.",
+    "tags": [
+      "Multani Sohan Halwa",
+      "Sohan Halwa history",
+      "Pakistani regional foods",
+      "Multan food history",
+      "Traditional Pakistani sweets",
+      "Sadozai period food"
+    ],
+    "script": "Kya aap jantay hain Multan ka mashhoor Sohan Halwa kahan se aya? Riwayat ke mutabiq yeh Sadozai aur Asaf Jahi daur mein maqbool hua. Doodh, maida, aur dry fruits se banta yeh halwa centuries se apni asli mithaas aur khas recipe ki wajah se aaj bhi puri dunya mein pasand kiya jata hai.",
+    "narration_script": "کیا آپ جانتے ہیں ملتان کا مشہور سوہن حلوہ کہاں سے آیا؟ روایت کے مطابق یہ سدوزئی اور آصف جاہی دور میں مقبول ہوا۔ دودھ، میدہ، اور ڈرائی فروٹس سے بنتا یہ حلوہ سینچریز سے اپنی اصلی مٹھاس اور خاص ریسیپی کی وجہ سے آج بھی پوری دنیا میں پسند کیا جاتا ہے۔",
+    "keywords": [
+      "Multan street sweet shop",
+      "Traditional Sohan Halwa block",
+      "Boiling milk and sugar pot",
+      "Adding almonds and pistachios"
+    ],
+    "hook_style": "question",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [
+      35246006,
+      28728929,
+      40764758,
+      7250251
+    ],
+    "video_path": "output/zaiqa/20261111T182621Z-14c25508/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261111T182621Z-14c25508/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-11T18:28:04.597848+00:00",
+    "status": "generated"
   }
 ]
