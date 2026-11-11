@@ -781,5 +781,40 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-10T20:59:43.995372+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261111T212944Z-920fb33e",
+    "topic": "How to use Windows built-in Dynamic Lock to automatically lock your PC the moment you walk away with your phone using Bluetooth.",
+    "title": "Dynamic Lock: Automatically Lock Your PC With Your Phone",
+    "description": "Learn how to use Windows Dynamic Lock to automatically lock your computer whenever you walk away with your phone. This beginner-friendly trick enhances your privacy and security effortlessly.",
+    "tags": [
+      "Dynamic Lock",
+      "lock PC with phone",
+      "Windows tips",
+      "PC security trick",
+      "productivity hacks",
+      "Bluetooth automation",
+      "Windows tutorials"
+    ],
+    "script": "Your Windows PC can lock itself the exact second you walk away just by using your phone. First, pair your smartphone to your computer via Bluetooth. Next, open your Windows settings, go to sign-in options, and check the box for Dynamic Lock. Now, whenever you step out of range, your screen locks automatically.",
+    "keywords": [
+      "smartphone paired via bluetooth to windows pc",
+      "windows settings menu open to sign in options",
+      "checkbox being clicked for windows dynamic lock",
+      "user walking away from desk while pc screen locks"
+    ],
+    "hook_style": "story",
+    "voice": "en-GB-RyanNeural",
+    "clip_ids": [
+      9130470,
+      13736678,
+      36633828,
+      29276577
+    ],
+    "video_path": "output/20261111T212944Z-920fb33e/final.mp4",
+    "thumbnail_path": "output/20261111T212944Z-920fb33e/thumbnail.jpg",
+    "duration_seconds": 21.41,
+    "created_at": "2026-11-11T21:31:26.993107+00:00",
+    "status": "generated"
   }
 ]
