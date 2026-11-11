@@ -324,5 +324,35 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-10T22:17:25.810626+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261111T232529Z-edc5af02",
+    "topic": "Jab aap guest ke aane par unke paas baith kar unki har baat par aise hasne ki acting karein jaise duniya ka sab se funny joke sun liya ho.",
+    "title": "Jab guest ke paas baith kar hasne ki acting karni paray",
+    "description": "Jab mehmano ke samne zabardasti has has kar halat kharab ho jaye. Ek mazedaar desi comedy sketch.",
+    "tags": [
+      "desi comedy",
+      "pakistani sketches",
+      "relatable",
+      "family comedy",
+      "funny moments",
+      "guest problems"
+    ],
+    "script": "Jab guest ghar ayein aur ammi humein unke paas bitha dein, toh hamari hasi start ho jati hai. Woh koi bhi aam baat karein, hum aise hil hil kar haste hain jaise world ka funniest joke sun liya ho. Andar se ro rahe hote hain, lekin baahar se full comedy show chal raha hota hai.",
+    "narration_script": "جب مہمان گھر آئیں اور امی ہمیں ان کے پاس بٹھا دیں، تو ہماری ہنسی شروع ہو جاتی ہے۔ وہ کوئی بھی عام بات کریں، ہم ایسے ہنستے ہیں جیسے دنیا کا سب سے فنی لطیفہ سن لیا ہو۔ اندر سے رو رہے ہوتے ہیں، لیکن باہر سے فل کامیڈی شو چل رہا ہوتا ہے۔",
+    "keywords": [
+      "character collecting coins endless runner gameplay",
+      "character jumping over barrier endless runner gameplay",
+      "character shifting lanes endless runner gameplay",
+      "character sprinting fast endless runner gameplay"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261111T232529Z-edc5af02/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261111T232529Z-edc5af02/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-11T23:26:33.445691+00:00",
+    "status": "generated"
   }
 ]
