@@ -368,5 +368,40 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-11T18:28:04.597848+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261112T184431Z-7b9b7cce",
+    "topic": "Upper Dir ki traditional dish 'Manjoosh' banane ka tareeqa aur iski wahan ke local grains aur sardi ke mausam se jurhi purani riwayat",
+    "title": "Manjoosh recipe: Upper Dir ki sardi aur local grains ki traditional dish",
+    "description": "Upper Dir ki traditional dish Manjoosh banane ka tareeqa aur iski wahan ke local grains aur sardi ke mausam se jurhi purani riwayat janiye.",
+    "tags": [
+      "Manjoosh recipe",
+      "Upper Dir traditional food",
+      "Pakistani regional foods",
+      "local grains recipes",
+      "Winter traditional dishes Pakistan",
+      "Khyber Pakhtunkhwa food culture"
+    ],
+    "script": "Upper Dir ka Manjoosh sardi mein banne wali aik traditional dish hai. Loag kehte hain yeh sadiyon purani recipe hai, lekin iska koi written historical record nahi milta. Local tradition ke mutabiq, ise wahan ke local grains aur desi ghee se tayyar kiya jata hai jo sardi se bachne ke liye khaya jata hai.",
+    "narration_script": "اوپر دہر کا منجوش سردی میں بننے والی ایک ٹریڈیشنل ڈش ہے۔ لوگ کہتے ہیں یہ صدیوں پرانی ریسیپی ہے، لیکن اس کا کوئی ریٹن ہسٹوریکل ریکارڈ نہیں ملتا۔ لوکل ٹریڈیشن کے مطابق، اسے وہاں کے لوکل گرینز اور دیسی گھی سے تیار کیا جاتا ہے جو سردی سے بچنے کے لیے کھایا جاتا ہے۔",
+    "keywords": [
+      "Snowy mountains Upper Dir",
+      "Traditional wheat grains",
+      "Desi ghee melting in pan",
+      "Hot traditional Pakistani dish"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "ur-PK-UzmaNeural",
+    "clip_ids": [
+      15777222,
+      39713505,
+      10432084,
+      35448534
+    ],
+    "video_path": "output/zaiqa/20261112T184431Z-7b9b7cce/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261112T184431Z-7b9b7cce/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-12T18:46:32.582523+00:00",
+    "status": "generated"
   }
 ]
