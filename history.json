@@ -816,5 +816,39 @@
     "duration_seconds": 21.41,
     "created_at": "2026-11-11T21:31:26.993107+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261112T213201Z-ad060161",
+    "topic": "How to use Windows built-in Focus Sessions in the Clock app to automatically block distractions and set a timer with ambient background music without installing extra apps.",
+    "title": "Windows Focus Sessions: How to Block Distractions Without Extra Apps",
+    "description": "Learn how to use Windows built-in Focus Sessions in the Clock app to automatically block distractions and play ambient music without installing extra software.",
+    "tags": [
+      "Windows Focus Sessions",
+      "Clock app Windows 11",
+      "productivity hacks PC",
+      "block distractions Windows",
+      "focus timer PC",
+      "beginner tech tips"
+    ],
+    "script": "Want to boost your focus without downloading extra software? Open the Windows Start menu, search for the Clock app, and click on Focus Sessions. Just set your timer, connect your Spotify account for ambient background music, and watch Windows automatically silence your notifications and track your daily goals.",
+    "keywords": [
+      "Windows Start menu opening Clock app",
+      "Clock app Focus Sessions dashboard",
+      "Spotify ambient music connection panel",
+      "Windows notification center showing silence mode"
+    ],
+    "hook_style": "question",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      13566476,
+      31449725,
+      12330889,
+      18969131
+    ],
+    "video_path": "output/20261112T213201Z-ad060161/final.mp4",
+    "thumbnail_path": "output/20261112T213201Z-ad060161/thumbnail.jpg",
+    "duration_seconds": 20.11,
+    "created_at": "2026-11-12T21:33:52.599414+00:00",
+    "status": "generated"
   }
 ]
