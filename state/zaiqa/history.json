@@ -403,5 +403,40 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-12T18:46:32.582523+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261113T182630Z-12cb98ba",
+    "topic": "Hunza ka traditional 'Chapshuro' banane ka tareeqa aur iski wahan ke local meat aur wheat se jurhi purani riwayat",
+    "title": "Chapshuro recipe: Hunza ka traditional meat aur wheat pie",
+    "description": "Seekhiye Hunza ka traditional Chapshuro banane ka asaan tareeqa aur jaaniye iske local meat aur wheat se jude riwayati pehlu.",
+    "tags": [
+      "Chapshuro recipe",
+      "Hunza traditional food",
+      "Pakistani regional foods",
+      "local meat dishes",
+      "Hunza culture",
+      "Chapshuro making"
+    ],
+    "script": "Did you know Hunza ka famous Chapshuro wahan ke local organic meat aur wheat se banta hai? Pehle aate ka dough tayyar karein. Phir ismein minced yak ya beef bharkar tway ya oven mein pakaayein. Yeh purani riwayat sardi mein wahan ke logon ko garam rakhti hai aur iska crispy result aapko behad pasand aayega.",
+    "narration_script": "کیا آپ جانتے ہیں ہنزہ کا مشہور چپشرو وہاں کے مقامی گوشت اور گندم سے بنتا ہے؟ پہلے آٹے کا ڈو تیار کریں۔ پھر اس میں قیمہ بھر کر توے یا اوون میں پکائیں۔ یہ روایات سردی میں گرم رکھتی ہیں اور اس کا خستہ نتیجہ آپ کو بے حد پسند آئے گا۔",
+    "keywords": [
+      "Hunza valley wheat flour",
+      "minced meat preparation",
+      "baking traditional bread",
+      "crispy baked Chapshuro"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [
+      37745884,
+      7237358,
+      39280416,
+      5877787
+    ],
+    "video_path": "output/zaiqa/20261113T182630Z-12cb98ba/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261113T182630Z-12cb98ba/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-13T18:27:48.032374+00:00",
+    "status": "generated"
   }
 ]
