@@ -383,5 +383,34 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-12T22:42:22.395097+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261113T222901Z-3d0ceaf4",
+    "topic": "Jab aap ghar mein akele chai banane jayein aur pehli baar kitchen mein aisi ‘MasterChef’ wali feeling aaye ke aapko lage aap kisi cooking show ke winner hain, lekin aakhir mein doodh ubal kar chulhe par gir jaye aur aapko chupchap sponge uthana parhe.",
+    "title": "Chai banane chale aur ban gaye MasterChef",
+    "description": "Ek aam Pakistani kitchen mein akele chai banate waqt MasterChef jaisi feeling aana aur phir doodh girne par reality check milna.",
+    "tags": [
+      "Pakistani comedy",
+      "desi kitchen humor",
+      "chai lovers",
+      "relatable reels",
+      "funny shorts"
+    ],
+    "script": "Jab ghar mein akelay chai bananay jao, toh achanak dil mein Sanam Baloch ya Gordon Ramsay wali rooh aa jati hai. Lagta hai bas abhi trophy milnay wali hai. Phir achanak doodh ubal kar stove par gir jata hai, aur saari MasterChef waali aukaat ek sponge mein sama jati hai. Wah re zindagi!",
+    "narration_script": "جب گھر میں اکیلے چائے بنانے جاؤ، تو اچانک دل میں ماسٹر شیف والی روح آ جاتی ہے۔ لگتا ہے بس ابھی ٹرافی ملنے والی ہے۔ پھر اچانک دودھ ابل کر چولہے پر گر جاتا ہے، اور ساری ماسٹر شیف والی اوقات ایک اسپنج میں سمہ جاتی ہے۔ واہ رے زندگی!",
+    "keywords": [
+      "character collecting glowing coins endless runner gameplay",
+      "character jumping over high obstacles runner gameplay",
+      "character shifting lanes dodging traps runner gameplay",
+      "character sprinting fast towards finish line gameplay"
+    ],
+    "hook_style": "top_3",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261113T222901Z-3d0ceaf4/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261113T222901Z-3d0ceaf4/thumbnail.jpg",
+    "duration_seconds": 20.96,
+    "created_at": "2026-11-13T22:29:59.205545+00:00",
+    "status": "generated"
   }
 ]
