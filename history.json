@@ -850,5 +850,39 @@
     "duration_seconds": 20.11,
     "created_at": "2026-11-12T21:33:52.599414+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261113T205709Z-8b87d871",
+    "topic": "How to use Windows built-in Night Light to automatically reduce eye strain by shifting your screen colors to warmer tones at sunset without installing extra apps.",
+    "title": "Windows Night Light: Automatically Reduce Eye Strain at Sunset",
+    "description": "Learn how to enable Windows Night Light to automatically shift your screen colors to warmer tones at sunset and reduce eye strain without extra apps.",
+    "tags": [
+      "Windows Night Light",
+      "reduce eye strain",
+      "PC productivity tricks",
+      "Windows 10 tips",
+      "Windows 11 features",
+      "computer eye comfort"
+    ],
+    "script": "You do not need third-party apps to stop late-night eye strain. Windows Night Light automatically shifts your screen colors to warmer tones after sunset. Open your Windows settings, go to System, then Display, and turn on Night Light. Click Night Light settings to schedule it automatically from sunset to sunrise.",
+    "keywords": [
+      "person rubbing tired eyes in front of a glowing computer screen",
+      "Windows 10 or 11 Display settings menu open on a desktop monitor",
+      "clicking the Night Light toggle switch in Windows settings",
+      "Windows Night Light schedule settings showing sunset to sunrise hours"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "en-US-GuyNeural",
+    "clip_ids": [
+      6658334,
+      34975243,
+      35281906,
+      35876587
+    ],
+    "video_path": "output/20261113T205709Z-8b87d871/final.mp4",
+    "thumbnail_path": "output/20261113T205709Z-8b87d871/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-13T20:59:13.494690+00:00",
+    "status": "generated"
   }
 ]
