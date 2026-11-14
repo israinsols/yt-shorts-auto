@@ -412,5 +412,34 @@
     "duration_seconds": 20.96,
     "created_at": "2026-11-13T22:29:59.205545+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261114T211753Z-a1c1ffa8",
+    "topic": "Jab aap stationery shop par ek simple pen khareedne jayein aur dukaandar aapko aisi nayi colourful glitter wali cheezein dikhaye ke aap bhool jayein ke aapko sirf assignment likhni thi.",
+    "title": "Simple pen khareedne ki ghalti aur stationery shop ka jaadu",
+    "description": "Ek simple pen khareedne gaye thay assignment ke liye, par dukaandar ke naye glitter wale items ne saara plan badal diya!",
+    "tags": [
+      "stationery shop comedy",
+      "pakistani desi comedy",
+      "relatable school life",
+      "funny everyday situations",
+      "student struggles"
+    ],
+    "script": "Socha tha bas ek simple blue pen le kar chup chaap assignment likhunga. Par dukaandar bhai ne aisi chamakti hui glitter wali dairies aur unicorn pencils dikha di ke mera dimaag hi hil gaya! Assignment gayi tel lene, ab main pink feather wala pen le kar ghar ja raha hoon.",
+    "narration_script": "سوچا تھا بس ایک سمپل بلو پین لے کر چپ چاپ اسائنمنٹ لکھوں گا۔ پر دکاندار بھائی نے ایسی چمکتی ہوئی گلٹر والی ڈائریز اور یونیکورن پینسلز دکھا دی کہ میرا دماغ ہی ہل گیا! اسائنمنٹ گئی تیل لینے، اب میں پنکھ والا پین لے کر گھر جا رہا ہوں۔",
+    "keywords": [
+      "character running and collecting coins gameplay",
+      "character jumping over obstacles gameplay",
+      "character shifting lanes rapidly gameplay",
+      "character sprinting to finish line gameplay"
+    ],
+    "hook_style": "story",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261114T211753Z-a1c1ffa8/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261114T211753Z-a1c1ffa8/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-14T21:19:16.157556+00:00",
+    "status": "generated"
   }
 ]
