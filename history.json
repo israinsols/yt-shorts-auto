@@ -884,5 +884,39 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-13T20:59:13.494690+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261114T192307Z-ea02177b",
+    "topic": "How to use Windows built-in Project to this PC feature to instantly turn your tablet or second monitor into a wireless display without installing third-party software.",
+    "title": "Project to this PC: Turn Any Screen into a Wireless Display Instantly",
+    "description": "Learn how to use Windows built-in Project to this PC feature to instantly turn your tablet or second monitor into a wireless display without installing third-party software.",
+    "tags": [
+      "Project to this PC",
+      "Windows wireless display",
+      "use tablet as second monitor",
+      "Windows tech tips",
+      "productivity hacks",
+      "Windows tricks"
+    ],
+    "script": "You can instantly turn your tablet into a wireless second monitor using only built-in Windows tools. First, search for Wireless Display in your optional features and install it. Next, launch the Project to this PC app on your main computer. Finally, press Windows plus K on your keyboard and connect to your device.",
+    "keywords": [
+      "hands holding a Windows tablet displaying the desktop",
+      "finger clicking optional features in Windows settings",
+      "hands opening the Project to this PC app",
+      "fingers pressing Windows key and K on a keyboard"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "en-GB-SoniaNeural",
+    "clip_ids": [
+      36628017,
+      6974127,
+      5082599,
+      9047447
+    ],
+    "video_path": "output/20261114T192307Z-ea02177b/final.mp4",
+    "thumbnail_path": "output/20261114T192307Z-ea02177b/thumbnail.jpg",
+    "duration_seconds": 20.69,
+    "created_at": "2026-11-14T19:25:20.746500+00:00",
+    "status": "generated"
   }
 ]
