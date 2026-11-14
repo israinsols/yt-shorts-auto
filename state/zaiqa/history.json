@@ -438,5 +438,39 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-13T18:27:48.032374+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261114T165255Z-2119ea9f",
+    "topic": "Peshawar ki traditional 'Namkeen Tikka Karahi' lohe ki bari karahi mein sirf dumbay ki charbi aur namak se banane ka tareeqa aur iski qadeem truck driver aur qafilon ki riwayat se jurhi kahani",
+    "title": "Namkeen Tikka Karahi Recipe - Peshawar ki Asli Qadeem Karahi",
+    "description": "Seekhiye Peshawar ki traditional Namkeen Tikka Karahi banane ka tareeqa. Yeh simple recipe sirf dumbay ki charbi aur namak se tayyar hoti hai.",
+    "tags": [
+      "Namkeen Tikka Karahi",
+      "Peshawari Karahi",
+      "Dumbay ki Karahi",
+      "Pakistani Regional Foods",
+      "Traditional Karahi Recipe"
+    ],
+    "script": "Peshawar ki asli Namkeen Tikka Karahi sirf dumbay ki charbi aur namak se lohe ki bari karahi mein banti hai. Qadeem riwayat ke mutabiq yeh tareeqa safar karne wale qafilon aur truck drivers ka banaya hua hai. Pehle gosht ko charbi mein fry karein aur phir sirf namak daal kar halki aanch par pakayein. Tayyar hai lajawab karahi.",
+    "narration_script": "پشاور کی اصلی نمکین ٹکہ کڑاہی صرف دنبے کی چربی اور نمک سے لوہے کی بڑی کڑاہی میں بنتی ہے۔ قدیم روایت کے مطابق یہ طریقہ سفر کرنے والے قافلوں اور ٹرک ڈرائیورز کا بنایا ہوا ہے۔ پہلے گوشت کو چربی میں فرائی کریں اور پھر صرف نمک ڈال کر ہلکی آنچ پر پکائیں۔ تیار ہے لاجواب کڑاہی۔",
+    "keywords": [
+      "large iron karahi with mutton fat",
+      "raw lamb meat pieces with salt",
+      "cooking meat in large iron wok",
+      "serving traditional namkeen karahi"
+    ],
+    "hook_style": "top_3",
+    "voice": "ur-PK-UzmaNeural",
+    "clip_ids": [
+      35573329,
+      36659457,
+      36886088,
+      38107326
+    ],
+    "video_path": "output/zaiqa/20261114T165255Z-2119ea9f/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261114T165255Z-2119ea9f/thumbnail.jpg",
+    "duration_seconds": 20.76,
+    "created_at": "2026-11-14T16:54:48.169872+00:00",
+    "status": "generated"
   }
 ]
