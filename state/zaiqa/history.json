@@ -472,5 +472,40 @@
     "duration_seconds": 20.76,
     "created_at": "2026-11-14T16:54:48.169872+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261115T173616Z-65858c98",
+    "topic": "Sindh ka traditional 'Bheero' ya lotus stem curry banane ka tareeqa aur iski Indus valley civilization ke qadeem local ingredients se jurhi kahani",
+    "title": "Bheero Recipe: Sindh Ki Qadeem Lotus Stem Curry",
+    "description": "Seekhiye Sindh ki traditional Bheero yani lotus stem curry banane ka asaan tareeqa aur iske qadeem Indus Valley ingredients ki kahani.",
+    "tags": [
+      "Bheero recipe",
+      "Sindhi Bheero curry",
+      "Lotus stem curry",
+      "Pakistani regional foods",
+      "Sindhi food tradition",
+      "Indus valley ingredients"
+    ],
+    "script": "Sindh ki qadeem dish Bheero yani lotus stem curry Indus Valley Civilization ke waqt se yahan ki riwayat ka hissa mani jati hai. Isay banane ke liye lotus stems ko kaat kar pyaz, tamatar aur traditional local masalon ke sath bhun kar pkaaya jata hai, jisse yeh lazeez aur healthy salan tayyar hota hai.",
+    "narration_script": "سندھ کی قدیم ڈش بھییرو یعنی لوٹس سٹم کڑی انڈس ویلی سویلائزیشن کے وقت سے یہاں کی روایت کا حصہ مانی جاتی ہے۔ اسے بنانے کے لیے لوٹس سٹمز کو کاٹ کر پیاز, ٹماٹر اور ٹریڈیشنل لوکل مصالحوں کے ساتھ بھون کر پکایا جاتا ہے, جس سے یہ لذیذ اور ہیلتی سالن تیار ہوتا ہے۔",
+    "keywords": [
+      "raw lotus stem on table",
+      "cutting lotus stem slices",
+      "cooking curry in pan",
+      "cooked lotus stem curry bowl"
+    ],
+    "hook_style": "story",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [
+      7889399,
+      13152673,
+      40528535,
+      35385412
+    ],
+    "video_path": "output/zaiqa/20261115T173616Z-65858c98/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261115T173616Z-65858c98/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-15T17:37:20.760651+00:00",
+    "status": "generated"
   }
 ]
