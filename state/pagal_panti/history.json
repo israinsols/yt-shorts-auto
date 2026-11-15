@@ -441,5 +441,34 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-14T21:19:16.157556+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261115T213858Z-fad9e269",
+    "topic": "Jab aap ghar mein iron karne ke liye apnay kapray nikalen aur pata chalay ke wo abhi tak dhule hi nahi hain, phir aap chupchap wahi kal wali shirt pehan kar university ya office ke liye nikal jayein.",
+    "title": "Jab kapray iron karne niklein aur wo dhule hi na hon",
+    "description": "Jab iron karne ke liye kapray nikalo aur wo gande niklein, toh chupchap kal wali shirt pehan kar university nikalne ki kahani.",
+    "tags": [
+      "desi comedy",
+      "pakistani vlogs",
+      "university life",
+      "relatable humor",
+      "everyday struggles"
+    ],
+    "script": "Subah subah armano se almari kholi ke aaj toh press karke chamkenge. Kapra nikala toh wo bechara ganda aur unwashed nikla. Ammi ko awaz dene ka waqt hi nahi tha. Phir kya, chupchap wahi kal wali shirt pehni, perfume chhidka aur university ki taraf bhag liya. Ajab beizzati hai.",
+    "narration_script": "صبح صبح ارمانوں سے الماری کھولی کہ آج تو پریس کرکے چمکیں گے۔ کپڑا نکالا تو وہ بیचारा گندا اور ان واشڈ نکلا۔ امی کو آواز دینے کا وقت ہی نہیں تھا۔ پھر کیا، چپ چاپ وہی کل والی شرٹ پہنی، پرفیوم چھڑکا اور یونیورسٹی کی طرف بھاگ لیا۔ عجیب بے عزتی ہے۔",
+    "keywords": [
+      "character collecting coins in vertical runner gameplay",
+      "runner jumping over obstacle gameplay",
+      "character shifting lanes in runner gameplay",
+      "fast sprinting endless runner gameplay"
+    ],
+    "hook_style": "question",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261115T213858Z-fad9e269/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261115T213858Z-fad9e269/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-15T21:40:12.660645+00:00",
+    "status": "generated"
   }
 ]
