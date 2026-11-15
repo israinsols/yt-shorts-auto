@@ -918,5 +918,38 @@
     "duration_seconds": 20.69,
     "created_at": "2026-11-14T19:25:20.746500+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261115T195403Z-bdcd0a9c",
+    "topic": "How to use Google Keep's built-in image OCR feature on your phone to instantly extract all text from a photo of a printed document or note into editable text without downloading extra apps.",
+    "title": "Google Keep OCR: Extract Text from Photos Instantly",
+    "description": "Learn how to use Google Keep OCR on your phone to instantly turn photos of notes and printed documents into editable text.",
+    "tags": [
+      "Google Keep OCR",
+      "extract text from images",
+      "scan text with phone",
+      "productivity hacks",
+      "beginner tech tips"
+    ],
+    "script": "Extract text from any photo instantly using Google Keep on your phone. First, open the Google Keep app and tap the image icon to upload your document or note photo. Next, tap the uploaded image to open it. Finally, tap the three dots in the top right corner and select Grab image text. Your editable text appears below instantly.",
+    "keywords": [
+      "person tapping Google Keep app icon on smartphone screen",
+      "finger selecting a document photo from phone gallery",
+      "user tapping three dots menu in Google Keep image view",
+      "extracted editable text appearing below image in Google Keep"
+    ],
+    "hook_style": "top_3",
+    "voice": "en-GB-RyanNeural",
+    "clip_ids": [
+      8165942,
+      28598941,
+      13443895,
+      25935017
+    ],
+    "video_path": "output/20261115T195403Z-bdcd0a9c/final.mp4",
+    "thumbnail_path": "output/20261115T195403Z-bdcd0a9c/thumbnail.jpg",
+    "duration_seconds": 22.7,
+    "created_at": "2026-11-15T19:55:53.318906+00:00",
+    "status": "generated"
   }
 ]
