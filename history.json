@@ -951,5 +951,39 @@
     "duration_seconds": 22.7,
     "created_at": "2026-11-15T19:55:53.318906+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261116T232851Z-ac7d3e96",
+    "topic": "How to use Windows built-in Game Bar to record any app window or screen activity instantly using the shortcut Windows key plus G without installing extra software.",
+    "title": "Windows Game Bar: How to Screen Record Any App Instantly",
+    "description": "Learn how to use Windows Game Bar to record any app window or screen activity instantly without installing extra software.",
+    "tags": [
+      "Windows Game Bar",
+      "screen record Windows",
+      "record screen without software",
+      "Windows 10 tips",
+      "Windows 11 tricks",
+      "beginner tech tutorial"
+    ],
+    "script": "You can record any app window or screen activity on your PC right now without installing extra software. Just press the Windows key plus G to open the built-in Game Bar. Click the record button or press Windows key plus Alt plus R to instantly start capturing your screen. Your video saves automatically to your PC, ready to use.",
+    "keywords": [
+      "desktop application window open",
+      "Windows Game Bar overlay on screen",
+      "mouse clicking record button",
+      "video file inside folder"
+    ],
+    "hook_style": "story",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      40822589,
+      39701661,
+      35289157,
+      8135783
+    ],
+    "video_path": "output/20261116T232851Z-ac7d3e96/final.mp4",
+    "thumbnail_path": "output/20261116T232851Z-ac7d3e96/thumbnail.jpg",
+    "duration_seconds": 22.75,
+    "created_at": "2026-11-16T23:31:10.744561+00:00",
+    "status": "generated"
   }
 ]
