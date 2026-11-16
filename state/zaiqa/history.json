@@ -507,5 +507,39 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-15T17:37:20.760651+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261116T205145Z-f544b78e",
+    "topic": "Shikarpur ka traditional 'Achaar' banane kaasal riwayati tareeqa aur iski wahan ke local mustard oil aur dhoop mein pakane ki purani kahani",
+    "title": "Shikarpur ka Achaar: Asli Riwayati Tareeqa",
+    "description": "Discover how authentic Shikarpur ka Achaar is traditionally prepared using local mustard oil and sun-drying. Learn the time-tested local method behind this famous Pakistani delicacy.",
+    "tags": [
+      "Shikarpur ka Achaar",
+      "Pakistani regional foods",
+      "traditional pickle recipe",
+      "local mustard oil achaar",
+      "Sindh food traditions"
+    ],
+    "script": "Kya aap jantay hain Shikarpur ka achaar kyon khas hai? Iska asli riwayati tareeqa yeh hai ke sabziyon ko khalis local sarson ke tel mein bhigoya jata hai. Phir inhe Sindh ki taiz dhoop mein mahino pakaya jata hai. Yeh purani riwayat achaar ko bina kisi artificial preservative ke lamba mehfooz rakhti hai.",
+    "narration_script": "کیا آپ جانتے ہیں شکارپور کا اچار کیوں خاص ہے؟ اس کا اصلی روایتی طریقہ یہ ہے کہ سبزیوں کو خالص مقامی سرصوں کے تیل میں بھگویا جاتا ہے۔ پھر انہیں سندھ کی تیز دھوپ میں مہینوں پکایا جاتا ہے۔ یہ پرانی روایت اچار کو بنا کسی مصنوعی کیمیکل کے طویل عرصہ محفوظ رکھتی ہے۔",
+    "keywords": [
+      "raw mangoes and spices",
+      "pouring yellow mustard oil",
+      "jars under hot sun",
+      "traditional Pakistani pickle"
+    ],
+    "hook_style": "question",
+    "voice": "ur-PK-UzmaNeural",
+    "clip_ids": [
+      39129925,
+      6268992,
+      40773852,
+      6663999
+    ],
+    "video_path": "output/zaiqa/20261116T205145Z-f544b78e/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261116T205145Z-f544b78e/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-16T20:53:44.518071+00:00",
+    "status": "generated"
   }
 ]
