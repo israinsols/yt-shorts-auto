@@ -541,5 +541,40 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-16T20:53:44.518071+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261117T194055Z-cd901b0f",
+    "topic": "Kot Adu ka traditional 'Sohan Halwa' banane ka riwayati tareeqa aur iski is qadeem shahar ki mitti aur meethay pani ki kahani",
+    "title": "Sohan Halwa of Kot Adu: History and Traditional Recipe",
+    "description": "Learn how authentic Sohan Halwa is made in Kot Adu using local ingredients and traditional methods. Discover the verified culinary heritage of this historic Pakistani city.",
+    "tags": [
+      "Sohan Halwa",
+      "Kot Adu food",
+      "Pakistani regional foods",
+      "traditional desserts",
+      "local ingredients",
+      "halwa recipe"
+    ],
+    "script": "Kot Adu ka Sohan Halwa apni khas mitti aur meethay pani ki waja se mashhoor hai. Yeh koi purana royal secret nahi, balkay local halwaiyon ki tayar karda riwayat hai. Isay banane ke liye doodh, maida, aur cheeni ko ghanton pakaya jata hai, phir desi ghee aur dry fruits shamil kar ke iska makhsoos meetha taste banaya jata hai.",
+    "narration_script": "کوٹ ادو کا سوہن حلوہ اپنی خاص مٹی اور میٹھے پانی کی وجہ سے مشہور ہے۔ یہ کوئی پرانا شاہی سیکرٹ نہیں، بلکہ مقامی حلوائیوں کی تیار کردہ روایت ہے۔ اسے بنانے کے لیے دودھ، میدہ، اور چینی کو گھنٹوں پکایا جاتا ہے، پھر دیسی گھی اور ڈرائی فروٹس شامل کر کے اس کا مخصوص میٹھا ٹیسٹ بنایا جاتا ہے۔",
+    "keywords": [
+      "traditional halwa preparation in large pot",
+      "pouring fresh milk into boiling cauldron",
+      "adding desi ghee and dry fruits",
+      "finished sohan halwa chunks on display"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [
+      34776140,
+      36108441,
+      40993305,
+      6805955
+    ],
+    "video_path": "output/zaiqa/20261117T194055Z-cd901b0f/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261117T194055Z-cd901b0f/thumbnail.jpg",
+    "duration_seconds": 20.57,
+    "created_at": "2026-11-17T19:42:44.236644+00:00",
+    "status": "generated"
   }
 ]
