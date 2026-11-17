@@ -470,5 +470,34 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-15T21:40:12.660645+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261117T004418Z-287bca0d",
+    "topic": "Jab aap ghar mein apne phone ki gallery saaf kar rahe hon aur achanak 4 saal purani aisi selfies aur blurry tasveerein mil jayein jismein aapka angle itna bura ho ke aapko khud par tars aaye aur aap foran phone band karke so jayein.",
+    "title": "Phone gallery saaf karne ka dukh aur achanak 4 saal purani selfies",
+    "description": "Ghar mein phone ki gallery saaf karte waqt 4 saal purani buri selfies dekh kar khud par tars aane ka mazahiya kissa.",
+    "tags": [
+      "phone gallery saaf karna",
+      "desi comedy shorts",
+      "relatable pakistani moments",
+      "funny selfies",
+      "desi daily life"
+    ],
+    "script": "Ghar mein baith kar phone ki gallery saaf kar raha tha. Achanak char saal purani woh selfies nazar aa gayi, jinka angle itna bura tha ke mujhe khud par tars aa gaya. Yeh dekh kar meri rooh kaanp gayi. Furan phone band kiya, lambi saans li, aur chup chaap ja kar so gaya.",
+    "narration_script": "گھر میں بیٹھ کر فون کی گیلری صاف کر رہا تھا۔ اچانک چار سال پرانی وہ سیلفیز نظر آ گئیں، جن کا اینگل اتنا برا تھا کہ مجھے خود پر ترس آ گیا۔ یہ دیکھ کر میری روح کانپ گئی۔ فوراً فون بند کیا، لمبی سانس لی، اور چپ چاپ جا کر سو گیا۔",
+    "keywords": [
+      "vertical endless runner coin collecting gameplay",
+      "vertical runner character jumping over obstacle gameplay",
+      "vertical runner lane shifting gameplay",
+      "vertical endless runner high speed sprinting gameplay"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261117T004418Z-287bca0d/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261117T004418Z-287bca0d/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-17T00:45:10.698750+00:00",
+    "status": "generated"
   }
 ]
