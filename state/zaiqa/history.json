@@ -576,5 +576,41 @@
     "duration_seconds": 20.57,
     "created_at": "2026-11-17T19:42:44.236644+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261118T191616Z-96ddf289",
+    "topic": "Jhelum ki traditional dish 'Siri Paye' ko desi ghee aur lambi raat dhimi aanch par pakane ka riwayati tareeqa aur iski wahan ke qadeem transport aur dhabay ki kahani",
+    "title": "Siri Paye in Jhelum: Desi Ghee aur Lambi Raat ki Riwayati Kahani",
+    "description": "Jhelum ki mashhoor traditional dish Siri Paye ko desi ghee aur dhimi aanch par lambi raat pakane ka riwayati tareeqa aur wahan ke dhabon ki kahani janiye. Is video mein is purani khane ki riwayat ki asal haqeeqat dekhein.",
+    "tags": [
+      "Siri Paye Jhelum",
+      "Pakistani regional foods",
+      "Desi ghee recipes",
+      "Traditional Pakistani food",
+      "Jhelum food culture",
+      "Siri Paye recipe",
+      "Local food history"
+    ],
+    "script": "Jhelum mein Siri Paye banane ki riwayat sadiyon purani hai. Yeh dish asli desi ghee aur lambi raat dhimi aanch par pakti hai, jo purane dhabon aur qadeem transport ke safar se jurri ek maqami kahani hai. Subah subah iska garma garam shorba aur narm gosht logon ka maqbool nashta banta hai.",
+    "narration_script": "جہلم میں سری پائے بنانے کی روایت صدیوں پرانی ہے۔ یہ ڈش اصلی دیسی گھی اور لمبی رات دھیمی آنچ پر پکتی ہے، جو پرانے دھابوں اور قدیم ٹرانسپورٹ کے سفر سے جڑی ایک مقامی کہانی ہے۔ صبح صبح اس کا گرما گرم شوربہ اور نرم گوشت لوگوں کا مقبول ناشتہ بنتا ہے۔",
+    "keywords": [
+      "traditional street food cooking pot",
+      "desi ghee pouring over meat",
+      "old dhaba street in Jhelum",
+      "hot siri paye bowl serving"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "ur-PK-UzmaNeural",
+    "clip_ids": [
+      36280445,
+      8477273,
+      30236539,
+      38655912
+    ],
+    "video_path": "output/zaiqa/20261118T191616Z-96ddf289/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261118T191616Z-96ddf289/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-18T19:18:59.220169+00:00",
+    "status": "generated"
   }
 ]
