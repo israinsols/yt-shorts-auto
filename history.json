@@ -1019,5 +1019,39 @@
     "duration_seconds": 21.86,
     "created_at": "2026-11-17T22:45:00.364890+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261118T221306Z-2d56358a",
+    "topic": "How to use iPhone's built-in Back Tap feature to instantly open the flashlight or take a screenshot with a double tap on the back of your phone without opening the Control Center.",
+    "title": "iPhone Back Tap Shortcut for Instant Screenshots",
+    "description": "Learn how to use iPhone Back Tap to instantly take a screenshot with a double tap on the back of your phone without opening the Control Center.",
+    "tags": [
+      "iPhone Back Tap",
+      "iPhone tricks",
+      "screenshot shortcut",
+      "phone productivity",
+      "iOS tips",
+      "beginner tech help"
+    ],
+    "script": "You can instantly take a screenshot by simply tapping the back of your iPhone. To set this up, open your Settings app and tap Accessibility. Select Touch, scroll down to Back Tap, and choose Double Tap. Finally, assign the Screenshot action, and tap the back of your phone twice to test it out.",
+    "keywords": [
+      "hand holding modern iPhone",
+      "Settings app menu open on iPhone screen",
+      "Accessibility and Touch settings menu",
+      "Back Tap menu showing double tap screenshot option"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "en-GB-SoniaNeural",
+    "clip_ids": [
+      6612199,
+      5077484,
+      10141036,
+      13441334
+    ],
+    "video_path": "output/20261118T221306Z-2d56358a/final.mp4",
+    "thumbnail_path": "output/20261118T221306Z-2d56358a/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-18T22:15:35.454823+00:00",
+    "status": "generated"
   }
 ]
