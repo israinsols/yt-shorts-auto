@@ -528,5 +528,34 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-17T23:58:02.995682+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261119T232852Z-732164a0",
+    "topic": "Jab aap raat ko bistar par let kar sirf 5 minute ke liye phone check karne lagte hain aur agli baar jab aapki aankh khulti hai toh subah ki azaan ho rahi hoti hai aur aapko lagta hai ke aap time travel karke direct future mein aa gaye hain.",
+    "title": "Phone check karne ki ninja technique aur time travel",
+    "description": "Rat ko sirf paanch minute ke liye phone chalane ka anjam jab subah seedha azaan par ankh khulti hai.",
+    "tags": [
+      "phone addiction",
+      "pakistani memes",
+      "desi comedy",
+      "relatable",
+      "funny shorts"
+    ],
+    "script": "Socha tha raat ko bas paanch minute phone check karunga. Reels scroll karte karte pata hi nahi chala kab raat se subah ho gayi. Achanak azaan ki awaz aayi toh laga hum time travel karke seedha future mein aa gaye hain. Abhi toh ammi ki chappal padni baaki hai.",
+    "narration_script": "سوچا تھا رات کو بس پانچ منٹ فون چیک کروں گا۔ ریلز اسکول کرتے کرتے پتا ہی نہیں چلا کب رات سے صبح ہو گئی. اچانک اذان کی آواز آئی تو لگا ہم ٹائم ٹریول کرکے سیدھا فیوچر میں آ گئے ہیں. ابھی تو امی کی چپل پڑنی باقی ہے.",
+    "keywords": [
+      "character collecting gold coins gameplay",
+      "avatar jumping over brick obstacles gameplay",
+      "runner shifting left right lanes gameplay",
+      "character sprinting fast finish line gameplay"
+    ],
+    "hook_style": "top_3",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261119T232852Z-732164a0/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261119T232852Z-732164a0/thumbnail.jpg",
+    "duration_seconds": 20.96,
+    "created_at": "2026-11-19T23:30:05.738376+00:00",
+    "status": "generated"
   }
 ]
