@@ -1053,5 +1053,39 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-18T22:15:35.454823+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261119T222138Z-364ff863",
+    "topic": "How to use iPhone's built-in Magnifier app to instantly read tiny serial numbers or product labels in low light using its built-in flashlight toggle without downloading extra apps.",
+    "title": "iPhone Magnifier App: How to Read Tiny Labels in the Dark",
+    "description": "Learn how to use the iPhone Magnifier app to instantly read tiny serial numbers and product labels in low light without downloading extra apps.",
+    "tags": [
+      "iPhone Magnifier app",
+      "read tiny serial numbers",
+      "iPhone low light trick",
+      "hidden iPhone tools",
+      "beginner tech tips",
+      "iPhone productivity hacks"
+    ],
+    "script": "Did you know your iPhone has a built-in Magnifier app that lets you read tiny serial numbers instantly? Just swipe down to open search, type Magnifier, and tap the app. Once it opens, simply tap the flashlight icon to instantly illuminate dark product labels and view microscopic text clearly.",
+    "keywords": [
+      "swiping down on iPhone home screen to open search",
+      "typing Magnifier into the iPhone search bar",
+      "tapping the built-in flashlight icon inside the Magnifier app",
+      "holding iPhone camera close to read a tiny serial number in low light"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "en-GB-RyanNeural",
+    "clip_ids": [
+      5076631,
+      5077072,
+      40664902,
+      17356513
+    ],
+    "video_path": "output/20261119T222138Z-364ff863/final.mp4",
+    "thumbnail_path": "output/20261119T222138Z-364ff863/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-19T22:23:04.669401+00:00",
+    "status": "generated"
   }
 ]
