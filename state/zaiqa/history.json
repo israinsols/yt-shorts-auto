@@ -612,5 +612,40 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-18T19:18:59.220169+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261119T192334Z-d0760c26",
+    "topic": "Chilas ki traditional dish 'Giyal' banane ka tareeqa aur iski wahan ke local grains aur pahari riwayat se jurhi kahani",
+    "title": "Giyal Banane Ka Tareeqa: Chilas Ki Riwayati Dish",
+    "description": "Giyal seekhein, jo Chilas ki ek riwayati dish hai aur wahan ke local anaj se tayyar ki jati hai. Yeh video is pahari khane ki banane ka tareeqa aur iski bunyadi kahani batati hai.",
+    "tags": [
+      "Giyal recipe",
+      "Chilas traditional food",
+      "Gilgit Baltistan cuisine",
+      "Pakistani regional foods",
+      "Giyal banane ka tareeqa",
+      "Pahari riwayat khane"
+    ],
+    "script": "Chilas ki riwayati dish Giyal banane ke liye local anaj ka aata pani mein ghol kar tawe par pakaya jata hai. Yahan ki riwayat ke mutabiq, sardi se bachne ke liye paharon mein yeh taqatwar khana sadiyon se banaya jata raha hai. Iska saada aur garam maza har kisi ko pasand aata hai.",
+    "narration_script": "چلاس کی روایتی ڈش گیال بنانے کے لیے لوکل اناج کا آٹا پانی میں گھول کر توے پر پکایا جاتا ہے۔ یہاں کی روایت کے مطابق، سردی سے بچنے کے لیے پہاڑوں میں یہ طاقتور کھانا صدیوں سے بنایا جاتا رہا ہے۔ اس کا سادہ اور گرم مزہ ہر کسی کو پسند آتا ہے۔",
+    "keywords": [
+      "traditional flour dough preparation",
+      "cooking flatbread on hot pan",
+      "snowy mountain landscape",
+      "serving hot traditional meal"
+    ],
+    "hook_style": "top_3",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [
+      32508429,
+      8233777,
+      31184624,
+      40440814
+    ],
+    "video_path": "output/zaiqa/20261119T192334Z-d0760c26/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261119T192334Z-d0760c26/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-19T19:25:37.340010+00:00",
+    "status": "generated"
   }
 ]
