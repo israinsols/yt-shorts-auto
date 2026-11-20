@@ -647,5 +647,40 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-19T19:25:37.340010+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261120T185950Z-2be5ef60",
+    "topic": "Bannu ki traditional 'Pulao' (Bannu Beef Pulao) ko degh mein lambi aanch par sirf yakhni aur local masalon se banane ka tareeqa aur iski wahan ke qadeem jirga aur mehman nawazi ki riwayat se jurhi kahani",
+    "title": "Bannu Beef Pulao Recipe: Asli Yakhni Pulao Banane Ka Tareeqa",
+    "description": "Bannu Beef Pulao banane ka asli tareeqa dekhiye jo sirf yakhni aur local masalon se degh mein pakta hai. Yeh purani jirga aur mehman nawazi ki riwayat se jurha ek behtareen regional pakwan hai.",
+    "tags": [
+      "Bannu Beef Pulao",
+      "Pakistani Regional Foods",
+      "Yakhni Pulao Recipe",
+      "Traditional Pakistani Food",
+      "Bannu Pulao Recipe",
+      "Local Food Traditions"
+    ],
+    "script": "Bannu Beef Pulao wahan ki qadeem jirga riwayat ka hissa hai. Isay degh mein lambi aanch par sirf beef yakhni aur local masalon ke sath pakaya jata hai. Mehman nawazi ke liye banne wala yeh sada aur lajawab pulao asal Pakhtun culture ki pehchan hai.",
+    "narration_script": "بنو بیف پلاو وہاں کی قدیم جرگہ روایت کا حصہ ہے۔ اسے دیگ میں لمبی آنچ پر صرف بیف یخنی اور لوکل مصالحوں کے ساتھ پکایا جاتا ہے۔ مہمان نوازی کے لیے بننے والا یہ سادہ اور لاجواب پلاؤ اصل پشتون کلچر کی پہچان ہے۔",
+    "keywords": [
+      "traditional cooking degh beef",
+      "spices boiling in broth",
+      "mixing rice with meat",
+      "serving hot pulao plate"
+    ],
+    "hook_style": "story",
+    "voice": "ur-PK-UzmaNeural",
+    "clip_ids": [
+      10641439,
+      9779553,
+      37011389,
+      10200320
+    ],
+    "video_path": "output/zaiqa/20261120T185950Z-2be5ef60/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261120T185950Z-2be5ef60/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-20T19:01:43.700091+00:00",
+    "status": "generated"
   }
 ]
