@@ -1087,5 +1087,39 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-19T22:23:04.669401+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261120T215519Z-7d9c0ffb",
+    "topic": "How to use iPhone's built-in Guided Access feature to lock your phone into a single app so guests or kids cannot peek at your other photos or messages without your permission.",
+    "title": "Guided Access: Lock iPhone to One App",
+    "description": "Learn how to use Guided Access to lock your iPhone to a single app so guests or kids cannot peek at your private messages or photos.",
+    "tags": [
+      "Guided Access",
+      "lock iPhone to one app",
+      "iPhone parental controls",
+      "iPhone tricks for beginners",
+      "hide apps on iPhone",
+      "secure iPhone for guests"
+    ],
+    "script": "Lock your iPhone to a single app so kids cannot peek at your photos or messages using Guided Access. First, triple-click your side button inside the app you want to share. Next, tap Start in the top right corner and set a passcode. Now, your phone is completely locked to that one app.",
+    "keywords": [
+      "person tapping side button on iPhone screen",
+      "finger tapping start button in top right corner of settings",
+      "entering passcode on iPhone lock screen",
+      "person trying to exit app and seeing restricted message"
+    ],
+    "hook_style": "top_3",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      6611951,
+      37086478,
+      19162466,
+      7362704
+    ],
+    "video_path": "output/20261120T215519Z-7d9c0ffb/final.mp4",
+    "thumbnail_path": "output/20261120T215519Z-7d9c0ffb/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-20T21:56:35.696373+00:00",
+    "status": "generated"
   }
 ]
