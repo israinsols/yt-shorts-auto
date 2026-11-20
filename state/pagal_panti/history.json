@@ -557,5 +557,34 @@
     "duration_seconds": 20.96,
     "created_at": "2026-11-19T23:30:05.738376+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261120T230225Z-e37586b1",
+    "topic": "Jab aap ghar mein akele betha hua internet par koi aisi ajeeb si DIY lifehack video dekhein jismein ek purani plastic ki bottle aur tape se rocket banane ka tarika sikhaya gaya ho, aur aap foran josh mein akar ghar ki saari cheezein kharab kar dein, lekin aakhir mein wo bilkul kaam na kare aur aapko chupchap sab kachre ke dabbe mein phenkna parhe.",
+    "title": "DIY lifehack video ka shikaar, jab bottle rocket fail ho jaye",
+    "description": "Ghar mein akele internet ka DIY rocket hack try karne aur ammi ke aane se pehle sab kachre mein phenkne ki hilarious kahani.",
+    "tags": [
+      "desi comedy",
+      "diy lifehacks fail",
+      "pakistani relatable",
+      "funny shorts",
+      "ghar ki kahani"
+    ],
+    "script": "Akela baith kar internet par bottle rocket ki ajeeb video dekhi. Josh mein aa kar purani bottle aur tape se poora ghar kharab kar dala. Har jagah kachra phail gaya. Par aakhir mein jab chalane ki baari aayi, toh wo hila tak nahi. Phir chupchap sab utha kar kachre ke dabbe mein phenkna parh gaya.",
+    "narration_script": "اkele بیٹھ کر انٹرنیٹ پر بوتل راکٹ کی عجیب ویڈیو دیکھی۔ جوش میں آ کر پرانی بوتل اور ٹیپ سے پورا گھر خراب کر ڈالا۔ ہر جگہ کچرا پھیل گیا۔ پر آخر میں جب چلانے کی باری آئی، تو وہ ہلا تک نہیں۔ پھر چپ چاپ سب اٹھا کر کچرے کے ڈبے میں پھینکنا پڑ گیا۔",
+    "keywords": [
+      "vertical endless runner game collecting glowing coins gameplay",
+      "mobile runner game jumping over high obstacles gameplay",
+      "speed running mobile game shifting lanes quickly gameplay",
+      "endless runner game sprinting through glowing neon tunnel gameplay"
+    ],
+    "hook_style": "story",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261120T230225Z-e37586b1/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261120T230225Z-e37586b1/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-20T23:03:18.308294+00:00",
+    "status": "generated"
   }
 ]
