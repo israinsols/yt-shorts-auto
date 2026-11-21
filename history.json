@@ -1157,5 +1157,41 @@
     "status": "uploaded",
     "thumbnail_status": "uploaded",
     "youtube_video_id": "v5pUPBi0cuc"
+  },
+  {
+    "id": "20261121T203802Z-c7bae000",
+    "topic": "How to use iPhone's built-in Measure app to instantly level picture frames or shelves using your phone as a digital spirit level without downloading extra apps.",
+    "title": "iPhone Measure App: How to Use Your Phone as a Digital Spirit Level",
+    "description": "Learn how to use the iPhone Measure app as a digital spirit level to instantly straighten picture frames and shelves without downloading extra apps.",
+    "tags": [
+      "iPhone Measure app",
+      "digital spirit level",
+      "level picture frames",
+      "iPhone tricks",
+      "useful phone tools",
+      "beginner tech tips"
+    ],
+    "script": "Want to instantly level picture frames and shelves without buying extra tools? Open the built-in Measure app on your iPhone and tap the Level tab at the bottom right. Place your phone flat on the shelf or edge of the frame. When the screen turns solid green and reads zero degrees, your surface is perfectly level.",
+    "keywords": [
+      "person tapping the Measure app icon on an iPhone home screen",
+      "close up of tapping the Level tab at the bottom right of the screen",
+      "person placing an iPhone flat on top of a wooden picture frame",
+      "iPhone screen turning solid green showing zero degrees"
+    ],
+    "hook_style": "question",
+    "voice": "en-GB-SoniaNeural",
+    "clip_ids": [
+      40326823,
+      38410498,
+      7216737,
+      9558738
+    ],
+    "video_path": "output/20261121T203802Z-c7bae000/final.mp4",
+    "thumbnail_path": "output/20261121T203802Z-c7bae000/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-21T20:40:09.261051+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "zQUNTj7exYg"
   }
 ]
