@@ -1121,5 +1121,41 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-20T21:56:35.696373+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261121T122208Z-92c04997",
+    "topic": "How to use iPhone's built-in Live Voicemail feature to view real-time transcriptions of incoming calls on your screen and decide whether to pick up without downloading extra apps.",
+    "title": "Live Voicemail iPhone: Screen Call Transcriptions Instantly",
+    "description": "Learn how to use iPhone Live Voicemail to view real-time call transcriptions on your screen so you can decide whether to pick up.",
+    "tags": [
+      "Live Voicemail iPhone",
+      "iPhone tricks",
+      "screen incoming calls",
+      "iOS voicemail transcription",
+      "beginner tech tips",
+      "phone productivity hacks"
+    ],
+    "script": "You can screen phone calls in real time on your iPhone without downloading any extra apps. Just open your Settings app, tap Phone, then select Live Voicemail and toggle it on. When an unknown call comes in, tap the Voicemail button on your call screen to watch a live text transcription instantly appear.",
+    "keywords": [
+      "person tapping Settings app on iPhone screen",
+      "finger toggling Live Voicemail switch in iOS settings",
+      "incoming phone call screen with Voicemail button highlighted",
+      "live text transcription appearing on iPhone call screen"
+    ],
+    "hook_style": "story",
+    "voice": "en-US-GuyNeural",
+    "clip_ids": [
+      5077078,
+      7615864,
+      28048582,
+      5083551
+    ],
+    "video_path": "output/20261121T122208Z-92c04997/final.mp4",
+    "thumbnail_path": "output/20261121T122208Z-92c04997/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-21T12:24:10.056525+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "v5pUPBi0cuc"
   }
 ]
