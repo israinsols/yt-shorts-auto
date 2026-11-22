@@ -1193,5 +1193,41 @@
     "status": "uploaded",
     "thumbnail_status": "uploaded",
     "youtube_video_id": "zQUNTj7exYg"
+  },
+  {
+    "id": "20261122T204811Z-2da0c0ec",
+    "topic": "How to use iPhone's built-in Passwords app to securely view, search, and manage your saved Wi-Fi networks and login credentials without downloading third-party password managers.",
+    "title": "iPhone Passwords App: How to View Saved Wi-Fi and Logins",
+    "description": "Learn how to use the iPhone Passwords app to easily view saved Wi-Fi networks and login credentials without downloading third-party apps.",
+    "tags": [
+      "iPhone Passwords app",
+      "view saved wifi iphone",
+      "manage passwords iphone",
+      "apple tech tips",
+      "beginner iphone tricks",
+      "ios productivity"
+    ],
+    "script": "Stop downloading risky third-party password apps because your iPhone already has a built-in Passwords app that securely manages everything. First, open the Settings app and tap on Passwords, then authenticate using Face ID. Finally, scroll down to instantly view all your saved website logins and tap Wi-Fi to reveal your networks.",
+    "keywords": [
+      "person opening iphone settings app",
+      "face id scanning user face",
+      "scrolling through iphone passwords list",
+      "tapping wifi network to reveal password"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "en-GB-RyanNeural",
+    "clip_ids": [
+      6278821,
+      5995616,
+      17512949,
+      39918565
+    ],
+    "video_path": "output/20261122T204811Z-2da0c0ec/final.mp4",
+    "thumbnail_path": "output/20261122T204811Z-2da0c0ec/thumbnail.jpg",
+    "duration_seconds": 21.65,
+    "created_at": "2026-11-22T20:50:36.518630+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "dKEp5VQ-tyA"
   }
 ]
