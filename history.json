@@ -1265,5 +1265,40 @@
     "status": "uploaded",
     "thumbnail_status": "uploaded",
     "youtube_video_id": "LbqE0E4Qtrs"
+  },
+  {
+    "id": "20261124T233536Z-47f12411",
+    "topic": "How to use iPhone's built-in QuickNote feature from the Control Center to instantly jot down ideas or web links without unlocking your phone or opening the Notes app.",
+    "title": "iPhone QuickNote: Jot Ideas Instantly from Control Center",
+    "description": "Learn how to use iPhone QuickNote from the Control Center to instantly jot down ideas or web links without unlocking your phone.",
+    "tags": [
+      "iPhone QuickNote",
+      "iPhone productivity hacks",
+      "iOS tips and tricks",
+      "beginner tech tips",
+      "use Notes without unlocking iPhone"
+    ],
+    "script": "Jot down random ideas or save web links instantly on your iPhone without even unlocking your screen. First, open your iPhone settings and tap Control Center. Next, add the QuickNote tile to your active controls. Finally, swipe down from your screen corner and tap the icon to write a note immediately.",
+    "keywords": [
+      "finger tapping Settings icon on iPhone home screen",
+      "scrolling down and tapping green plus icon next to QuickNote",
+      "swiping down top right corner of locked iPhone screen",
+      "finger typing a quick note on blank digital paper"
+    ],
+    "hook_style": "top_3",
+    "voice": "en-US-GuyNeural",
+    "clip_ids": [
+      8571776,
+      8279339,
+      10374885,
+      39425774
+    ],
+    "video_path": "output/20261124T233536Z-47f12411/final.mp4",
+    "thumbnail_path": "output/20261124T233536Z-47f12411/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-24T23:37:15.546617+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "aj4IQvVq9dg"
   }
 ]
