@@ -616,5 +616,35 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-21T22:08:58.025509+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261124T031455Z-75718c7e",
+    "topic": "Jab aap ghar mein raat ke waqt akele aaina dekh kar baal set karne lagte hain aur achanak apne aap se aisi ajeeb si English mein baatein karne lagte hain jaise aap kisi international award show mein speech de rahe hon, aur piche se bhai aakar cup mein chai pakda kar bole ke 'bhai, agar award mil gaya ho toh ab darwaza khol do, Ammi chai mang rahi hain'.",
+    "title": "Akele Aaina Dekh Kar English Mein Speech Dena | Desi Comedy",
+    "description": "Yeh comedy short akele aaina dekh kar award show wali English speech dene aur peeche se bhai ke chai mangne ki relatable desi kahani par mabni hai.",
+    "tags": [
+      "desi comedy",
+      "pakistani comedy",
+      "mirror speech",
+      "relatable moments",
+      "brother sister jokes",
+      "funny shorts"
+    ],
+    "script": "Raat ko akele aaina dekh kar baal set karte hue achanak pata nahi kyun hum Oscar winning English speech dene lagte hain. 'I want to thank my mom, my friends...' Aur tabhi peeche se bhai cup mein chai pakda kar bolta hai, 'Bhai, agar award mil gaya ho toh ab darwaza khol do, Ammi chai mang rahi hain.'",
+    "narration_script": "رات کو اکیلے آئینہ دیکھ کر بال سیٹ کرتے ہوئے اچانک پتا نہیں کیوں ہم آस्कर وننگ انگلش سپیچ دینے لگتے ہیں۔ آئی وانٹ ٹو تھینک مائی مام۔ اور تبھی پیچھے سے بھائی کپ میں چائے پکڑا کر بولتا ہے، بھائی، اگر ایوارڈ مل گیا ہو تو اب دروازہ کھول دو، امی چائے مانگ رہی ہیں۔",
+    "keywords": [
+      "character sprinting through endless maze gameplay",
+      "player dodging obstacles in vertical runner gameplay",
+      "character collecting golden coins in arcade gameplay",
+      "avatar shifting lanes smoothly in mobile runner gameplay"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261124T031455Z-75718c7e/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261124T031455Z-75718c7e/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-24T03:16:26.258979+00:00",
+    "status": "generated"
   }
 ]
