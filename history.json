@@ -1229,5 +1229,41 @@
     "status": "uploaded",
     "thumbnail_status": "uploaded",
     "youtube_video_id": "dKEp5VQ-tyA"
+  },
+  {
+    "id": "20261124T014725Z-fd05245d",
+    "topic": "How to use iPhone's built-in Magnifier app to instantly turn your phone into a digital magnifying glass with edge color filters to read fine print effortlessly.",
+    "title": "iPhone Magnifier App: Read Fine Print Instantly",
+    "description": "Learn how to use the iPhone Magnifier app to instantly turn your phone into a digital magnifying glass with edge color filters.",
+    "tags": [
+      "iPhone Magnifier app",
+      "digital magnifying glass",
+      "read fine print iPhone",
+      "accessibility features iPhone",
+      "tech tips for beginners",
+      "useful iPhone tools"
+    ],
+    "script": "Did you know your iPhone has a built-in magnifying glass that reads tiny text instantly? Just open the pre-installed Magnifier app, slide the magnification scale to zoom in on any small print, and tap the filter icon to apply high-contrast edge colors for effortless reading.",
+    "keywords": [
+      "person tapping iPhone home screen to open Magnifier app",
+      "finger sliding magnification zoom scale on iPhone screen",
+      "tapping filter icon on iPhone to change edge colors",
+      "extreme close-up of iPhone screen clearly showing magnified fine print"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      17811915,
+      4546853,
+      35272570,
+      35350051
+    ],
+    "video_path": "output/20261124T014725Z-fd05245d/final.mp4",
+    "thumbnail_path": "output/20261124T014725Z-fd05245d/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-24T01:49:07.801311+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "LbqE0E4Qtrs"
   }
 ]
