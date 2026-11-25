@@ -675,5 +675,26 @@
     "duration_seconds": 20.98,
     "created_at": "2026-11-25T01:22:06.302392+00:00",
     "status": "generated"
+  },
+  {
+    "id": "recovered-slroIF7XSp8",
+    "topic": "Jab aap ghar mein raat ke waqt akele garam chai ka cup hath mein lekar balcony mein khade ho jayein aur aisi barish ya mausam ki khubsurti dekh kar khud ko kisi romantic drama ka hero samajhne lagte hain, aur tabhi piche se chhota bhai aakar cup se ek sip le le aur bole ke 'bhai, chai mein cheeni kam hai, isme drama kam aur dukh zyada hai'.",
+    "title": "Garam Chai Aur Barish Ka Drama - Desi Chai Lovers #Shorts",
+    "description": "Jab barish mein khud ko romantic hero samajhne walay ko chhota bhai reality check de de.\n\n#Shorts #DesiComedy #PakistaniVines",
+    "tags": [
+      "brother sister jokes",
+      "chai lover",
+      "desi comedy",
+      "pakistani vines",
+      "relatable comedy"
+    ],
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "hook_style": "top_3",
+    "created_at": "2026-11-25T08:36:20Z",
+    "status": "uploaded",
+    "youtube_video_id": "slroIF7XSp8",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403."
   }
 ]
