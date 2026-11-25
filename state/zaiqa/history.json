@@ -682,5 +682,42 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-20T19:01:43.700091+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261125T083115Z-bb5716ae",
+    "topic": "Astore ki traditional dish 'Diram Fai' ko germinated wheat (sattu) aur makhan se lambi aanch par halway ki tarah banane ka tareeqa aur iski wahan ke sardi ke mausam aur local farming ki purani riwayat",
+    "title": "Diram Fai: Astore ki Sardiyon ki Traditional Dish",
+    "description": "Diram Fai Astore ki ek aisi traditional dish hai jo germinated wheat aur makhan se lambi aanch par tayyar ki jati hai. Is video mein hum iski sardi ke mausam ki riwayat aur local farming ki kahani ko jante hain.",
+    "tags": [
+      "Diram Fai",
+      "Astore traditional food",
+      "Gilgit Baltistan food",
+      "Pakistani regional foods",
+      "germinated wheat recipe"
+    ],
+    "script": "Kya aap ne kabhi Astore ki traditional dish Diram Fai khai hai? Sardi ke mausam mein wahan ke log germinated wheat sattu aur asli makhan ko lambi aanch par pakakar halway ki tarah banate hain. Yeh purani local farming riwayat aur sardi se bachne ka ek lajawab aur rothik tariqa hai.",
+    "narration_script": "Kya aap ne kabhi Gilgit Baltistan ke ilaqay Astore ki mashhoor traditional dish Diram Fai ke baray mein suna hai? Sardi ke sakht mausam mein wahan ke log sattu yaani germinated wheat aur asli makhan ko lambi aanch par der tak pakakar halway ki tarah tayyar karte hain. Yeh purani local farming riwayat aur sardi se larny ka ek behtareen tariqa hai jo aaj bhi wahan ke khany ki riwayat ka ek aham hissa mana jata hai.",
+    "keywords": [
+      "snowy Astore mountains landscape",
+      "traditional germinated wheat sattu",
+      "fresh melting butter block",
+      "cooking halwa on slow fire"
+    ],
+    "hook_style": "question",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [
+      29976120,
+      36169867,
+      33391488,
+      36291663
+    ],
+    "video_path": "output/zaiqa/20261125T083115Z-bb5716ae/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261125T083115Z-bb5716ae/thumbnail.jpg",
+    "duration_seconds": 20.97,
+    "created_at": "2026-11-25T08:32:55.661626+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "LSy6oVJ_bD8"
   }
 ]
