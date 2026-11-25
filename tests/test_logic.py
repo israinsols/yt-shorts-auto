@@ -103,7 +103,7 @@ class TopicAndFormatTests(unittest.TestCase):
         self.assertIn("endless-runner game footage", generate_json.call_args.args[0])
 
         script = " ".join(["aaj ghar mein funny scene hua"] * 9)
-        narration = " ".join(["آج گھر میں مزاحیہ بات ہوئی۔"] * 9)
+        narration = " ".join(["آج گھر میں مزاحیہ بات ہوئی۔"] * 13)
         response = {
             "title": "Ammi Aur Mehmaan Ki Funny Safai",
             "description": "Mehmaan aane se pehle ghar ki funny safai.",
@@ -450,7 +450,7 @@ class TopicAndFormatTests(unittest.TestCase):
             "tayyar hota hai. Phir ise chapti tikki ki shakal de kar taway par pakaya "
             "jata hai. Iska naam chapli, yani chapta, iski isi shakal ki taraf ishara karta hai."
         )
-        narration_script = " ".join(["یہ پشاوری کھانا بہت مشہور ہے۔"] * 10)
+        narration_script = " ".join(["یہ پشاوری کھانا بہت مشہور ہے۔"] * 13)
         response = {
             "title": "Peshawar Chapli Kebab Ki Kahani",
             "description": "Peshawar ke chapli kebab ki kahani aur zaiqa.",
@@ -477,7 +477,7 @@ class TopicAndFormatTests(unittest.TestCase):
 
     def test_roman_urdu_script_retries_when_voiceover_is_too_short(self):
         script = " ".join(["desi ghar ka yeh scene bohat funny hota hai"] * 6)
-        valid_narration = " ".join(["یہ مزاحیہ بات گھر میں اکثر ہوتی ہے۔"] * 6)
+        valid_narration = " ".join(["یہ مزاحیہ بات گھر میں اکثر ہوتی ہے۔"] * 10)
         response = {
             "title": "Ghar Ka Funny Scene",
             "description": "Ghar ke rozmarra scene ki funny kahani.",

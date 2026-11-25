@@ -156,7 +156,8 @@ def generate_script(
                     "easy Roman Urdu using Latin letters; do not use Urdu script. The script "
                     "must be 45-60 spoken words. Also provide narration_script with the same "
                     "meaning and sequence in natural Urdu script, suitable for a male Urdu "
-                    "voice, in 45-60 words. Keep every visual keyword in concise English "
+                    "voice, in 72-90 words so it fills a natural 20-25 second narration. "
+                    "Keep every visual keyword in concise English "
                     "and describe original endless-runner game actions suitable for portrait "
                     "footage, not people holding controllers or clips from named games. Make the "
                     "story original, lighthearted, and relatable, with a clear setup, quick "
@@ -172,7 +173,8 @@ def generate_script(
                     "easy Roman Urdu using Latin letters; do not use Urdu script. The script "
                     "must be 45-60 spoken words. Also provide narration_script with the same "
                     "meaning and sequence in natural Urdu script, suitable for an Urdu voice, "
-                    "in 45-60 words. Keep every visual keyword in concise English for "
+                    "in 72-90 words so it fills a natural 20-25 second narration. "
+                    "Keep every visual keyword in concise English for "
                     "stock-footage search. Make the sketch original, lighthearted, and "
                     "relatable, with a clear setup, quick escalation, and punchline. Do not "
                     "use profanity, abusive language, slurs, insults, sexual content, "
@@ -184,7 +186,8 @@ def generate_script(
                 "Write title, description, tags, and the on-screen script in natural, easy "
                 "Roman Urdu using Latin letters; do not use Urdu script. The script must be "
                 "45-60 spoken words. Also provide narration_script with the same meaning and "
-                "sequence in natural Urdu script, suitable for an Urdu voice, in 45-60 words. "
+                "sequence in natural Urdu script, suitable for an Urdu voice, in 72-90 words "
+                "so it fills a natural 20-25 second narration. "
                 "Keep every visual keyword in concise English for stock-footage search. "
                 "Avoid unsupported claims and clearly distinguish local tradition from "
                 "verified historical fact. "
@@ -254,7 +257,9 @@ def generate_script(
         f"{metadata_guidance}"
         f"The required hook_style value is exactly {preferred_hook_style!r}; set it to "
         f"that exact value, not another style. {creative_guidance}"
-        "Script must be 45-60 spoken words and take about 20-25 seconds. "
+        "The on-screen script must be 45-60 spoken words and take about 20-25 seconds. "
+        "For Roman Urdu profiles, the Urdu narration_script must be 72-90 spoken words "
+        "and take about 20-25 seconds when read aloud. "
         "Make it sound natural when spoken aloud. Do not include stage directions."
     )
     for attempt in range(3):
@@ -272,10 +277,10 @@ def generate_script(
         narration_script = result.get("narration_script")
         if roman_urdu and isinstance(narration_script, str):
             narration_word_count = len(narration_script.split())
-            if not 45 <= narration_word_count <= 60:
+            if not 72 <= narration_word_count <= 90:
                 corrections.append(
                     "the Urdu narration_script had "
-                    f"{narration_word_count} words, but must have 45-60"
+                    f"{narration_word_count} words, but must have 72-90"
                 )
         hook_style = result.get("hook_style")
         if isinstance(hook_style, str) and hook_style in HOOK_STYLES:
@@ -303,9 +308,9 @@ def generate_script(
             "Gemini script JSON must contain a non-empty Urdu narration_script for "
             "the Roman Urdu channel."
         )
-    if roman_urdu and not 45 <= len(result["narration_script"].split()) <= 60:
+    if roman_urdu and not 72 <= len(result["narration_script"].split()) <= 90:
         raise RuntimeError(
-            "Gemini Urdu narration_script must contain 45-60 spoken words."
+            "Gemini Urdu narration_script must contain 72-90 spoken words."
         )
     if not all(
         isinstance(result[key], str) and result[key].strip()

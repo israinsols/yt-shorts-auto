@@ -1,4 +1,5 @@
 niche: "beginner-friendly tech tips, useful apps and tools, phone and PC tricks, productivity hacks, and practical automation ideas"
+expected_channel_name: "Tech Buzz Daily"
 
 gemini:
   model: "gemini-3.5-flash-lite"
