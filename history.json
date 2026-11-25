@@ -1300,5 +1300,41 @@
     "status": "uploaded",
     "thumbnail_status": "uploaded",
     "youtube_video_id": "aj4IQvVq9dg"
+  },
+  {
+    "id": "20261125T231224Z-de388e75",
+    "topic": "How to use iPhone's built-in Document Scanner in the Notes app to instantly sign PDFs with your finger and send them back without printing.",
+    "title": "iPhone Document Scanner: Sign and Send PDFs Instantly",
+    "description": "Learn how to use the iPhone Notes app document scanner to instantly sign PDFs with your finger and send them back without printing.",
+    "tags": [
+      "iPhone Document Scanner",
+      "sign PDFs on iPhone",
+      "Notes app scanner",
+      "iPhone productivity hacks",
+      "scan and sign PDF",
+      "tech tips for beginners"
+    ],
+    "script": "Sign any PDF instantly on your iPhone without printing a single page. Open the Notes app, create a note, and tap the camera icon to select Scan Documents. Hold your phone over the paper to capture it automatically. Tap the scanned image, hit the share button, choose Markup, and use your finger to sign. Send it right back.",
+    "keywords": [
+      "person opening Notes app on iPhone",
+      "phone camera scanning paper document",
+      "finger drawing signature on iPhone screen",
+      "sharing signed PDF from iPhone"
+    ],
+    "hook_style": "story",
+    "voice": "en-GB-SoniaNeural",
+    "clip_ids": [
+      5075221,
+      8830587,
+      17807173,
+      2004175
+    ],
+    "video_path": "output/20261125T231224Z-de388e75/final.mp4",
+    "thumbnail_path": "output/20261125T231224Z-de388e75/thumbnail.jpg",
+    "duration_seconds": 21.96,
+    "created_at": "2026-11-25T23:14:35.408255+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "MYyi5v1r61k"
   }
 ]
