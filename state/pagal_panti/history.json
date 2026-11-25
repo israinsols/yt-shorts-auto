@@ -646,5 +646,34 @@
     "duration_seconds": 20.97,
     "created_at": "2026-11-24T03:16:26.258979+00:00",
     "status": "generated"
+  },
+  {
+    "id": "20261125T012004Z-2f6d7c92",
+    "topic": "Jab aap ghar mein raat ke waqt akele fridge khol kar yeh sochne lagte hain ke rat ke is pehar kya khane ko mil sakta hai, aur andar se sirf paani ki bottle aur kal ka bacha hua salan dekh kar aapko aisa dukh hota hai ke aap kisi sad movie ke hero ban gaye hain.",
+    "title": "Raat ke waqt akele fridge kholna: Ek aam Pakistani dukh",
+    "description": "Raat ko akele fridge khol kar khana talaash karne aur sirf paani ki bottle milne ka dukh, ekdam sad movie ke hero jaisa!",
+    "tags": [
+      "Pakistani comedy",
+      "relatable desi moments",
+      "midnight cravings",
+      "funny shorts",
+      "desi household comedy"
+    ],
+    "script": "Raat ke do baje bhookh lagi. Dabe paon kitchen gaye. Umeed thi biryani ya pizza milega. Fridge ka darwaza khola. Andar sirf thande paani ki bottle aur kal ka bacha hua aloo gosht tha. Dil toot gaya. Aisa laga hum kisi sad movie ke hero hain aur peecha sad background music chal raha hai.",
+    "narration_script": "رات کے دو بجے بھوک لگی۔ دبے پاؤں کچن گئے۔ امید تھی بریانی یا پزا ملے گا۔ فریج کا دروازہ کھولا۔ اندر صرف ٹھنڈے پانی کی بوتل اور کل کا بچا ہوا سالن تھا۔ دل ٹوٹ گیا۔ ایسا لگا ہم کسی سیڈ مووی کے ہیرو ہیں اور پیچھے اداس گانا چل رہا ہے۔",
+    "keywords": [
+      "character sprinting gameplay",
+      "jumping over obstacles gameplay",
+      "shifting lanes gameplay",
+      "collecting coins gameplay"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261125T012004Z-2f6d7c92/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261125T012004Z-2f6d7c92/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-25T01:22:06.302392+00:00",
+    "status": "generated"
   }
 ]
