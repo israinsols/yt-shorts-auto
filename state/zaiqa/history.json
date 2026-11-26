@@ -719,5 +719,43 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "LSy6oVJ_bD8"
+  },
+  {
+    "id": "20261126T200032Z-f55dee97",
+    "topic": "Nagar valley ki traditional dish 'Bra Hoo' ko local grains aur apricot oil ke sath banane ka tareeqa aur iski wahan ke qadeem pahari kisanon ki riwayat se jurhi kahani",
+    "title": "Bra Hoo: Nagar Valley ki Qadeem Pahari Dish",
+    "description": "Janiye Nagar valley ki traditional dish Bra Hoo banane ka tareeqa aur iski pahari kisanon ki riwayat se jurhi kahani.",
+    "tags": [
+      "Bra Hoo recipe",
+      "Nagar valley food",
+      "Pakistani regional foods",
+      "local grains recipe",
+      "apricot oil dish",
+      "Gilgit Baltistan cuisine"
+    ],
+    "script": "Nagar valley mein local grains aur خالص apricot oil se banne wali traditional dish Bra Hoo pahari kisanon ki qadeem riwayat ki pehchan hai. Local anaj ko pees kar apricot oil ke sath pakane ka yeh tareeqa sadiyon se chala aa raha hai, jo sakht mosam mein kisanon ko tawanai deta tha.",
+    "narration_script": "Nagar valley mein local grains aur خالص apricot oil se banne wali traditional dish Bra Hoo wahan ke pahari kisanon ki qadeem riwayat ki aik ahem pehchan hai. Is dish ke bare mein kaha jata hai ke yeh sirf royal families ke liye banti thi, lekin haqeeqat yeh hai ke yeh wahan ke aam kisanon ki rozmarra khurak thi. Local anaj ko pees kar apricot oil ke sath pakane ka yeh tareeqa sadiyon se chala aa raha hai, jo sakht sardion mein kisanon ko tawanai deta tha.",
+    "keywords": [
+      "Nagar valley mountains landscape",
+      "raw local grains in bowl",
+      "pouring golden apricot oil",
+      "cooked traditional mountain dish"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "ur-PK-UzmaNeural",
+    "clip_ids": [
+      36950890,
+      8107924,
+      20397144,
+      37336718
+    ],
+    "video_path": "output/zaiqa/20261126T200032Z-f55dee97/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261126T200032Z-f55dee97/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-26T20:02:28.599442+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "gC48gGWIoLc"
   }
 ]
