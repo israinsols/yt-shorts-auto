@@ -696,5 +696,37 @@
     "youtube_video_id": "slroIF7XSp8",
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403."
+  },
+  {
+    "id": "20261126T005524Z-3326e86f",
+    "topic": "Jab aap ghar mein raat ke waqt akele study table par baith kar aisi jaan lagakar parhai karne lagte hain ke aapko lagta hai ke aap duniya ke sab se intelligent student hain, aur tabhi sirf 2 minute baad aap pen ki cap chabane lagte hain aur sochne lagte hain ke agar aliens achanak Pakistan aa jayein toh wo sab se pehle kis local restaurant ki biryani khana pasand karenge.",
+    "title": "Pakistani Biryani Aur Study Table: Jab Achanak Parhai Ka Bhoot Sawar Ho Jaye",
+    "description": "Ek relatable comedy short jahan raat ko parhtay parhtay dimaag achanak aliens aur local biryani ke barey mein sochne lagta hai.",
+    "tags": [
+      "Pakistani comedy",
+      "study table struggles",
+      "desi student life",
+      "biryani obsession",
+      "relatable humor"
+    ],
+    "script": "Raat ke do baje study table par akele baith kar aisi jaan lagakar parhai karo ke lagay duniya ke sab se intelligent student aap hi ho. Tabhi sirf do minute baad pen ki cap chabane lago aur socho ke agar aliens achanak Pakistan aa jayein, toh wo sab se pehle kis local restaurant ki biryani khana pasand karenge.",
+    "narration_script": "رات کے دو بجے جب کوئی اکیلا اسٹریڈی ٹیبل پر بیٹھ کر اتنی محنت سے پڑھائی کرتا ہے کہ اسے لگتا ہے وہ دنیا کا سب سے ذہین طالب علم ہے، تو بالکل ویسے ہی صرف دو منٹ کے اندر اس کا دھیان پین کی ٹوپی چبانے پر چلا جاتا ہے۔ اور پھر وہ یہ سوچنے پر مجبور ہو جاتا ہے کہ اگر اچانک خلائی مخلوق پاکستان آ جائے، تو وہ سب سے پہلے کس مقامی ریسٹورنٹ کی بریانی کھانا پسند کرے گی۔",
+    "keywords": [
+      "character sprinting obstacle gameplay",
+      "character jumping platform gameplay",
+      "character collecting coins gameplay",
+      "character shifting lanes gameplay"
+    ],
+    "hook_style": "story",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261126T005524Z-3326e86f/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261126T005524Z-3326e86f/thumbnail.jpg",
+    "duration_seconds": 22.66,
+    "created_at": "2026-11-26T00:56:48.042809+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "EnGuUuOCObo"
   }
 ]
