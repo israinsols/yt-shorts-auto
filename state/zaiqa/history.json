@@ -757,5 +757,43 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "gC48gGWIoLc"
+  },
+  {
+    "id": "20261127T195003Z-dc049fea",
+    "topic": "Abbottabad ki traditional dish 'Chana Roti' ya 'Phambra' ko local mitti ke taway par banane ka tareeqa aur iski wahan ke pahari safar aur local grains se jurhi purani riwayat",
+    "title": "Chana Roti Recipe: Abbottabad ki Mitti Ke Taway Wali Phambra",
+    "description": "Seekhiye Abbottabad ki traditional Chana Roti ya Phambra ko local mitti ke taway par banane ka asal tareeqa aur iski pahari riwayat.",
+    "tags": [
+      "Chana Roti recipe",
+      "Abbottabad food",
+      "Phambra Roti",
+      "Pakistani regional foods",
+      "mitti ke taway ki roti",
+      "local ingredients Pakistan"
+    ],
+    "script": "Abbottabad ki traditional dish Chana Roti ya Phambra ko local mitti ke taway par banane ki riwayat sadiyon purani hai. Pahari safar ke douran ye local grains se banai jati hai. Sab se pehle desi aata aur chana ka mixture tayyar karein. Phir is dough ko mitti ke garam taway par paka kar behtareen khasta roti hasil karein.",
+    "narration_script": "Abbottabad ki traditional dish Chana Roti ya Phambra ko local mitti ke taway par banane ki ye riwayat wahan ke pahari safar aur purane local grains se jurhi hui hai. Isko banane ke liye sab se pehle maqami anaj ka mixture tayyar kiya jata hai. Phir is dough ko mitti ke garam taway par halke halke paka kar ek behtareen aur khasta roti tayyar ki jati hai jis ka zaiqa bilkul mukhtalif hota hai.",
+    "keywords": [
+      "Abbottabad mountain landscape",
+      "kneading flour dough",
+      "clay tawa cooking",
+      "traditional Pakistani bread"
+    ],
+    "hook_style": "did_you_know",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [
+      27946622,
+      5952083,
+      37489510,
+      40871315
+    ],
+    "video_path": "output/zaiqa/20261127T195003Z-dc049fea/final.mp4",
+    "thumbnail_path": "output/zaiqa/20261127T195003Z-dc049fea/thumbnail.jpg",
+    "duration_seconds": 20.98,
+    "created_at": "2026-11-27T19:51:59.985755+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "sXvwq4bxNNE"
   }
 ]
