@@ -1372,5 +1372,41 @@
     "status": "uploaded",
     "thumbnail_status": "uploaded",
     "youtube_video_id": "-a4Z4CZmM9I"
+  },
+  {
+    "id": "20261127T225030Z-ec79c780",
+    "topic": "How to use iPhone's built-in Built-in Silent Mode shortcut to instantly mute your phone and turn off haptics using the Action Button without opening the settings menu.",
+    "title": "iPhone Action Button Silent Mode Shortcut Tutorial",
+    "description": "Learn how to use the iPhone Built-in Silent Mode shortcut to instantly mute your phone and turn off haptics using the Action Button without opening the settings menu.",
+    "tags": [
+      "iPhone Silent Mode shortcut",
+      "Action Button tip",
+      "mute iPhone quickly",
+      "beginner iPhone trick",
+      "iOS productivity hack",
+      "turn off haptics"
+    ],
+    "script": "Stop digging through your settings to silence your phone. You can actually use the iPhone Built-in Silent Mode shortcut to instantly mute your device and turn off haptics using just the Action Button. First, open Settings and tap Action Button. Next, swipe to the Shortcut option and select Silent Mode. Now, press the button and instantly silence your phone.",
+    "keywords": [
+      "person tapping iPhone Settings app",
+      "swiping to Shortcut option on iPhone screen",
+      "selecting Silent Mode from iPhone shortcut list",
+      "pressing iPhone Action Button to silence phone"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "en-US-AriaNeural",
+    "clip_ids": [
+      9785305,
+      5082036,
+      6611940,
+      41269614
+    ],
+    "video_path": "output/20261127T225030Z-ec79c780/final.mp4",
+    "thumbnail_path": "output/20261127T225030Z-ec79c780/thumbnail.jpg",
+    "duration_seconds": 24.14,
+    "created_at": "2026-11-27T22:52:53.667330+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "uploaded",
+    "youtube_video_id": "oMRKBArQoYs"
   }
 ]
