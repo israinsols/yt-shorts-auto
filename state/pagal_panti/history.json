@@ -761,5 +761,38 @@
     "thumbnail_status": "failed",
     "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
     "youtube_video_id": "XmevCU6qhxk"
+  },
+  {
+    "id": "20261128T002711Z-b3c42e15",
+    "topic": "Jab aap ghar mein raat ke waqt akele apna purana album ya photo folder khol kar apne bachpan ki aisi funny hair style wali tasveerein dekhein, aur aapko khud par itni hansi aaye ke aap sochne lag jayein ke is alien ko ghar mein kisne entry di thi.",
+    "title": "Purani Album Aur Bachpan Ki Funny Hair Style",
+    "description": "Raat ko akele purani album khol kar bachpan ki ajeeb hair style dekhne ka maza hi kuch aur hai!",
+    "tags": [
+      "bachpan ki tasveerein",
+      "desi comedy",
+      "pakistani reels",
+      "funny childhood photos",
+      "relatable comedy",
+      "purani yaadein"
+    ],
+    "script": "Raat ke do baje jab maine purana photo folder khola, toh andar ek aisi tasveer nikli jise dekh kar main khud shock ho gaya! Mera bachpan ka hair style kuch aisa tha ke lagta tha kisi alien ko ghar mein entry mil gayi ho. Main sochne laga ke yeh cute bachha tha ya koi chalne phirta brush!",
+    "narration_script": "رات کے دو بجے جب میں نے پرانا فوٹو فولڈر کھولا، تو اندر ایک ایسی تصویر نکلی جسے دیکھ کر میں خود حیران رہ گیا۔ میرا بچپن کا ہیئر اسٹائل کچھ ایسا تھا کہ لگتا تھا کسی ایلین کو گھر میں انٹری مل گئی ہو۔ میں سوچنے لگا کہ یہ کوئی پیارا بچہ تھا یا کوئی چلتا پھرتا برش! اس تصویر کو دیکھ کر ہنسی بھی آئی اور یہ بھی خیال آیا کہ امی نے اس اسٹائل کی اجازت کیسے دی ہوگی۔ واقعی پرانی یادیں بہت زبردست ہوتی ہیں۔",
+    "keywords": [
+      "runner game collecting coins gameplay",
+      "runner game jumping over obstacles gameplay",
+      "runner game shifting lanes gameplay",
+      "runner game sprinting fast gameplay"
+    ],
+    "hook_style": "myth_vs_fact",
+    "voice": "ur-PK-AsadNeural",
+    "clip_ids": [],
+    "video_path": "output/pagal_panti/20261128T002711Z-b3c42e15/final.mp4",
+    "thumbnail_path": "output/pagal_panti/20261128T002711Z-b3c42e15/thumbnail.jpg",
+    "duration_seconds": 23.98,
+    "created_at": "2026-11-28T00:28:37.289165+00:00",
+    "status": "uploaded",
+    "thumbnail_status": "failed",
+    "thumbnail_error": "YouTube rejected the custom thumbnail with HTTP 403: The authenticated user doesn't have permissions to upload and set custom video thumbnails..",
+    "youtube_video_id": "_nJgTmrS_yw"
   }
 ]
